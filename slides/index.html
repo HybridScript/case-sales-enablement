@@ -1,0 +1,1756 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do produto ao portfólio · Case de Sales Enablement · Gabriela Paolla Moraes Peixoto</title>
+<meta name="description" content="Case de Sales Enablement para a RankMyApp: diagnóstico, conta da meta, descoberta, playbook de portfólio, capacitação e plano 30-60-90.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230022FF'/%3E%3Ctext x='32' y='45' font-family='Helvetica,Arial' font-weight='700' font-size='38' fill='white' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<style>
+/* =========================================================================
+   Tokens · identidade RankMyApp (tirada do material do case)
+   ========================================================================= */
+:root {
+  --ink: #0c0d11; --ink-2: #121212; --navy: #0a1a6e; --navy-2: #0b1f8f;
+  --blue: #0022ff; --blue-2: #3d57ff; --blue-3: #9daafe; --blue-soft: rgba(0, 34, 255, .12);
+  --cyan: #07b3d0; --cyan-2: #5fd3e6; --cyan-soft: rgba(7, 179, 208, .14);
+  --light: #f0f4f8; --light-2: #e3e9f1; --paper: #ffffff;
+  --dark-text: #191919; --dark-2: #585a5b; --dark-3: #9fa3af;
+  --ok: #19b36b; --warn: #f0a400; --bad: #ef4b4b;
+  --font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --mono: 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+  --ease: cubic-bezier(.16, 1, .3, 1); --ease-io: cubic-bezier(.65, 0, .35, 1);
+  --inset: 96px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+body { font-family: var(--font); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+h1, h2, h3, h4, p, ul, ol, figure { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+button { font: inherit; color: inherit; }
+
+/* Temas por slide: escuro (grafite → marinho), claro (cinza Rank) e azul (divisor de seção) */
+.slide { --fg: #fff; --fg-2: rgba(255, 255, 255, .72); --fg-3: rgba(255, 255, 255, .46); --line: rgba(255, 255, 255, .16); --line-2: rgba(255, 255, 255, .3);
+  --card: rgba(255, 255, 255, .045); --card-b: rgba(255, 255, 255, .12); --acc: var(--cyan); --acc-2: var(--cyan-2); --acc-soft: var(--cyan-soft);
+  background: radial-gradient(120% 110% at 100% 0%, var(--navy-2) 0%, #0a1450 22%, var(--ink) 58%) , var(--ink); color: var(--fg); }
+.slide.t-light { --fg: var(--dark-text); --fg-2: var(--dark-2); --fg-3: var(--dark-3); --line: rgba(25, 25, 25, .14); --line-2: rgba(25, 25, 25, .32);
+  --card: #fff; --card-b: rgba(25, 25, 25, .1); --acc: var(--blue); --acc-2: var(--blue); --acc-soft: var(--blue-soft); background: var(--light); }
+.slide.t-blue { --fg: #fff; --fg-2: rgba(255, 255, 255, .8); --fg-3: rgba(255, 255, 255, .6); --line: rgba(255, 255, 255, .3); --line-2: rgba(255, 255, 255, .6);
+  --card: rgba(255, 255, 255, .1); --card-b: rgba(255, 255, 255, .25); --acc: #fff; --acc-2: #fff; --acc-soft: rgba(255, 255, 255, .16); background: var(--blue); }
+
+/* =========================================================================
+   Palco 1920×1080 escalado
+   ========================================================================= */
+#stage { position: fixed; left: 50%; top: 50%; width: 1920px; height: 1080px; transform: translate(-50%, -50%) scale(var(--s, 1)); transform-origin: 50% 50%; overflow: hidden; background: var(--ink); font-size: 22px; line-height: 1.4; }
+.slide { position: absolute; inset: 0; z-index: 1; opacity: 0; visibility: hidden; pointer-events: none; transform: scale(1.03); filter: blur(6px); overflow: hidden;
+  transition: opacity .75s var(--ease), transform 1.1s var(--ease), filter .75s var(--ease), visibility 0s linear .8s; }
+#stage.back .slide { transform: scale(.97); }
+.slide.is-active { opacity: 1; visibility: visible; pointer-events: auto; z-index: 3; transform: none; filter: none; transition: opacity .8s var(--ease) .1s, transform 1.2s var(--ease) .1s, filter .8s var(--ease) .1s, visibility 0s; }
+.slide.is-leaving { opacity: 0; visibility: visible; transform: scale(.965); filter: blur(10px); z-index: 2; transition: opacity .6s var(--ease), transform .9s var(--ease), filter .6s var(--ease), visibility 0s linear .9s; }
+
+/* fundo: grão, grade técnica, brilho e o "R" gigante da marca */
+.grain { position: absolute; inset: -50%; z-index: 0; pointer-events: none; opacity: .07; mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 180px 180px; animation: grain .9s steps(5) infinite; }
+.t-light .grain { mix-blend-mode: multiply; opacity: .05; }
+@keyframes grain { 0%, 100% { transform: translate(0, 0); } 20% { transform: translate(-3%, 2%); } 40% { transform: translate(2%, -4%); } 60% { transform: translate(-4%, -1%); } 80% { transform: translate(3%, 3%); } }
+.techgrid { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 80px 80px; opacity: .22;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 70% 30%, #000 10%, transparent 75%); mask-image: radial-gradient(ellipse 70% 60% at 70% 30%, #000 10%, transparent 75%); }
+.glow { position: absolute; z-index: 0; pointer-events: none; border-radius: 50%; filter: blur(120px); opacity: .5; animation: drift 24s var(--ease-io) infinite alternate; }
+.glow.g1 { width: 900px; height: 700px; right: -200px; top: -260px; background: rgba(0, 34, 255, .45); }
+.glow.g2 { width: 600px; height: 500px; left: -160px; bottom: -260px; background: rgba(7, 179, 208, .18); animation-duration: 30s; }
+.t-light .glow, .t-blue .glow { display: none; }
+@keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(-80px, 60px) scale(1.12); } }
+.bigR { position: absolute; z-index: 0; pointer-events: none; right: -40px; top: 60px; width: 760px; height: 900px; opacity: .1; }
+.t-blue .bigR { opacity: .14; }
+.bigR path { fill: none; stroke: #fff; stroke-width: 150; stroke-linecap: butt; stroke-linejoin: miter; }
+.slide.play .bigR path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.4s var(--ease-io) .2s both; }
+
+/* moldura do material Rank: régua no topo, rótulos e rodapé */
+.frame { position: absolute; inset: 0; z-index: 5; pointer-events: none; color: var(--fg); }
+.frame .top { position: absolute; left: var(--inset); right: var(--inset); top: 40px; height: 1px; background: currentColor; opacity: .9; transform-origin: 0 50%; }
+.frame .lbl { position: absolute; top: 54px; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; opacity: .9; }
+.frame .lbl.l { left: var(--inset); } .frame .lbl.r { right: var(--inset); }
+.frame .mark { position: absolute; left: var(--inset); bottom: 38px; font-weight: 700; font-size: 22px; letter-spacing: -.02em; display: flex; align-items: center; gap: 4px; }
+.frame .mark svg { width: 20px; height: 20px; }
+.frame .pg { position: absolute; right: var(--inset); bottom: 40px; font-size: 14px; opacity: .75; font-variant-numeric: tabular-nums; }
+
+/* =========================================================================
+   Animações de entrada (disparadas quando o slide entra)
+   ========================================================================= */
+.a { opacity: 0; }
+.slide.play .a { animation: var(--an, rise) var(--du, 1s) var(--ease) both; animation-delay: calc(var(--d, 0) * 1ms); }
+.a.l { --an: from-left; } .a.r { --an: from-right; } .a.z { --an: zoom; --du: 1.1s; } .a.p { --an: pop; --du: .9s; } .a.f { --an: fade; --du: 1.2s; } .a.b { --an: blur-in; --du: 1.3s; } .a.w { --an: wipe; --du: 1.2s; }
+@keyframes rise { from { opacity: 0; transform: translateY(34px); } to { opacity: 1; transform: none; } }
+@keyframes from-left { from { opacity: 0; transform: translateX(-46px); } to { opacity: 1; transform: none; } }
+@keyframes from-right { from { opacity: 0; transform: translateX(46px); } to { opacity: 1; transform: none; } }
+@keyframes zoom { from { opacity: 0; transform: scale(.9); } to { opacity: 1; transform: none; } }
+@keyframes pop { 0% { opacity: 0; transform: scale(.4); } 60% { opacity: 1; transform: scale(1.08); } 100% { opacity: 1; transform: none; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes blur-in { from { opacity: 0; filter: blur(18px); transform: scale(1.06); } to { opacity: 1; filter: none; transform: none; } }
+@keyframes wipe { from { opacity: 1; clip-path: inset(0 100% 0 0); } to { opacity: 1; clip-path: inset(0 0 0 0); } }
+.mask { display: block; overflow: hidden; padding-bottom: .1em; margin-bottom: -.1em; }
+.mask > .mi { display: inline-block; transform: translateY(110%); }
+.slide.play .mask > .mi { animation: word-mask 1.15s var(--ease) both; animation-delay: calc(var(--d, 0) * 1ms); }
+@keyframes word-mask { from { transform: translateY(110%); } to { transform: none; } }
+.grow { transform: scaleX(0); transform-origin: 0 50%; }
+.slide.play .grow { animation: grow-x 1.4s var(--ease) both; animation-delay: calc(var(--d, 0) * 1ms); }
+@keyframes grow-x { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.growy { transform: scaleY(0); transform-origin: 50% 100%; }
+.slide.play .growy { animation: grow-y 1.3s var(--ease) both; animation-delay: calc(var(--d, 0) * 1ms); }
+@keyframes grow-y { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+.draw { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.slide.play .draw { animation: draw 1.4s var(--ease-io) both; animation-delay: calc(var(--d, 0) * 1ms); }
+@keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(7, 179, 208, .55); } 50% { box-shadow: 0 0 0 10px rgba(7, 179, 208, 0); } }
+
+/* =========================================================================
+   Tipografia e blocos
+   ========================================================================= */
+.z { position: absolute; z-index: 2; }
+.hd { position: absolute; z-index: 2; left: var(--inset); right: var(--inset); top: 108px; }
+.kick { font-size: 15px; letter-spacing: .06em; text-transform: uppercase; color: var(--acc); font-weight: 500; margin-bottom: 14px; }
+.ttl { font-size: 60px; line-height: 1.06; font-weight: 400; letter-spacing: -.02em; }
+.ttl b, .ttl .hl { font-weight: 700; color: var(--acc); }
+.t-light .ttl .hl { color: var(--blue); }
+.lead { margin-top: 18px; font-size: 25px; line-height: 1.45; color: var(--fg-2); max-width: 1380px; }
+.lead b { color: var(--fg); font-weight: 700; }
+.body { position: absolute; z-index: 2; left: var(--inset); right: var(--inset); top: 330px; bottom: 210px; }
+.bottom { position: absolute; z-index: 2; left: var(--inset); right: var(--inset); bottom: 96px; }
+.muted { color: var(--fg-2); } .dim { color: var(--fg-3); }
+.tag { width: fit-content; display: inline-flex; align-items: center; gap: 8px; height: 30px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line-2); font-size: 14px; letter-spacing: .04em; text-transform: uppercase; color: var(--fg-2); white-space: nowrap; }
+.tag i { width: 8px; height: 8px; border-radius: 50%; background: var(--acc); }
+.tag.prem { border-color: rgba(240, 164, 0, .6); color: var(--warn); } .tag.prem i { background: var(--warn); }
+.t-light .tag.prem { color: #b77800; }
+.tag.data { border-color: var(--acc); color: var(--acc); }
+
+.card { position: relative; overflow: hidden; background: var(--card); border: 1px solid var(--card-b); border-radius: 22px; padding: 30px 32px; }
+.t-light .card { box-shadow: 0 10px 30px rgba(15, 25, 60, .06); }
+.card.bar::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--sc, var(--acc)); }
+.card.side::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--sc, var(--acc)); }
+.card h3 { font-size: 28px; line-height: 1.2; font-weight: 700; }
+.card p { font-size: 21px; line-height: 1.45; color: var(--fg-2); margin-top: 10px; }
+.card p b { color: var(--fg); }
+.num { font-size: 15px; letter-spacing: .08em; color: var(--acc); font-variant-numeric: tabular-nums; }
+.k { font-size: 14px; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-3); font-weight: 700; }
+
+.takeaway { display: flex; align-items: center; gap: 24px; padding: 20px 28px; border-radius: 18px; background: var(--card); border: 1px solid var(--card-b); font-size: 23px; line-height: 1.4; color: var(--fg-2); }
+.takeaway .tk { flex: none; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--acc); padding-right: 24px; border-right: 1px solid var(--line); }
+.takeaway b { color: var(--fg); }
+.t-blue .takeaway { background: rgba(0, 0, 0, .14); }
+
+.blist li { position: relative; padding-left: 28px; font-size: 21px; color: var(--fg-2); line-height: 1.42; margin-top: 12px; }
+.blist li::before { content: ''; position: absolute; left: 2px; top: .55em; width: 10px; height: 10px; border-radius: 50%; background: var(--acc); }
+.blist li b { color: var(--fg); }
+
+.tbl { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 20px; }
+.tbl th { padding: 14px 18px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--fg-3); text-align: left; border-bottom: 1px solid var(--line-2); white-space: nowrap; }
+.tbl td { padding: 14px 18px; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--fg-2); line-height: 1.38; }
+.tbl td b { color: var(--fg); }
+.tbl .n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.row-a { opacity: 0; }
+.slide.play .row-a { animation: row-in .8s var(--ease) both; animation-delay: calc(var(--d, 0) * 1ms); }
+@keyframes row-in { from { opacity: 0; transform: translateX(-24px); } to { opacity: 1; transform: none; } }
+.prod { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--fg); white-space: nowrap; }
+.prod::before { content: ''; width: 12px; height: 12px; border-radius: 3px; background: var(--pc, var(--blue)); }
+.p-app { --pc: var(--blue); } .p-ads { --pc: var(--cyan); } .p-geo { --pc: #8b5cf6; }
+
+/* =========================================================================
+   Slides específicos
+   ========================================================================= */
+/* capa e encerramento */
+.cover-kick { left: var(--inset); top: 290px; font-size: 16px; letter-spacing: .06em; text-transform: uppercase; color: var(--cyan); }
+.cover-t { left: var(--inset); top: 330px; font-size: 132px; line-height: .98; font-weight: 400; letter-spacing: -.035em; }
+.cover-t .hl { color: var(--cyan); }
+.cover-sub { left: var(--inset); top: 640px; font-size: 28px; color: var(--fg-2); max-width: 1100px; line-height: 1.4; }
+.cover-who { left: var(--inset); top: 790px; display: flex; gap: 40px; font-size: 18px; color: var(--fg-2); }
+.cover-who b { display: block; color: #fff; font-size: 22px; margin-top: 4px; }
+.cta { position: absolute; z-index: 3; left: var(--inset); bottom: 120px; display: inline-flex; align-items: center; gap: 16px; height: 60px; padding: 0 8px 0 28px; border-radius: 999px; border: 0; background: var(--blue); color: #fff; font-size: 18px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; cursor: pointer; box-shadow: 0 14px 40px rgba(0, 34, 255, .45); transition: transform .3s var(--ease); }
+.cta:hover { transform: translateY(-3px); }
+.cta .dot { width: 44px; height: 44px; border-radius: 50%; background: #fff; color: var(--blue); display: grid; place-items: center; }
+.cta svg { width: 20px; height: 20px; }
+
+/* divisor de seção (azul, número gigante) */
+.sec-n { right: 150px; top: 120px; font-size: 400px; line-height: .8; font-weight: 400; letter-spacing: -.05em; color: #fff; }
+.sec-k { left: var(--inset); top: 600px; font-size: 16px; letter-spacing: .06em; text-transform: uppercase; color: rgba(255, 255, 255, .8); }
+.sec-t { left: var(--inset); top: 640px; font-size: 104px; line-height: 1; letter-spacing: -.03em; font-weight: 400; }
+.sec-d { left: var(--inset); top: 790px; font-size: 26px; color: rgba(255, 255, 255, .85); max-width: 1100px; line-height: 1.45; }
+
+/* agenda */
+.agenda { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; height: 100%; }
+.agenda .card { display: flex; flex-direction: column; }
+.agenda .n { font-size: 80px; line-height: 1; color: var(--blue); letter-spacing: -.04em; }
+.agenda h3 { margin-top: 26px; }
+.agenda .dl { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); font-size: 17px; color: var(--fg-3); }
+.agenda .dl b { color: var(--blue); }
+.agenda .mins { position: absolute; top: 30px; right: 30px; font-size: 15px; color: var(--fg-3); font-variant-numeric: tabular-nums; }
+
+/* quem sou */
+.who { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; height: 100%; }
+.who .card { display: flex; flex-direction: column; }
+.who .co { font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: var(--acc); font-weight: 700; }
+.who h3 { margin-top: 10px; font-size: 26px; }
+.who .big { margin-top: auto; font-size: 54px; line-height: 1; letter-spacing: -.03em; color: var(--fg); padding-top: 24px; }
+.who .big small { display: block; font-size: 17px; letter-spacing: 0; color: var(--fg-3); margin-top: 10px; line-height: 1.35; }
+.who .use { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 16px; color: var(--fg-3); }
+.who .use b { color: var(--acc); }
+
+/* KPIs do ponto de partida */
+.kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 22px; }
+.kpi { padding: 30px 28px 26px; }
+.kpi .v { font-size: 82px; line-height: 1; letter-spacing: -.04em; font-weight: 400; color: var(--fg); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.kpi .v small { font-size: .5em; letter-spacing: 0; }
+.kpi .l { margin-top: 14px; font-size: 19px; color: var(--fg-2); line-height: 1.35; }
+.kpi.hi { border-color: var(--cyan); background: rgba(7, 179, 208, .08); }
+.kpi.hi .v { color: var(--cyan); }
+.prod3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 28px; }
+.prod3 .card { padding: 24px 28px; }
+.prod3 .share { margin-top: 18px; height: 10px; border-radius: 99px; background: rgba(255, 255, 255, .08); overflow: hidden; }
+.prod3 .share i { display: block; height: 100%; width: calc(var(--v) * 1%); background: var(--pc); border-radius: inherit; }
+.prod3 .row { display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px; font-size: 19px; color: var(--fg-2); }
+.prod3 .row b { color: var(--fg); font-size: 30px; font-weight: 400; letter-spacing: -.02em; }
+
+/* base ilustrativa: barras de contratos x receita */
+.base { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; height: 100%; }
+.split-bar { margin-top: 18px; }
+.split-bar .lab { display: flex; justify-content: space-between; font-size: 16px; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-3); font-weight: 700; margin-bottom: 10px; }
+.split-bar .bar { display: flex; height: 74px; border-radius: 14px; overflow: hidden; }
+.split-bar .bar i { display: flex; align-items: center; justify-content: center; font-style: normal; font-size: 22px; font-weight: 700; color: #fff; background: var(--pc); }
+.split-bar .bar i span { white-space: nowrap; }
+.legend3 { display: flex; gap: 26px; margin-top: 20px; font-size: 18px; color: var(--fg-2); }
+
+/* grade de pontos (77 clientes) */
+.dots-wrap { display: grid; grid-template-columns: 820px 1fr; gap: 64px; height: 100%; align-items: start; }
+.dots { display: grid; grid-template-columns: repeat(11, 56px); gap: 16px; }
+.dots i { width: 56px; height: 56px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, .22); display: grid; place-items: center; opacity: 0; transform: scale(.4); transition: background .6s var(--ease), border-color .6s var(--ease), opacity .5s var(--ease), transform .6s var(--ease); }
+.dots i.on { opacity: 1; transform: none; }
+.dots i.app { background: rgba(0, 34, 255, .35); border-color: var(--blue-2); }
+.dots i.multi { background: conic-gradient(var(--blue) 0 33%, var(--cyan) 0 66%, #8b5cf6 0); border-color: transparent; box-shadow: 0 0 22px rgba(7, 179, 208, .5); }
+.dots i.hot { animation: pulse 1.8s ease-in-out infinite; border-color: var(--cyan); }
+.dots-steps { display: flex; flex-direction: column; gap: 18px; }
+.dstep { padding: 22px 26px; border-left: 3px solid var(--line); color: var(--fg-3); transition: color .5s, border-color .5s, background .5s; border-radius: 0 16px 16px 0; }
+.dstep h3 { font-size: 26px; font-weight: 700; }
+.dstep p { font-size: 20px; margin-top: 6px; line-height: 1.42; }
+.dstep.on { border-left-color: var(--cyan); color: var(--fg); background: rgba(255, 255, 255, .04); }
+.dstep.on p { color: var(--fg-2); }
+.dleg { display: flex; gap: 28px; margin-top: 26px; font-size: 17px; color: var(--fg-2); }
+.dleg span { display: inline-flex; align-items: center; gap: 10px; }
+.dleg i { width: 18px; height: 18px; border-radius: 50%; }
+
+/* problemas */
+.probs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; height: 100%; }
+.probs .card { display: flex; flex-direction: column; padding: 32px 34px; }
+.probs .big { font-size: 96px; line-height: .9; color: var(--blue); letter-spacing: -.05em; }
+.probs h3 { margin-top: 18px; font-size: 29px; }
+.probs .sint { margin-top: 18px; font-size: 14px; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-3); font-weight: 700; }
+.probs ul { margin-top: 6px; }
+.probs li { font-size: 19px; color: var(--fg-2); padding: 7px 0; border-bottom: 1px dashed var(--line); line-height: 1.35; }
+.probs .cause { margin-top: auto; padding-top: 18px; font-size: 20px; line-height: 1.45; color: var(--fg); }
+.probs .cause b { color: var(--blue); }
+
+/* bowtie */
+.bow { position: relative; height: 100%; }
+.bow svg { width: 100%; height: 470px; overflow: visible; }
+.bow .tri { fill: rgba(255, 255, 255, .05); stroke: rgba(255, 255, 255, .35); stroke-width: 2; }
+.bow .tri.weak { fill: rgba(7, 179, 208, .07); stroke: var(--cyan); stroke-dasharray: 10 10; }
+.bow .stg { fill: #fff; font-family: var(--font); font-size: 22px; font-weight: 700; text-anchor: middle; }
+.bow .sub { fill: rgba(255, 255, 255, .6); font-family: var(--font); font-size: 16px; text-anchor: middle; }
+.bow .commit { fill: var(--blue); }
+.bow .ann { fill: var(--cyan); font-family: var(--font); font-size: 20px; font-weight: 700; }
+.bow-cap { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 12px; }
+
+/* priorização */
+.prio { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; height: 100%; }
+.prio .card { display: flex; flex-direction: column; }
+.prio .ord { display: inline-flex; align-items: center; gap: 12px; font-size: 15px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--blue); }
+.prio .ord b { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--blue); color: #fff; font-size: 20px; letter-spacing: 0; }
+.prio h3 { margin-top: 18px; }
+.meter { margin-top: 16px; display: grid; grid-template-columns: 150px 1fr; align-items: center; gap: 12px; font-size: 17px; color: var(--fg-2); }
+.meter .tr { height: 10px; border-radius: 99px; background: var(--light-2); overflow: hidden; }
+.meter .tr i { display: block; height: 100%; width: calc(var(--v) * 1%); background: var(--blue); border-radius: inherit; }
+.prio .when { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); font-size: 19px; color: var(--fg); line-height: 1.4; }
+.prio .when b { color: var(--blue); }
+
+/* investigação */
+.inv { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.inv .card { padding: 24px 30px; display: grid; grid-template-columns: 64px 1fr; gap: 20px; align-items: start; }
+.inv .ic { width: 64px; height: 64px; border-radius: 16px; display: grid; place-items: center; background: var(--acc-soft); color: var(--acc); }
+.inv .ic svg { width: 32px; height: 32px; }
+.inv h3 { font-size: 24px; }
+.inv p { font-size: 19px; margin-top: 6px; }
+
+/* ponte da meta (cascata) */
+.bridge { display: grid; grid-template-columns: 1fr 470px; gap: 44px; height: 100%; }
+.chart { position: relative; height: 100%; }
+.chart svg { width: 100%; height: 100%; overflow: visible; }
+.chart .bar { transition: y .9s var(--ease), height .9s var(--ease); }
+.chart .val { transition: none; }
+.chart .lbl { font-family: var(--font); font-size: 19px; fill: var(--fg-2); text-anchor: middle; }
+.chart .val { font-family: var(--font); font-size: 22px; font-weight: 700; fill: var(--fg); text-anchor: middle; transition: y .9s var(--ease); }
+.chart .goal { stroke: var(--cyan); stroke-width: 2; stroke-dasharray: 8 8; }
+.chart .goal-t { font-family: var(--font); font-size: 18px; fill: var(--cyan); font-weight: 700; }
+.chart .conn { stroke: var(--line-2); stroke-dasharray: 4 6; transition: y1 .9s var(--ease), y2 .9s var(--ease); }
+.scn { display: flex; flex-direction: column; gap: 14px; }
+.scn button { text-align: left; padding: 20px 24px; border-radius: 18px; border: 1px solid var(--card-b); background: var(--card); cursor: pointer; transition: border-color .3s, background .3s; }
+.scn button .t { display: flex; justify-content: space-between; align-items: baseline; font-size: 22px; font-weight: 700; color: var(--fg); }
+.scn button .t span { font-size: 38px; font-weight: 400; letter-spacing: -.03em; color: var(--fg-2); }
+.scn button p { font-size: 16px; color: var(--fg-3); margin-top: 6px; line-height: 1.4; }
+.scn button[aria-pressed="true"] { border-color: var(--cyan); background: rgba(7, 179, 208, .1); }
+.scn button[aria-pressed="true"] .t span { color: var(--cyan); }
+.scn .hint { font-size: 15px; color: var(--fg-3); }
+
+/* gap da meta */
+.gap { display: grid; grid-template-columns: 640px 1fr; gap: 56px; height: 100%; }
+.gauge { position: relative; padding: 36px 40px; }
+.gauge .row { display: grid; grid-template-columns: 170px 1fr 80px; align-items: center; gap: 18px; margin-top: 24px; font-size: 19px; color: var(--fg-2); }
+.gauge .tr { height: 26px; border-radius: 8px; background: rgba(255, 255, 255, .06); position: relative; overflow: hidden; }
+.gauge .tr i { position: absolute; left: 0; top: 0; bottom: 0; width: calc(var(--v) / 60 * 100%); background: linear-gradient(90deg, var(--blue), var(--cyan)); border-radius: 8px; }
+.gauge .row b { color: var(--fg); font-size: 24px; text-align: right; }
+.gauge .row.goal .tr i { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .25) 0 10px, rgba(255, 255, 255, .1) 10px 20px); }
+.levers { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.levers .card { padding: 24px 28px; }
+.levers h3 { font-size: 24px; }
+.levers p { font-size: 19px; }
+.quote { font-size: 30px; line-height: 1.4; color: var(--fg); font-weight: 300; }
+.quote b { color: var(--cyan); font-weight: 700; }
+
+/* jornada (narrativa de portfólio) */
+.journey { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; height: 100%; position: relative; }
+.jstep { position: relative; padding: 34px 40px 30px; border-top: 4px solid var(--pc); background: var(--card); margin-right: 26px; border-radius: 0 0 22px 22px; display: flex; flex-direction: column; }
+.jstep:last-child { margin-right: 0; }
+.jstep .st { font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-3); font-weight: 700; }
+.jstep h3 { font-size: 40px; font-weight: 400; letter-spacing: -.02em; margin-top: 12px; line-height: 1.1; }
+.jstep .pr { margin-top: 18px; }
+.jstep p { font-size: 20px; color: var(--fg-2); margin-top: 16px; line-height: 1.45; }
+.jstep .q { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--line); font-size: 19px; color: var(--fg); font-style: italic; line-height: 1.4; }
+.jstep .arr { position: absolute; right: -26px; top: 60px; width: 26px; height: 26px; z-index: 2; color: var(--fg-3); }
+
+/* SPICED */
+.spiced { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+.sp { padding: 24px 24px 22px; display: flex; flex-direction: column; }
+.sp .L { font-size: 86px; line-height: .9; font-weight: 700; color: var(--blue); letter-spacing: -.04em; }
+.sp h3 { font-size: 23px; margin-top: 10px; }
+.sp p { font-size: 17px; margin-top: 8px; }
+.sp .qq { margin-top: auto; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 17px; font-style: italic; color: var(--fg); line-height: 1.4; }
+.map3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 22px; }
+.map3 .card { padding: 20px 24px; }
+.map3 p { font-size: 18px; margin-top: 10px; font-style: italic; }
+
+/* ICP */
+.icp { display: grid; grid-template-columns: 1fr 520px; gap: 40px; height: 100%; }
+
+/* playbook: estrutura */
+.pb { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 18px; height: 100%; }
+.pb .card { padding: 22px 26px; display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: start; }
+.pb .card.focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0, 34, 255, .12); }
+.pb .nn { font-size: 34px; line-height: 1; color: var(--blue); letter-spacing: -.03em; }
+.pb h3 { font-size: 22px; }
+.pb p { font-size: 17px; margin-top: 6px; }
+.pb .focus .badge { display: inline-block; margin-top: 10px; padding: 3px 10px; border-radius: 99px; background: var(--blue); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+
+/* processo de expansão */
+.flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.fstep { position: relative; padding: 28px 30px; background: var(--card); border: 1px solid var(--card-b); margin-right: 30px; border-radius: 20px; }
+.fstep:last-child { margin-right: 0; }
+.fstep .n { font-size: 56px; line-height: 1; color: var(--cyan); letter-spacing: -.04em; }
+.fstep h3 { font-size: 25px; margin-top: 12px; }
+.fstep p { font-size: 18px; color: var(--fg-2); margin-top: 8px; line-height: 1.42; }
+.fstep .arr { position: absolute; right: -30px; top: 50%; width: 30px; height: 30px; margin-top: -15px; color: var(--fg-3); }
+.notyet { margin-top: 26px; display: grid; grid-template-columns: 280px 1fr; gap: 26px; align-items: center; padding: 22px 28px; border-radius: 18px; border: 1px solid rgba(239, 75, 75, .45); background: rgba(239, 75, 75, .07); }
+.notyet h3 { font-size: 24px; color: #ff8a8a; }
+.notyet ul { display: flex; flex-wrap: wrap; gap: 12px; }
+.notyet li { font-size: 18px; padding: 8px 16px; border-radius: 99px; border: 1px solid rgba(239, 75, 75, .35); color: var(--fg); }
+
+/* papéis */
+.roles { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+.role { padding: 22px 22px 20px; display: flex; flex-direction: column; min-height: 300px; }
+.role .who2 { font-size: 26px; font-weight: 700; }
+.role .cnt { font-size: 15px; color: var(--fg-3); margin-top: 4px; }
+.role .stage { margin-top: 14px; display: inline-flex; align-self: flex-start; padding: 4px 12px; border-radius: 99px; background: var(--blue-soft); color: var(--blue); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.role p { font-size: 17px; margin-top: 12px; }
+.role .ow { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); font-size: 15px; color: var(--fg-3); }
+.role .ow b { color: var(--blue); }
+.handoff { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 22px; }
+
+/* capacitação */
+.cap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 30px; height: 100%; }
+.lvls { display: flex; flex-direction: column; gap: 16px; }
+.lvl { display: grid; grid-template-columns: 120px 1fr; gap: 22px; align-items: center; padding: 22px 26px; }
+.lvl .badge2 { height: 96px; border-radius: 18px; display: grid; place-items: center; text-align: center; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: #fff; background: var(--pc, var(--blue)); line-height: 1.2; }
+.lvl .badge2 b { display: block; font-size: 34px; letter-spacing: -.02em; }
+.lvl h3 { font-size: 24px; }
+.lvl p { font-size: 18px; margin-top: 6px; }
+.score { padding: 26px 30px; }
+.score .row { display: grid; grid-template-columns: 54px 1fr 120px; align-items: center; gap: 14px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 19px; color: var(--fg-2); }
+.score .row .L { font-size: 26px; font-weight: 700; color: var(--blue); }
+.score .row .tr { height: 10px; border-radius: 99px; background: var(--light-2); overflow: hidden; }
+.score .row .tr i { display: block; height: 100%; width: calc(var(--v) * 10%); background: var(--blue); }
+
+/* onboarding: linha do tempo */
+.tl { position: relative; height: 330px; margin-top: 10px; }
+.tl .axis { position: absolute; left: 0; right: 0; top: 40px; height: 2px; background: var(--line-2); }
+.tl .m { position: absolute; top: 0; white-space: nowrap; font-size: 16px; color: var(--fg-3); transform: translateX(-50%); letter-spacing: .06em; text-transform: uppercase; }
+.tl .m::after { content: ''; position: absolute; left: 50%; top: 32px; width: 2px; height: 18px; margin-left: -1px; background: var(--line-2); }
+.tl .lane { position: absolute; height: 64px; border-radius: 14px; display: flex; align-items: center; padding: 0 20px; font-size: 18px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; }
+.tl .lane span { font-weight: 400; opacity: .85; margin-left: 10px; }
+.tl .l1 { background: var(--blue); } .tl .l2 { background: var(--blue-2); } .tl .l3 { background: #6d7dff; }
+.tl .me { background: transparent; border: 2px dashed var(--cyan); color: var(--cyan); }
+.track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.track .card { padding: 22px 26px; }
+.track .d { font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: var(--cyan); font-weight: 700; }
+.track h3 { font-size: 24px; margin-top: 8px; }
+.track p { font-size: 18px; }
+
+/* métricas */
+.mt { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; height: 100%; }
+.mt .card { display: flex; flex-direction: column; padding: 26px 28px; }
+.mt .lv { font-size: 14px; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); font-weight: 700; }
+.mt h3 { font-size: 25px; margin-top: 6px; }
+.mt .why { font-size: 16px; color: var(--fg-3); margin-top: 6px; line-height: 1.4; }
+.mt .m { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 12px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.mt .m:last-child { border-bottom: 0; }
+.mt .m .nm { font-size: 17px; color: var(--fg-2); line-height: 1.35; }
+.mt .m .go { font-size: 22px; font-weight: 700; color: var(--fg); white-space: nowrap; text-align: right; }
+.mt .m .go s { font-weight: 400; color: var(--fg-3); text-decoration: none; font-size: 17px; margin-right: 6px; }
+.mt .m .go s::after { content: ' →'; }
+
+/* 30-60-90 */
+.p369 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; height: 100%; }
+.ph { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
+.ph .hdp { padding: 22px 28px; background: var(--pc); color: #fff; }
+.ph .hdp .dd { font-size: 15px; letter-spacing: .1em; text-transform: uppercase; opacity: .85; }
+.ph .hdp h3 { font-size: 30px; margin-top: 4px; font-weight: 700; }
+.ph .bd { padding: 16px 28px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.ph .grp .k { color: var(--acc); }
+.ph .grp p { font-size: 20px; margin-top: 4px; line-height: 1.42; }
+.ph .grp + .grp { padding-top: 12px; border-top: 1px solid var(--line); }
+
+/* por que eu */
+.stories { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; height: 100%; }
+.story { display: grid; grid-template-columns: 1fr 260px; gap: 26px; align-items: center; padding: 26px 32px; }
+.story .co { font-size: 14px; letter-spacing: .1em; text-transform: uppercase; color: var(--cyan); font-weight: 700; }
+.story h3 { font-size: 25px; margin-top: 6px; }
+.story p { font-size: 18px; margin-top: 8px; }
+.story .res { text-align: right; }
+.story .res b { display: block; font-size: 60px; font-weight: 400; letter-spacing: -.04em; line-height: 1; color: var(--fg); white-space: nowrap; }
+.story .res span { display: block; font-size: 15px; color: var(--fg-3); margin-top: 8px; line-height: 1.35; }
+.story .use { grid-column: 1 / -1; padding-top: 12px; border-top: 1px solid var(--line); font-size: 16px; color: var(--fg-3); }
+.story .use b { color: var(--cyan); }
+
+/* riscos */
+.risks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.risk { display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; overflow: hidden; }
+.risk > div { padding: 22px 26px; }
+.risk .r1 { border-right: 1px solid var(--line); }
+.risk .k { color: var(--bad); } .risk .r2 .k { color: var(--ok); }
+.risk h3 { font-size: 22px; margin-top: 8px; }
+.risk p { font-size: 17px; margin-top: 6px; }
+
+/* encerramento */
+.end-t { left: var(--inset); top: 260px; font-size: 120px; line-height: .95; letter-spacing: -.04em; font-weight: 400; }
+.end-l { left: var(--inset); top: 560px; display: flex; flex-direction: column; gap: 18px; width: 1150px; }
+.end-l li { display: grid; grid-template-columns: 70px 1fr; gap: 20px; align-items: baseline; font-size: 30px; line-height: 1.35; color: rgba(255, 255, 255, .88); }
+.end-l li span { font-size: 22px; color: rgba(255, 255, 255, .6); }
+
+/* apêndice */
+.prem { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+.refs { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.ref { padding: 20px 24px; }
+.ref h3 { font-size: 21px; }
+.ref p { font-size: 16px; margin-top: 6px; }
+.ref a { color: var(--blue); font-size: 14px; word-break: break-all; text-decoration: none; display: inline-block; margin-top: 8px; }
+.ref .src { display: inline-block; margin-top: 10px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--dark-3); }
+
+/* =========================================================================
+   Controles, índice e impressão
+   ========================================================================= */
+.progress { position: fixed; left: 0; right: 0; bottom: 0; height: 3px; z-index: 40; background: rgba(255, 255, 255, .06); }
+.progress i { position: absolute; inset: 0; background: var(--cyan); transform-origin: 0 50%; transform: scaleX(var(--pr, 0)); transition: transform .9s var(--ease); }
+.progress b { position: absolute; top: -3px; width: 2px; height: 9px; background: rgba(255, 255, 255, .4); }
+#ui { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 50; display: flex; align-items: center; gap: 6px; padding: 6px; border-radius: 999px; background: rgba(12, 13, 17, .78); border: 1px solid rgba(255, 255, 255, .14); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); transition: opacity .5s var(--ease), transform .5s var(--ease); font-family: var(--font); }
+@media (max-height: 500px) { #ui { transform: translateX(-50%) scale(.72); transform-origin: 50% 100%; bottom: 8px; } }
+body.idle #ui { opacity: 0; transform: translate(-50%, 14px); pointer-events: none; }
+body.idle { cursor: none; }
+#ui button { width: 40px; height: 40px; border-radius: 50%; border: 0; background: transparent; color: #fff; cursor: pointer; display: grid; place-items: center; transition: background .2s; }
+#ui button:hover { background: rgba(0, 34, 255, .55); }
+#ui button svg { width: 18px; height: 18px; }
+#ui .cnt { min-width: 84px; text-align: center; font-size: 13px; color: rgba(255, 255, 255, .8); letter-spacing: .06em; font-variant-numeric: tabular-nums; }
+#ui .div { width: 1px; height: 22px; background: rgba(255, 255, 255, .16); margin: 0 4px; }
+#rot { display: none; }
+@media (orientation: portrait) and (max-width: 900px) { body:not(.page) #rot { display: flex; position: fixed; inset: 0; z-index: 95; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 32px; text-align: center; background: rgba(12, 13, 17, .94); color: #fff; font-family: var(--font); font-size: 18px; line-height: 1.45; } #rot svg { width: 56px; height: 56px; color: var(--cyan); } #rot a { color: #fff; background: var(--blue); padding: 12px 22px; border-radius: 99px; text-decoration: none; font-weight: 700; } #rot button { background: none; border: 0; color: rgba(255,255,255,.6); text-decoration: underline; font-size: 15px; } body.rot-ok #rot { display: none !important; } }
+#blackout { position: fixed; inset: 0; background: #000; z-index: 90; opacity: 0; pointer-events: none; transition: opacity .6s; }
+body.black #blackout { opacity: 1; pointer-events: auto; }
+#index { position: fixed; inset: 0; z-index: 80; background: rgba(6, 8, 20, .88); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); opacity: 0; pointer-events: none; transition: opacity .4s var(--ease); overflow: auto; padding: 56px 64px; font-family: var(--font); color: #fff; }
+body.menu #index { opacity: 1; pointer-events: auto; }
+#index h3 { font-size: 34px; font-weight: 400; margin-bottom: 8px; }
+#index .hint { color: rgba(255, 255, 255, .55); font-size: 14px; margin-bottom: 30px; }
+#index .chs { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 26px 34px; }
+#index .ch h4 { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--cyan); margin-bottom: 10px; }
+#index a { display: flex; gap: 12px; padding: 7px 10px; margin: 0 -10px; border-radius: 10px; color: rgba(255, 255, 255, .86); text-decoration: none; font-size: 15px; transition: background .2s; }
+#index a:hover, #index a.cur { background: rgba(0, 34, 255, .4); }
+#index a span { color: rgba(255, 255, 255, .45); font-size: 13px; padding-top: 1px; font-variant-numeric: tabular-nums; }
+
+/* =========================================================================
+   Modo página única (body.page): os mesmos blocos em rolagem
+   ========================================================================= */
+html.page, html:has(body.page) { overflow-x: hidden; overflow-y: auto; height: auto; }
+body.page { overflow-x: hidden; overflow-y: visible; height: auto; min-height: 100%; background: var(--ink); touch-action: pan-y; }
+body.page #stage { position: relative; left: auto; top: auto; transform: none; width: 1920px; height: auto; overflow: visible; zoom: var(--z, 1); }
+body.page .slide { position: relative; opacity: 1; visibility: visible; transform: none; filter: none; pointer-events: auto; transition: none; height: auto; min-height: 1080px; padding: 150px 0 150px; scroll-margin-top: 0; }
+body.page .slide:not(:has(.hd)) { height: 1080px; padding: 0; }
+body.page .hd, body.page .body, body.page .bottom { position: relative; left: auto; right: auto; top: auto !important; bottom: auto !important; margin-left: var(--inset); margin-right: var(--inset); }
+body.page .body { margin-top: 48px; }
+body.page .bottom { margin-top: 40px; }
+body.page .bridge { height: 640px; }
+body.page .bow { height: auto; }
+body.page #ui, body.page #index, body.page .progress { display: none; }
+#pbar { display: none; }
+body.page #pbar { display: flex; position: fixed; left: 0; right: 0; top: 0; z-index: 60; height: 64px; align-items: center; gap: 28px; padding: 0 28px; background: rgba(12, 13, 17, .82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, .1); font-family: var(--font); color: #fff; }
+#pbar .brand { font-weight: 700; font-size: 18px; letter-spacing: -.01em; white-space: nowrap; }
+#pbar .brand span { font-weight: 400; color: rgba(255, 255, 255, .55); margin-left: 10px; font-size: 14px; }
+#pbar nav { display: flex; gap: 22px; flex: 1; overflow-x: auto; scrollbar-width: none; }
+#pbar nav a { color: rgba(255, 255, 255, .6); text-decoration: none; font-size: 13px; white-space: nowrap; transition: color .2s; }
+#pbar nav a:hover, #pbar nav a.cur { color: #fff; }
+#pbar nav a.cur::before { content: ''; display: inline-block; width: 6px; height: 6px; margin-right: 7px; border-radius: 50%; background: var(--cyan); vertical-align: middle; }
+#pbar .alt { flex: none; color: #fff; text-decoration: none; font-size: 13px; padding: 8px 16px; border-radius: 99px; background: var(--blue); white-space: nowrap; }
+#pbar .bar { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: var(--cyan); transform-origin: 0 50%; transform: scaleX(var(--p, 0)); }
+body.page { padding-top: 64px; }
+#pbar { transition: transform .35s var(--ease); }
+body.page #pbar.hide { transform: translateY(-100%); }
+
+/* página no celular: largura de desenho menor e tudo em uma coluna */
+body.page.narrow #stage { width: 760px; --inset: 40px; }
+body.page.narrow #pbar nav, body.page.narrow #pbar .brand span { display: none; }
+body.page.narrow #pbar { justify-content: space-between; }
+body.page.narrow .slide, body.page.narrow .slide:not(:has(.hd)) { height: auto; min-height: 0; padding: 130px 0 120px; }
+body.page.narrow .z, body.page.narrow .cta { position: relative; left: auto !important; right: auto; top: auto !important; bottom: auto; margin: 0 var(--inset) 22px; display: block; width: auto; }
+body.page.narrow .cta { display: inline-flex; }
+body.page.narrow .bigR, body.page.narrow .glow, body.page.narrow .grain { display: none; }
+body.page.narrow .cover-t { font-size: 84px; }
+body.page.narrow .sec-n { font-size: 180px; }
+body.page.narrow .sec-t, body.page.narrow .end-t { font-size: 70px; }
+body.page.narrow .ttl { font-size: 46px; }
+body.page.narrow .cover-who { display: flex; flex-wrap: wrap; gap: 18px 30px; }
+body.page.narrow .agenda, body.page.narrow .who, body.page.narrow .prod3, body.page.narrow .base, body.page.narrow .dots-wrap, body.page.narrow .probs, body.page.narrow .prio,
+body.page.narrow .inv, body.page.narrow .bridge, body.page.narrow .gap, body.page.narrow .levers, body.page.narrow .journey, body.page.narrow .spiced, body.page.narrow .map3,
+body.page.narrow .icp, body.page.narrow .pb, body.page.narrow .flow, body.page.narrow .handoff, body.page.narrow .cap, body.page.narrow .track, body.page.narrow .mt,
+body.page.narrow .p369, body.page.narrow .risks, body.page.narrow .prem, body.page.narrow .refs, body.page.narrow .bow-cap { grid-template-columns: 1fr; height: auto; }
+body.page.narrow .kpis, body.page.narrow .roles { grid-template-columns: 1fr 1fr; }
+body.page.narrow .bridge { height: auto; }
+body.page.narrow .chart { height: 520px; }
+body.page.narrow .journey .jstep, body.page.narrow .flow .fstep { margin: 0 0 18px; }
+body.page.narrow .jstep .arr, body.page.narrow .fstep .arr { display: none; }
+body.page.narrow .dots { grid-template-columns: repeat(11, 52px); gap: 10px; }
+body.page.narrow .dots i { width: 52px; height: 52px; }
+body.page.narrow .tbl { display: block; overflow-x: auto; font-size: 18px; }
+body.page.narrow .risk { grid-template-columns: 1fr; }
+body.page.narrow .risk .r1 { border-right: 0; border-bottom: 1px solid var(--line); }
+body.page.narrow .story { grid-template-columns: 1fr; }
+body.page.narrow .story .res { text-align: left; }
+body.page.narrow .notyet { grid-template-columns: 1fr; }
+body.page.narrow .tl { height: 320px; }
+body.page.narrow .tl .lane span { display: none; }
+body.page.narrow .end-l { width: auto; }
+body.page.narrow .takeaway { flex-direction: column; align-items: flex-start; gap: 10px; }
+body.page.narrow .takeaway .tk { border-right: 0; padding-right: 0; }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 1ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; transition-delay: 0ms !important; } }
+@page { size: 1920px 1080px; margin: 0; }
+@media print {
+  html, body { overflow: visible; height: auto; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  #ui, #index, #blackout, .progress { display: none !important; }
+  #stage { position: relative; left: 0; top: 0; transform: none !important; height: auto; overflow: visible; }
+  .slide { position: relative; height: 1080px; opacity: 1 !important; visibility: visible !important; transform: none !important; filter: none !important; break-after: page; }
+  .a, .row-a { opacity: 1 !important; animation: none !important; }
+  .mask > .mi, .grow, .growy { transform: none !important; animation: none !important; }
+  .draw, .bigR path { stroke-dashoffset: 0 !important; animation: none !important; }
+  .grain { display: none; }
+  .dots i { opacity: 1 !important; transform: none !important; }
+}
+/* =========================================================================
+   v5 · componentes extras (injetados só na v5 pelo build.py)
+   ========================================================================= */
+/* fluxo com rótulo em vez de número, 3 a 5 colunas */
+.flow.c3 { grid-template-columns: repeat(3, 1fr); }
+.flow.c4 { grid-template-columns: repeat(4, 1fr); }
+.flow.c5 { grid-template-columns: repeat(5, 1fr); }
+.flow.tall { height: 100%; }
+.flow .fstep { display: flex; flex-direction: column; }
+.fstep .d { font-size: 14px; letter-spacing: .1em; text-transform: uppercase; color: var(--acc); font-weight: 700; }
+.fstep .d + h3 { margin-top: 10px; }
+.fstep.hi { border-color: var(--acc); box-shadow: 0 0 0 3px var(--acc-soft); }
+.fstep ul.mini { margin-top: 10px; }
+.fstep ul.mini li { position: relative; padding-left: 22px; font-size: 18px; color: var(--fg-2); line-height: 1.4; margin-top: 8px; }
+.fstep ul.mini li::before { content: ''; position: absolute; left: 0; top: .5em; width: 9px; height: 9px; border-radius: 50%; background: var(--acc); }
+.fstep .pass { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); font-size: 16px; color: var(--fg-3); }
+.fstep .pass b { color: var(--acc); }
+.fstep .q { margin-top: auto; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 17px; font-style: italic; color: var(--fg); line-height: 1.4; }
+
+/* faixa com as 4 partes da apresentação */
+.strip { display: grid; grid-template-columns: auto repeat(4, 1fr); gap: 14px; align-items: stretch; }
+.strip .k { align-self: center; padding-right: 10px; }
+.strip > div { padding: 16px 20px; border-radius: 16px; background: var(--card); border: 1px solid var(--card-b); font-size: 20px; font-weight: 700; color: var(--fg); }
+.strip > div b { color: var(--acc); margin-right: 8px; }
+.strip > div span { display: block; font-size: 15px; font-weight: 400; color: var(--fg-3); margin-top: 4px; }
+
+/* números do case */
+.kpis3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 26px; }
+.kpis3 .kpi .v { font-size: 72px; }
+
+/* 100 clientes */
+.dots.d100 { grid-template-columns: repeat(10, 46px); gap: 14px; }
+.dots.d100 i { width: 46px; height: 46px; }
+.dots-wrap.w100 { grid-template-columns: 620px 1fr; }
+
+/* conta da meta simplificada: barras empilhadas */
+.meta2 { display: grid; grid-template-columns: 1fr 500px; gap: 48px; height: 100%; }
+.stk { position: relative; padding-top: 44px; }
+.srow { display: grid; grid-template-columns: 210px 1fr; gap: 20px; align-items: center; margin-bottom: 30px; }
+.srow .nm { font-size: 21px; font-weight: 700; color: var(--fg); }
+.srow .nm small { display: block; font-size: 15px; font-weight: 400; color: var(--fg-3); margin-top: 2px; }
+.srow .tr { display: flex; align-items: stretch; height: 80px; }
+.srow .tr i { width: calc(var(--v) / 65 * 100%); display: flex; align-items: center; justify-content: center; font-style: normal; font-size: 21px; font-weight: 700; color: #fff; background: var(--pc); border-right: 2px solid var(--ink); white-space: nowrap; }
+.srow .tr i:first-child { border-radius: 12px 0 0 12px; }
+.srow .tr i:last-of-type { border-radius: 0 12px 12px 0; border-right: 0; }
+.srow .tot { align-self: center; margin-left: 18px; font-size: 40px; font-weight: 400; letter-spacing: -.03em; color: var(--fg); white-space: nowrap; }
+.stk .goal { position: absolute; top: 0; bottom: 0; left: calc(230px + (100% - 230px) * .923); border-left: 2px dashed var(--cyan); }
+.stk .goal span { position: absolute; top: 0; left: 10px; white-space: nowrap; font-size: 18px; font-weight: 700; color: var(--cyan); }
+.c0 { --pc: rgba(255, 255, 255, .26); } .c1 { --pc: #6d7dff; } .c2 { --pc: var(--blue); } .c3 { --pc: var(--cyan); }
+.lg { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 28px; margin-top: 18px; }
+.lg div { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; }
+.lg i { width: 22px; height: 22px; border-radius: 6px; background: var(--pc); margin-top: 3px; }
+.lg b { display: block; font-size: 20px; color: var(--fg); }
+.lg p { font-size: 17px; color: var(--fg-2); line-height: 1.4; margin-top: 2px; }
+.lg .c3 b { color: var(--cyan); }
+
+/* pergunta provável */
+.qa { padding: 22px 26px; border-radius: 18px; border: 1px dashed var(--line-2); background: var(--card); }
+.qa .q { display: flex; gap: 14px; align-items: flex-start; font-size: 21px; font-weight: 700; color: var(--fg); line-height: 1.3; }
+.qa .q::before { content: '?'; flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--acc); color: var(--ink); font-size: 17px; }
+.t-light .qa .q::before { color: #fff; }
+.qa p { font-size: 18px; color: var(--fg-2); margin-top: 8px; line-height: 1.45; padding-left: 44px; }
+.qa p b { color: var(--fg); }
+.side-col { display: flex; flex-direction: column; gap: 18px; }
+
+/* piloto */
+.pilot { display: grid; grid-template-columns: 1fr 600px; gap: 32px; height: 100%; }
+.pilot .rows { padding: 8px 32px; }
+.pilot .pr { display: grid; grid-template-columns: 200px 1fr; gap: 20px; padding: 17px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.pilot .pr:last-child { border-bottom: 0; }
+.pilot .pr .k { color: var(--acc); }
+.pilot .pr p { margin: 0; font-size: 21px; color: var(--fg); line-height: 1.4; }
+.pilot .pr p small { display: block; font-size: 17px; color: var(--fg-3); margin-top: 2px; }
+
+/* sinais de expansão com exemplos */
+.sig { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.sig .card { display: flex; flex-direction: column; padding: 24px 26px; }
+.sig .sn { font-size: 14px; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-3); font-weight: 700; }
+.sig h3 { font-size: 23px; margin-top: 8px; }
+.sig .ex { margin-top: 12px; padding: 12px 14px; border-radius: 12px; background: rgba(255, 255, 255, .05); font-size: 17px; color: var(--fg-2); line-height: 1.4; }
+.sig .ex b { color: var(--fg); }
+.sig .mean { font-size: 17px; color: var(--fg-2); margin-top: 12px; line-height: 1.4; }
+.sig .off { margin-top: 12px; font-size: 16px; color: var(--fg-3); display: flex; gap: 10px; align-items: center; }
+.sig .ask { margin-top: auto; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 17px; font-style: italic; color: var(--fg); line-height: 1.4; }
+
+/* perguntas que vocês podem ter */
+.faq { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.faq .qa { border-style: solid; border-color: var(--card-b); }
+.t-light .faq .qa { box-shadow: 0 10px 30px rgba(15, 25, 60, .06); }
+
+/* página no celular */
+body.page.narrow .flow.c3, body.page.narrow .flow.c4, body.page.narrow .flow.c5, body.page.narrow .strip, body.page.narrow .kpis3,
+body.page.narrow .meta2, body.page.narrow .lg, body.page.narrow .pilot, body.page.narrow .sig, body.page.narrow .faq, body.page.narrow .dots-wrap.w100 { grid-template-columns: 1fr; height: auto; }
+body.page.narrow .flow.tall { height: auto; }
+body.page.narrow .srow { grid-template-columns: 1fr; gap: 8px; }
+body.page.narrow .stk .goal { left: 92.3%; }
+body.page.narrow .srow .tot { font-size: 30px; }
+body.page.narrow .pilot .pr { grid-template-columns: 1fr; gap: 6px; }
+.flow.big h3 { font-size: 32px; }
+.flow.big p, .flow.big ul.mini li { font-size: 22px; }
+.flow.big ul.mini li { margin-top: 14px; padding-left: 24px; }
+.flow.big .fstep { padding: 34px 32px; }
+.flow.big .d { font-size: 16px; }
+.pilot .pr { padding: 24px 0; }
+.side-col .tag { align-self: flex-start; }
+body.page.narrow .stk .goal span { left: auto; right: 10px; }
+.tag.prem { display: inline-flex; }
+/* no celular os passos empilham: a altura fixa do slide não vale */
+body.page.narrow .flow { height: auto !important; }
+body.page.narrow .flow .fstep { margin: 0 0 16px; }
+/* =========================================================================
+   v6 · estrutura em pirâmide (injetado só na v6, depois do v5.css)
+   ========================================================================= */
+/* divisor com a mensagem do bloco como título */
+.sec-k.up { top: 556px; }
+.sec-t.sm { top: 596px; font-size: 70px; line-height: 1.06; max-width: 1250px; }
+
+/* a resposta: ideia central, 3 frentes e a base */
+.pyr { display: flex; flex-direction: column; gap: 16px; height: 100%; }
+.pyr .top { padding: 26px 40px; border-radius: 22px; background: var(--blue); color: #fff; font-size: 34px; line-height: 1.25; font-weight: 700; text-align: center; }
+.pyr .lk { text-align: center; font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-3); font-weight: 700; }
+.pyr .mid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; flex: 1; }
+.pyr .mid .n { font-size: 56px; line-height: 1; color: var(--blue); letter-spacing: -.04em; }
+.pyr .mid h3 { margin-top: 12px; }
+.pyr .foot { padding: 18px 28px; border-radius: 18px; border: 1px dashed var(--line-2); text-align: center; font-size: 22px; color: var(--fg-2); }
+.pyr .foot b { color: var(--fg); }
+.strip.c5 { grid-template-columns: auto repeat(5, 1fr); }
+.strip.c5 > div { font-size: 18px; padding: 14px 16px; }
+
+/* playbook: o que já foi visto e o que vem depois */
+.pb .badge { display: inline-block; margin-top: 10px; padding: 3px 10px; border-radius: 99px; background: var(--light-2); color: var(--dark-2); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+
+/* ordem das frentes em 90 dias */
+.gantt { display: flex; flex-direction: column; }
+.gantt .gh, .gantt .gr { display: grid; grid-template-columns: 330px 1fr 430px; gap: 26px; align-items: center; }
+.gantt .gh { padding-bottom: 10px; }
+.gantt .ax { display: grid; grid-template-columns: repeat(3, 1fr); font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-3); font-weight: 700; }
+.gantt .ax span { border-left: 2px solid var(--line-2); padding-left: 10px; }
+.gantt .gr { padding: 20px 0; border-top: 1px solid var(--line); }
+.gantt .nm b { display: block; font-size: 24px; color: var(--fg); line-height: 1.2; }
+.gantt .nm small { display: block; font-size: 16px; color: var(--fg-3); margin-top: 3px; }
+.gantt .trk { position: relative; height: 56px; border-radius: 12px; background: var(--light-2); }
+.gantt .trk i { position: absolute; top: 0; bottom: 0; left: var(--l); width: var(--w); border-radius: 12px; background: var(--pc, var(--blue)); display: flex; align-items: center; justify-content: center; font-style: normal; font-size: 16px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; }
+.gantt .why { font-size: 19px; color: var(--fg-2); line-height: 1.4; }
+.gantt .why b { color: var(--fg); }
+
+/* página no celular */
+body.page.narrow .sec-t.sm { font-size: 54px; }
+body.page.narrow .pyr { height: auto; }
+body.page.narrow .pyr .mid, body.page.narrow .strip.c5, body.page.narrow .gantt .gh, body.page.narrow .gantt .gr { grid-template-columns: 1fr; }
+body.page.narrow .pyr .top { font-size: 28px; }
+body.page.narrow .gantt .gh > :not(.ax) { display: none; }
+body.page.narrow .gantt .gr { gap: 10px; }
+
+/* letras maiores onde sobrava espaço */
+.pyr .mid h3 { font-size: 30px; }
+.pyr .mid p { font-size: 22px; }
+.faq .qa { padding: 28px 30px; }
+.faq .qa .q { font-size: 24px; }
+.faq .qa p { font-size: 21px; }
+.flow.c3 .fstep h3 { font-size: 28px; }
+.flow.c3 .fstep p { font-size: 20px; }
+.flow.c4:not(.big) .fstep p { font-size: 19px; }
+.mt .m .nm { font-size: 19px; }
+.mt .m { padding: 16px 0; }
+.mt .why { font-size: 18px; }
+/* =========================================================================
+   v7 · 13 slides na ordem dos pedidos do case (injetado depois de v5.css e v6.css)
+   ========================================================================= */
+/* pergunta antecipada, no rodapé do slide */
+.qa.row { display: grid; grid-template-columns: 500px 1fr; gap: 28px; align-items: center; padding: 18px 28px; border-style: solid; border-color: var(--card-b); }
+.qa.row p { margin: 0; padding: 0; font-size: 20px; }
+.qa.row .q { font-size: 22px; }
+.t-light .qa.row { box-shadow: 0 10px 30px rgba(15, 25, 60, .06); }
+
+/* slide 2: a situação ao lado da resposta */
+.sit { display: grid; grid-template-columns: 520px 1fr; gap: 28px; height: 100%; }
+.hoje { display: flex; flex-direction: column; }
+.hoje .hp { margin-top: 18px; }
+.hoje .hp .l1 { display: flex; justify-content: space-between; align-items: baseline; }
+.hoje .hp .l1 b { font-size: 30px; font-weight: 400; letter-spacing: -.02em; color: var(--fg); }
+.hoje .hp p { font-size: 17px; margin-top: 2px; }
+.hoje .share { margin-top: 8px; height: 10px; border-radius: 99px; background: var(--light-2); overflow: hidden; }
+.hoje .share i { display: block; height: 100%; width: calc(var(--v) * 1%); background: var(--pc); border-radius: inherit; }
+.hoje .fatos { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-size: 19px; color: var(--fg-2); line-height: 1.45; }
+.hoje .fatos b { color: var(--fg); }
+.strip.c6 { grid-template-columns: auto repeat(6, 1fr); }
+.strip.c6 > div { font-size: 17px; padding: 14px 14px; }
+
+/* slide 3: problema, relato, número e resposta */
+.probs.v7 .big { font-size: 60px; }
+.probs.v7 h3 { margin-top: 10px; font-size: 27px; }
+.probs.v7 .sint { margin-top: 14px; }
+.probs .fact { margin-top: auto; padding: 14px 18px; border-radius: 14px; background: var(--blue-soft); font-size: 19px; color: var(--fg-2); line-height: 1.35; }
+.probs .fact b { display: block; font-size: 32px; font-weight: 700; color: var(--blue); letter-spacing: -.02em; }
+.probs .fact + .cause { margin-top: 14px; padding-top: 0; }
+
+/* slide 4: as 4 perguntas e a ordem */
+.q4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.q4 .card { padding: 20px 24px; }
+.q4 h3 { font-size: 22px; }
+.q4 p { font-size: 17px; margin-top: 6px; }
+.sub { margin: 22px 0 10px; font-size: 14px; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-3); font-weight: 700; }
+.gantt.tight .gr { padding: 12px 0; }
+.gantt.tight .trk { height: 46px; }
+.gantt.tight .nm b { font-size: 22px; }
+.gantt.tight .why { font-size: 18px; }
+
+/* slide 5: o caminho e as 5 perguntas */
+.journey.sm { height: auto; }
+.journey.sm .jstep { padding: 22px 28px 20px; }
+.journey.sm .jstep h3 { font-size: 32px; margin-top: 6px; }
+.journey.sm .jstep .pr { margin-top: 10px; }
+.journey.sm .jstep p { font-size: 18px; margin-top: 10px; }
+.journey.sm .jstep .q { margin-top: 14px; padding-top: 12px; font-size: 18px; }
+.journey.sm .jstep .arr { top: 40px; }
+.sp5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.sp5 .card { padding: 16px 18px; display: grid; grid-template-columns: 46px 1fr; gap: 12px; align-items: start; }
+.sp5 .L { font-size: 50px; line-height: .9; font-weight: 700; color: var(--acc); }
+.sp5 h3 { font-size: 20px; }
+.sp5 p { font-size: 16px; margin-top: 4px; font-style: italic; }
+
+/* slide 6: a regra do especialista */
+.rule { display: grid; grid-template-columns: 1.7fr 1fr; gap: 18px; margin-top: 18px; }
+.rule .card { padding: 22px 28px; }
+.rule h3 { font-size: 24px; }
+.rule .cols { columns: 2; column-gap: 34px; margin-top: 6px; }
+.rule .cols li { break-inside: avoid; font-size: 19px; }
+.rule .card p { font-size: 18px; margin-top: 6px; }
+.rule .card h3 + p + h3 { margin-top: 14px; }
+.rule .tag { float: right; }
+
+/* página no celular */
+body.page.narrow .qa.row, body.page.narrow .sit, body.page.narrow .strip.c6, body.page.narrow .q4, body.page.narrow .sp5, body.page.narrow .rule { grid-template-columns: 1fr; height: auto; }
+body.page.narrow .qa.row { gap: 8px; }
+body.page.narrow .rule .cols { columns: 1; }
+body.page.narrow .rule .tag { float: none; }
+body.page.narrow .journey.sm .jstep { margin: 0 0 14px; }
+
+/* letras maiores onde sobrava espaço */
+.q4 .card { padding: 24px 26px; }
+.q4 h3 { font-size: 25px; }
+.q4 p { font-size: 20px; }
+.gantt.tight .gr { padding: 16px 0; }
+.gantt.tight .trk { height: 52px; }
+.gantt.tight .nm b { font-size: 24px; }
+.gantt.tight .why { font-size: 20px; }
+.journey.sm .jstep p { font-size: 20px; }
+.journey.sm .jstep .q { font-size: 20px; }
+.sp5 .card { padding: 20px 20px; }
+.sp5 h3 { font-size: 23px; }
+.sp5 p { font-size: 18px; }
+.rule .card { padding: 26px 30px; }
+.rule h3 { font-size: 26px; }
+.rule .cols li { font-size: 21px; }
+.rule .card p { font-size: 20px; }
+.flow.c3 .fstep p { font-size: 21px; }
+.qa.row p { font-size: 21px; }
+
+/* ajustes da Gabi */
+.hoje .hp .l1 b small { font-size: 15px; letter-spacing: 0; color: var(--fg-3); }
+.qa2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.qa2 .qa { border-style: solid; border-color: var(--card-b); padding: 18px 24px; }
+.qa2 .qa .q { font-size: 21px; }
+.qa2 .qa p { font-size: 19px; }
+.t-light .qa2 .qa { box-shadow: 0 10px 30px rgba(15, 25, 60, .06); }
+.quadro { display: grid; grid-template-columns: 1fr 380px; gap: 26px; margin-top: 22px; align-items: start; }
+.quadro .tbl { font-size: 19px; background: var(--card); border-radius: 16px; overflow: hidden; }
+.quadro .tbl th, .quadro .tbl td { padding: 10px 16px; }
+.quadro .card { padding: 22px 26px; margin-top: 28px; }
+.quadro .card h3 { font-size: 24px; }
+.quadro .card p { font-size: 19px; }
+.flow.c4 .fstep h3 { font-size: 26px; }
+body.page.narrow .qa2, body.page.narrow .quadro { grid-template-columns: 1fr; }
+
+/* botão que abre um detalhe por cima do slide */
+.mbtn { display: inline-flex; align-items: center; gap: 8px; margin-left: 8px; padding: 5px 14px; border-radius: 99px; border: 1.5px solid var(--acc); background: transparent; color: var(--acc); font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; white-space: nowrap; vertical-align: middle; }
+.mbtn::before { content: '+'; font-size: 18px; line-height: 1; }
+.mbtn:hover { background: var(--acc-soft); }
+.pb .mbtn { margin: 10px 0 0; font-size: 13px; padding: 3px 12px; }
+.pb .mbtn::before { font-size: 15px; }
+
+/* o detalhe: fora do palco, em tamanho real de tela */
+#modal { position: fixed; inset: 0; z-index: 85; display: flex; align-items: center; justify-content: center; padding: 3vmin; background: rgba(6, 8, 20, .72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); opacity: 0; pointer-events: none; transition: opacity .3s var(--ease); font-family: var(--font); }
+body.modal-on #modal { opacity: 1; pointer-events: auto; }
+#modal .mpanel { position: relative; width: min(74vw, 1500px); min-width: min(100%, 340px); max-height: 100%; overflow: auto; background: #fff; color: var(--dark-text); border-radius: 22px; padding: clamp(22px, 3.2vw, 44px); box-shadow: 0 30px 80px rgba(0, 0, 0, .45); font-size: clamp(15px, 1.4vw, 27px); line-height: 1.5; transform: translateY(14px); transition: transform .35s var(--ease); }
+body.modal-on #modal .mpanel { transform: none; }
+#modal .mclose { position: absolute; top: 14px; right: 16px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--light); color: var(--dark-text); font-size: 26px; line-height: 1; cursor: pointer; }
+#modal .mc { display: none; }
+#modal .mc.on { display: block; }
+#modal .mk { font-size: .78em; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); font-weight: 700; padding-right: 48px; }
+#modal h3 { font-size: 1.75em; line-height: 1.15; font-weight: 700; letter-spacing: -.01em; margin: 8px 0 20px; padding-right: 40px; }
+#modal .m2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+#modal .mnote { margin-top: 22px; padding: 14px 18px; border-radius: 14px; background: var(--light); color: var(--dark-2); }
+#modal .mnote b { color: var(--dark-text); }
+#modal .mdots { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; max-width: 20em; }
+#modal .mdots i { aspect-ratio: 1; border-radius: 50%; background: rgba(0, 34, 255, .16); border: 1.5px solid var(--blue-2); }
+#modal .mdots i.multi, #modal .mleg i.multi { background: conic-gradient(var(--blue) 0 33%, var(--cyan) 0 66%, #8b5cf6 0); border-color: transparent; }
+#modal .mleg { margin-top: 12px; font-size: .85em; color: var(--dark-2); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+#modal .mleg i { width: 14px; height: 14px; border-radius: 50%; display: inline-block; }
+#modal .mleg i.one { background: rgba(0, 34, 255, .16); border: 1.5px solid var(--blue-2); }
+#modal .mleg i.multi { margin-left: 12px; }
+#modal .msteps { counter-reset: s; display: flex; flex-direction: column; gap: 12px; }
+#modal .msteps li { counter-increment: s; position: relative; padding-left: 40px; color: var(--dark-2); }
+#modal .msteps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 700; font-size: .85em; display: grid; place-items: center; }
+#modal .msteps b, #modal .mlist b, #modal .mlg b { color: var(--dark-text); }
+#modal .mrow { display: grid; grid-template-columns: 9.5em 1fr 3.2em; gap: 14px; align-items: center; margin-bottom: 14px; font-weight: 700; }
+#modal .mrow > b { font-size: 1.5em; font-weight: 400; text-align: right; }
+#modal .mtr { display: flex; height: 52px; }
+#modal .mtr i { width: calc(var(--v) / 60 * 100%); display: flex; align-items: center; justify-content: center; font-style: normal; font-size: .85em; color: #fff; background: var(--pc); border-right: 2px solid #fff; }
+#modal .mtr i:first-child { border-radius: 10px 0 0 10px; } #modal .mtr i:last-child { border-radius: 0 10px 10px 0; border-right: 0; }
+#modal .c0 { --pc: #8a8d96; }
+#modal .mlg { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; margin-top: 8px; }
+#modal .mlg li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; color: var(--dark-2); font-size: .92em; }
+#modal .mlg i { width: 18px; height: 18px; border-radius: 5px; background: var(--pc); margin-top: 3px; }
+#modal .mtbl { width: 100%; border-collapse: collapse; }
+#modal .mtbl th { text-align: left; font-size: .75em; letter-spacing: .08em; text-transform: uppercase; color: var(--dark-3); padding: 8px 12px; border-bottom: 2px solid var(--light-2); }
+#modal .mtbl td { padding: 12px; border-bottom: 1px solid var(--light-2); vertical-align: top; color: var(--dark-2); }
+#modal .mlist { display: flex; flex-direction: column; gap: 12px; }
+#modal .mlist li { position: relative; padding-left: 20px; color: var(--dark-2); }
+#modal .mlist li::before { content: ''; position: absolute; left: 0; top: .6em; width: 8px; height: 8px; border-radius: 50%; background: var(--warn); }
+@media (max-width: 760px) { #modal .mpanel { width: 100%; } #modal .m2, #modal .mlg { grid-template-columns: 1fr; } #modal .mrow { grid-template-columns: 1fr 3.2em; } #modal .mrow span { grid-column: 1 / -1; } }
+@media print { #modal { display: none; } }
+
+/* slide 5: o momento de cada etapa · slide 11: três apoios */
+.journey.sm .jstep .mo { font-size: 18px; margin-top: 8px; color: var(--fg-2); }
+.journey.sm .jstep .mo b { color: var(--acc); }
+.handoff.c3 { grid-template-columns: repeat(3, 1fr); }
+.handoff.c3 .card h3 { font-size: 24px; }
+.handoff.c3 .card p { font-size: 18px; }
+.lead .tag { vertical-align: middle; margin-left: 6px; }
+.track .card p b.marco { display: block; margin-top: 6px; color: var(--blue); }
+
+/* slide 5: quem faz cada pergunta do SPICED */
+.quem { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 8px; }
+.quem span { font-size: 16px; font-weight: 700; color: var(--acc); border-bottom: 2px solid var(--acc); padding-bottom: 4px; }
+.quem .a2 { grid-column: span 2; } .quem .a3 { grid-column: span 3; }
+.sub + .quem { margin-top: -2px; }
+.sp5 .card { padding: 15px 18px; }
+.sub { margin: 16px 0 8px; }
+body.page.narrow .quem { display: block; }
+body.page.narrow .quem span { display: block; margin-bottom: 8px; }
+
+.qa.row p .tag { vertical-align: middle; margin-left: 6px; }
+.hoje { padding: 24px 30px; }
+.hoje .hp { margin-top: 12px; }
+.hoje .hp p { font-size: 16px; }
+.hoje .fatos { padding-top: 12px; font-size: 18px; }
+
+/* nome completo na barra da página: não pode empurrar o botão no celular */
+#pbar .brand { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+body.page.narrow #pbar { gap: 12px; padding: 0 16px; }
+body.page.narrow #pbar .brand { font-size: 14px; }
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- ===================================================================== -->
+<!-- V7 · CAPA -->
+<section class="slide" data-title="Capa" data-chapter="Abertura">
+  <div class="glow g1"></div><div class="glow g2"></div><div class="techgrid"></div><div class="grain"></div>
+  <svg class="bigR" viewBox="0 0 760 900" aria-hidden="true"><path pathLength="1" d="M75 900V75h420a150 150 0 0 1 0 300H260L700 830"/></svg>
+  <p class="z cover-kick a l" style="--d:200">Case · Especialista Sênior em Sales Enablement</p>
+  <h1 class="z cover-t"><span class="mask"><span class="mi" style="--d:350">Do produto</span></span><span class="mask"><span class="mi hl" style="--d:520">ao portfólio</span></span></h1>
+  <p class="z cover-sub a f" style="--d:900">Como fazer o time comercial da RankMyApp vender os três produtos, e não só um.</p>
+  <div class="z cover-who a" style="--d:1150"><div>Apresentação<b>Gabriela Paolla Moraes Peixoto</b></div><div>Formato<b>30 min + 15 de perguntas</b></div><div>Base<b>Material do case · números ilustrativos</b></div></div>
+  <button class="cta a" style="--d:1400" data-next>Começar <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+</section>
+
+<!-- V7 · A SITUAÇÃO E A RESPOSTA -->
+<section class="slide t-light" data-title="A situação e a resposta" data-chapter="Abertura">
+  <div class="grain"></div>
+  <header class="hd">
+    <p class="kick a f" style="--d:100">A situação e a resposta, antes dos detalhes</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">O time vende por produto. <span class="hl">A proposta é vender o portfólio.</span></span></span></h2>
+  </header>
+  <div class="body" style="top:270px;bottom:190px">
+    <div class="sit">
+      <div class="card hoje a l" style="--d:400">
+        <span class="k">Cenário atual · dados do case</span><h3 style="margin-top:8px;font-size:24px">De onde vem a receita hoje</h3>
+        <div class="hp"><div class="l1"><span class="prod p-app">RankMyApp</span><b>72%<small> da receita</small></b></div><p>Faz o app aparecer e convencer nas lojas · contrato médio de R$ 120 mil</p><div class="share"><i class="grow" style="--v:72;--pc:var(--blue);--d:700"></i></div></div>
+        <div class="hp"><div class="l1"><span class="prod p-ads">RankMyAds</span><b>22%<small> da receita</small></b></div><p>Anúncios para o app ganhar usuários · contrato médio de R$ 250 mil</p><div class="share"><i class="grow" style="--v:22;--pc:var(--cyan);--d:820"></i></div></div>
+        <div class="hp"><div class="l1"><span class="prod p-geo">RankMyGeo</span><b>6%<small> da receita</small></b></div><p>Faz a marca aparecer nas respostas das IAs · contrato médio de R$ 60 mil</p><div class="share"><i class="grow" style="--v:6;--pc:#8b5cf6;--d:940"></i></div></div>
+        <p class="fatos">São os números de hoje, não projeções. A meta é <b>crescer 60% em 1 ano</b>, com <b>7 pessoas novas</b> chegando ao time de 20.<br><button type="button" class="mbtn" data-modal="meta" style="margin:10px 0 0">De onde viria o crescimento</button></p>
+      </div>
+      <div class="pyr">
+        <div class="top a" style="--d:600">Vender o portfólio no ciclo inteiro: na venda nova e nos clientes atuais.</div>
+        <p class="lk a f" style="--d:800">Para isso, três frentes</p>
+        <div class="mid">
+          <div class="card a" style="--d:900"><span class="n">1</span><h3>Uma história única</h3><p>O vendedor começa pelo que o cliente precisa, e não pelo produto que conhece.</p></div>
+          <div class="card a" style="--d:1050"><span class="n">2</span><h3>Um time que domina os 3 produtos</h3><p>Treino e certificado para todos, incluindo quem está chegando.</p></div>
+          <div class="card a" style="--d:1200"><span class="n">3</span><h3>Uma rotina para os clientes atuais</h3><p>Alguém acompanha cada cliente e oferece o próximo produto na hora certa.</p></div>
+        </div>
+        <div class="foot a f" style="--d:1350">Como: <b>começar pequeno, confirmar com dados e medir cedo.</b></div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom a" style="--d:1500">
+    <div class="strip c6"><span class="k">O roteiro segue<br>os 6 pedidos do case</span>
+      <div><b>01</b>Diagnóstico</div>
+      <div><b>02</b>Da dor à solução</div>
+      <div><b>03</b>Capacitação</div>
+      <div><b>04</b>Playbook</div>
+      <div><b>05</b>Papéis</div>
+      <div><b>06</b>Métricas e plano</div>
+    </div>
+  </div>
+</section>
+
+<!-- V7 · 01 · OS 3 PROBLEMAS -->
+<section class="slide t-light" data-title="Os 3 problemas" data-chapter="Pedido 01 · Diagnóstico">
+  <div class="grain"></div>
+  <header class="hd">
+    <p class="kick a f" style="--d:100">Pedido 01 · Diagnóstico · os 3 principais problemas</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Três problemas impedem o time de <span class="hl">vender o portfólio</span></span></span></h2>
+    <p class="lead a f" style="--d:450">Em cada um: o que as lideranças relatam no case, o número que confirma e a frente que responde.</p>
+  </header>
+  <div class="body" style="top:360px;bottom:210px">
+    <div class="probs v7">
+      <div class="card bar a" style="--d:550"><span class="big">1</span><h3>Cada produto é vendido sozinho</h3><p class="sint">O que as lideranças relatam</p><ul><li>“Materiais por produto, sem narrativa de portfólio”</li><li>“Descoberta rasa: o time apresenta o que conhece”</li></ul><p class="fact"><b>1 em cada 10</b>vendas inclui mais de um produto</p><p class="cause"><b>Resposta:</b> uma história única.</p></div>
+      <div class="card bar a" style="--d:700"><span class="big">2</span><h3>Só os especialistas sabem vender Ads e Geo</h3><p class="sint">O que as lideranças relatam</p><ul><li>“Pouca segurança com RankMyAds e RankMyGeo”</li><li>“Especialista de produto vira gargalo nas reuniões”</li></ul><p class="fact"><b>3 a 5 meses</b>é o tempo até uma pessoa nova bater a meta</p><p class="cause"><b>Resposta:</b> um time que domina os 3 produtos.</p></div>
+      <div class="card bar a" style="--d:850"><span class="big">3</span><h3>Falta uma rotina para oferecer mais a quem já é cliente</h3><p class="sint">O que as lideranças relatam</p><ul><li>“Key Accounts não identificam sinais de expansão”</li></ul><p class="fact"><b>18%</b>dos clientes têm mais de um produto</p><p class="cause"><b>Resposta:</b> uma rotina para os clientes atuais.</p></div>
+    </div>
+  </div>
+  <div class="bottom qa row a" style="--d:1100"><div class="q">E se o problema for o produto, e não a venda?</div><p>Os números do case indicam que não: quem compra mais de um produto tem, em média, <b>quase os três</b>. <button type="button" class="mbtn" data-modal="clientes">Ver a conta</button></p></div>
+</section>
+
+<!-- V7 · 01 · INVESTIGAÇÃO E PRIORIDADE -->
+<section class="slide t-light" data-title="O que investigo e por onde começo" data-chapter="Pedido 01 · Diagnóstico">
+  <div class="grain"></div>
+  <header class="hd">
+    <p class="kick a f" style="--d:100">Pedido 01 · Diagnóstico · o que investigo nas primeiras semanas e como priorizo</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Primeiro confirmo o diagnóstico. <span class="hl">Depois, o que destrava o resto.</span></span></span></h2>
+  </header>
+  <div class="body" style="top:250px;bottom:240px">
+    <p class="sub a f" style="--d:350;margin-top:0">Nos primeiros 30 dias, quatro perguntas</p>
+    <div class="q4">
+      <div class="card a" style="--d:450"><h3>Onde as vendas de Ads e Geo emperram?</h3><p>Olho os dados no CRM, o sistema onde o time registra clientes e vendas.</p></div>
+      <div class="card a" style="--d:550"><h3>A conversa com o cliente é rasa mesmo?</h3><p>Acompanho reuniões e dou nota com uma ficha simples. Vira o ponto de partida.</p></div>
+      <div class="card a" style="--d:650"><h3>Quem compra mais de um produto?</h3><p>Setor, tamanho e quem decide. É o perfil a procurar.</p></div>
+      <div class="card a" style="--d:750"><h3>Onde o time trava, na visão dele?</h3><p>Converso com todas as áreas que falam com o cliente.</p></div>
+    </div>
+    <p class="sub a f" style="--d:850">A ordem nos primeiros 90 dias</p>
+    <div class="gantt tight">
+      <div class="gh a f" style="--d:900"><span></span><div class="ax"><span>Mês 1</span><span>Mês 2</span><span>Mês 3</span></div><span class="k">Por que nessa ordem</span></div>
+      <div class="gr a" style="--d:950"><div class="nm"><b>História única e playbook</b></div><div class="trk"><i class="grow" style="--l:0%;--w:50%;--d:1150">Semanas 1 a 6</i></div><p class="why"><b>Primeiro</b>, porque sem ela não há o que treinar nem o que oferecer.</p></div>
+      <div class="gr a" style="--d:1100"><div class="nm"><b>Rotina para clientes atuais</b><small>piloto com 15 clientes</small></div><div class="trk"><i class="grow" style="--l:16.6%;--w:66.6%;--pc:var(--cyan);--d:1300">60 dias, a partir da 3ª semana</i></div><p class="why"><b>Em paralelo</b>, porque é um teste pequeno e dá resultado em semanas.</p></div>
+      <div class="gr a" style="--d:1250"><div class="nm"><b>Treino e certificado</b><small>time atual e 1ª turma de novos</small></div><div class="trk"><i class="grow" style="--l:33.3%;--w:66.7%;--pc:var(--blue-2);--d:1450">Meses 2 e 3</i></div><p class="why"><b>Em seguida</b>, a tempo de receber a 1ª turma de pessoas novas.</p></div>
+    </div>
+  </div>
+  <div class="bottom qa2 a" style="--d:1600">
+    <div class="qa"><div class="q">E se os dados do CRM estiverem incompletos?</div><p>Uso o que existe e completo com uma amostra: reviso as vendas dos últimos meses com cada gestor. O que falta passa a ser registrado daqui para a frente.</p></div>
+    <div class="qa"><div class="q">E se as reuniões não forem gravadas hoje?</div><p>Acompanho reuniões ao vivo, como ouvinte, com a mesma ficha de notas. Para gravar, basta a videochamada que o time já usa, com o aceite do cliente.</p></div>
+  </div>
+</section>
+
+<!-- V7 · 02 · DA DOR À SOLUÇÃO -->
+<section class="slide" data-title="Da dor à solução" data-chapter="Pedido 02 · Da dor à solução">
+  <div class="glow g1"></div><div class="techgrid"></div><div class="grain"></div>
+  <header class="hd">
+    <p class="kick a f" style="--d:100">Pedido 02 · Da dor à solução certa</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Primeiro entender o cliente, <b>depois mostrar o próximo passo</b></span></span></h2>
+    <p class="lead a f" style="--d:450">Todo cliente quer que o app cresça. Cada produto resolve uma etapa desse caminho, com uma dor e um momento típicos. Essa é a história única.</p>
+  </header>
+  <div class="body" style="top:322px;bottom:200px">
+    <div class="journey sm">
+      <div class="jstep a" style="--d:550;--pc:var(--blue)"><span class="st">Etapa 1</span><h3>Ser encontrado</h3><span class="prod p-app pr">RankMyApp</span><p>O app aparece nas buscas da loja e a página convence quem chega.</p><p class="mo"><b>Momento:</b> app novo ou reformulado.</p><p class="q">O cliente diz: “O app não aparece nas buscas”</p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="jstep a" style="--d:700;--pc:var(--cyan)"><span class="st">Etapa 2</span><h3>Ganhar usuários</h3><span class="prod p-ads pr">RankMyAds</span><p>Anúncios trazem usuários em volume, com o custo sob controle.</p><p class="mo"><b>Momento:</b> lançamento, data importante ou investimento recebido.</p><p class="q">O cliente diz: “Precisamos de mais usuários sem estourar o custo”</p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="jstep a" style="--d:850;--pc:#8b5cf6"><span class="st">Etapa 3</span><h3>Ser recomendado pelas IAs</h3><span class="prod p-geo pr">RankMyGeo</span><p>Quando alguém pede a uma IA a indicação de um app, a marca aparece.</p><p class="mo"><b>Momento:</b> a categoria passa a ser pesquisada nas IAs.</p><p class="q">O cliente diz: “As IAs só recomendam o nosso concorrente”</p></div>
+    </div>
+    <p class="sub a f" style="--d:1000">Para descobrir a etapa, as 5 perguntas do método SPICED, feitas antes de falar de produto</p>
+    <div class="quem a f" style="--d:1020"><span class="a2">Pré-vendas começa e qualifica</span><span class="a3">O vendedor aprofunda e monta com o cliente o caminho até a data crítica</span></div>
+    <div class="sp5">
+      <div class="card a" style="--d:1050"><span class="L">S</span><div><h3>Situação</h3><p>“Qual o papel do app no faturamento?”</p></div></div>
+      <div class="card a" style="--d:1120"><span class="L">P</span><div><h3>Dor</h3><p>“O que mais atrapalha o app de crescer?”</p></div></div>
+      <div class="card a" style="--d:1190"><span class="L">I</span><div><h3>Impacto</h3><p>“Quanto vocês deixam de faturar por isso?”</p></div></div>
+      <div class="card a" style="--d:1260"><span class="L">C</span><div><h3>Data crítica</h3><p>“Tem lançamento ou data importante chegando?”</p></div></div>
+      <div class="card a" style="--d:1330"><span class="L">D</span><div><h3>Decisão</h3><p>“Quem mais participa dessa decisão?”</p></div></div>
+    </div>
+  </div>
+  <div class="bottom qa row a" style="--d:1500"><div class="q">Por que o SPICED?</div><p>Porque começa pela dor do cliente e por quanto ela custa, e a dor do case é o time abrir pelo produto. São só 5 letras, valem para a venda nova e para o cliente atual, e não exigem ferramenta.</p></div>
+</section>
+
+<!-- V7 · 03 · CAPACITAÇÃO -->
+<section class="slide" data-title="Capacitação e certificação em portfólio" data-chapter="Pedido 03 · Capacitação">
+  <div class="glow g1"></div><div class="techgrid"></div><div class="grain"></div>
+  <header class="hd">
+    <p class="kick a f" style="--d:100">Pedido 03 · Capacitação em portfólio e certificação</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Treino em 3 passos e <b>uma regra para chamar o especialista</b></span></span></h2>
+  </header>
+  <div class="body" style="top:260px;bottom:200px">
+    <div class="flow c3" style="height:315px">
+      <div class="fstep a" style="--d:450"><span class="n">1</span><h3>Aprender · todos</h3><p>A história, os 3 produtos e as 5 perguntas do SPICED. Trilha curta, com prova. <b>Os 2 gestores fazem primeiro</b>, para depois acompanhar o time.</p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fstep a" style="--d:600"><span class="n">2</span><h3>Praticar · roleplay por cargo</h3><p>Reuniões simuladas com a situação de cada cargo: pré-vendas treina a primeira conversa, o vendedor a oferta, o gerente de contas a expansão.</p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fstep hi a" style="--d:750"><span class="n">3</span><h3>Provar · o certificado</h3><p>Conduzir uma reunião real de Ads ou Geo com nota mínima. <b>Todo o time até o fim do 3º mês.</b> Depois, reforço quinzenal de 30 min com roleplay.</p></div>
+    </div>
+    <div class="rule">
+      <div class="card side a" style="--d:900"><span class="tag prem"><i></i>Premissa</span><h3>O especialista entra quando…</h3><ul class="blist cols">
+        <li>O vendedor <b>ainda não tem o certificado</b></li>
+        <li>A venda chega à <b>proposta</b> e precisa de desenho técnico, como um plano de anúncios</li>
+        <li>A dúvida do cliente <b>não está no playbook</b></li>
+        <li>O contrato é <b>maior que o valor médio</b> do produto, ou inclui os 3 produtos</li></ul></div>
+      <div class="card a r" style="--d:1050"><h3>Não entra</h3><p>Na primeira reunião, nas 5 perguntas e na apresentação padrão.</p><h3>Como pedir</h3><p>Pelo CRM, com as 5 perguntas respondidas. Para dúvidas do dia a dia, um horário fixo por semana.</p></div>
+    </div>
+  </div>
+  <div class="bottom qa row a" style="--d:1250"><div class="q">Precisa contratar alguma ferramenta?</div><p><b>Não nos primeiros 90 dias.</b> O plano usa o CRM atual, a videochamada que o time já tem e uma planilha de notas. Ferramenta nova só se o resultado justificar.</p></div>
+</section>
+
+<!-- V7 · 03 · ONBOARDING -->
+<section class="slide t-light" data-title="Onboarding das 7 contratações" data-chapter="Pedido 03 · Capacitação">
+  <div class="grain"></div>
+  <header class="hd">
+    <p class="kick a f" style="--d:100">Pedido 03 · Onboarding das 7 contratações em até 3 meses</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">As 7 pessoas novas <span class="hl">prontas para vender em 3 meses</span></span></span></h2>
+    <p class="lead a f" style="--d:450">Elas chegam em 3 turmas ao longo de 6 meses. Por isso o programa é o mesmo para cada turma, e cada pessoa segue 3 fases.</p>
+  </header>
+  <div class="body" style="top:370px;bottom:200px">
+    <div class="tl a f" style="--d:550;height:270px">
+      <div class="axis"></div>
+      <span class="m" style="left:2%">Mês 0</span><span class="m" style="left:14.28%">Mês 1</span><span class="m" style="left:28.57%">Mês 2</span><span class="m" style="left:42.86%">Mês 3</span><span class="m" style="left:57.14%">Mês 4</span><span class="m" style="left:71.43%">Mês 5</span><span class="m" style="left:85.71%">Mês 6</span><span class="m" style="left:98%">Mês 7</span>
+      <div class="lane me grow" style="left:0;width:28.57%;top:64px;--d:700">Programa pronto</div>
+      <div class="lane l1 grow" style="left:28.57%;width:42.86%;top:64px;--d:900">Turma 1 <span>3 pessoas</span></div>
+      <div class="lane l2 grow" style="left:57.14%;width:42.86%;top:130px;--d:1100">Turma 2 <span>2 pessoas</span></div>
+      <div class="lane l3 grow" style="left:85.71%;width:14.29%;top:196px;--d:1300">Turma 3</div>
+    </div>
+    <div class="track">
+      <div class="card a" style="--d:1300"><span class="d">Dias 1 a 15</span><h3>Entender o mercado</h3><p>O mundo dos apps, a história dos 3 produtos e o cliente ideal. <b class="marco">Marco: acompanhou reuniões de colegas.</b></p></div>
+      <div class="card a" style="--d:1420"><span class="d">Dias 16 a 45</span><h3>Os 3 passos do treino</h3><p>Aprender os produtos e o SPICED, praticar com roleplay e provar em uma reunião real. <b class="marco">Marco: certificado no dia 45.</b></p></div>
+      <div class="card a" style="--d:1540"><span class="d">Dias 46 a 90</span><h3>Vender com apoio</h3><p>Reuniões reais, com acompanhamento semanal do gestor. <b class="marco">Marcos: 1ª oportunidade aberta e 1ª proposta enviada.</b></p></div>
+    </div>
+  </div>
+  <div class="bottom qa row a" style="--d:1700"><div class="q">Como bater meta em 3 meses, se uma venda leva 95 dias?</div><p><b>Em receita, dificilmente.</b> Por isso, até o 3º mês a meta do vendedor novo é por marcos: certificado, 1ª oportunidade e 1ª proposta. Ele já recebe oportunidades qualificadas pelo pré-vendas. <span class="tag prem"><i></i>Premissa</span></p></div>
+</section>
+
+<!-- V7 · 04 · PLAYBOOK -->
+<section class="slide t-light" data-title="Estrutura do playbook de portfólio" data-chapter="Pedido 04 · Playbook">
+  <div class="grain"></div>
+  <header class="hd">
+    <p class="kick a f" style="--d:100">Pedido 04 · Playbook de oferta · a estrutura</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">O playbook: <span class="hl">um guia só</span> para vender os 3 produtos</span></span></h2>
+    <p class="lead a f" style="--d:450">Playbook é o guia de vendas do time. Hoje existe um material por produto. A proposta é um só, com 9 partes, na ordem da venda.</p>
+  </header>
+  <div class="body" style="top:370px;bottom:220px">
+    <div class="pb">
+      <div class="card a" style="--d:500"><span class="nn">01</span><div><h3>A história</h3><p>O caminho para o app crescer, em 3 etapas.</p><span class="badge">Já vimos</span></div></div>
+      <div class="card a" style="--d:570"><span class="nn">02</span><div><h3>Para quem vender</h3><p>O perfil de cliente ideal de cada produto e quem decide a compra.</p><button type="button" class="mbtn" data-modal="icp">Ver o perfil</button></div></div>
+      <div class="card a" style="--d:640"><span class="nn">03</span><div><h3>As 5 perguntas do SPICED</h3><p>E as respostas que apontam cada produto.</p><span class="badge">Já vimos</span></div></div>
+      <div class="card a" style="--d:710"><span class="nn">04</span><div><h3>Combinações de oferta</h3><p>App + Ads, App + Geo, os três juntos, e Geo como porta de entrada.</p></div></div>
+      <div class="card focus a" style="--d:780"><span class="nn">05</span><div><h3>Sinais de expansão</h3><p>Quando oferecer o próximo produto a quem já é cliente.</p><span class="badge">Detalhado a seguir</span></div></div>
+      <div class="card a" style="--d:850"><span class="nn">06</span><div><h3>Objeções e respostas</h3><p>“Já temos agência de anúncios”, “IA ainda é cedo para nós”.</p></div></div>
+      <div class="card a" style="--d:920"><span class="nn">07</span><div><h3>Provas</h3><p>Casos e números de clientes que já compram os três.</p></div></div>
+      <div class="card a" style="--d:990"><span class="nn">08</span><div><h3>Quem faz o quê</h3><p>O papel de cada área e a regra do especialista.</p><span class="badge">Pedido 05</span></div></div>
+      <div class="card a" style="--d:1060"><span class="nn">09</span><div><h3>Materiais</h3><p>Apresentação do portfólio, calculadora de resultado e e-mails modelo.</p></div></div>
+    </div>
+  </div>
+  <div class="bottom qa row a" style="--d:1250"><div class="q">Por que um guia só, e não um por produto?</div><p>Porque o cliente não compra um produto, compra o crescimento do app. Um guia só faz a venda começar pelo cliente.</p></div>
+</section>
+
+<!-- V7 · 04 · SINAIS DE EXPANSÃO -->
+<section class="slide" data-title="Sinais de expansão" data-chapter="Pedido 04 · Playbook">
+  <div class="glow g1"></div><div class="techgrid"></div><div class="grain"></div>
+  <header class="hd">
+    <p class="kick a f" style="--d:100">Pedido 04 · Playbook · seção detalhada</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Sinais de expansão: <b>a hora de oferecer o próximo produto</b></span></span></h2>
+    <p class="lead a f" style="--d:450">Expansão é vender mais um produto a quem já é cliente. Um sinal é algo que acontece no cliente e mostra que ele está pronto.</p>
+  </header>
+  <div class="body" style="top:345px;bottom:200px">
+    <div class="sig">
+      <div class="card a" style="--d:550"><span class="sn">Sinal 1</span><h3>A página do app passou a convencer mais</h3><p class="ex">Ex.: de cada 100 pessoas que veem a página, <b>32 instalam</b>. Antes eram 25.</p><p class="off">Oferecer <span class="prod p-ads">Ads</span></p><p class="ask">“Agora que a página convence mais, quanto renderia anunciar?”</p></div>
+      <div class="card a" style="--d:680"><span class="sn">Sinal 2</span><h3>Uma data importante está chegando</h3><p class="ex">Ex.: <b>lançamento</b> de uma versão nova, <b>Black Friday</b>, entrada em outro país.</p><p class="off">Oferecer <span class="prod p-ads">Ads</span></p><p class="ask">“Qual a meta de instalações para o lançamento?”</p></div>
+      <div class="card a" style="--d:810"><span class="sn">Sinal 3</span><h3>Entrou dinheiro ou gente nova no marketing</h3><p class="ex">Ex.: o cliente <b>recebeu investimento</b> ou contratou alguém para cuidar de anúncios.</p><p class="off">Oferecer <span class="prod p-ads">Ads</span></p><p class="ask">“Quem vai cuidar dos anúncios a partir de agora?”</p></div>
+      <div class="card a" style="--d:940"><span class="sn">Sinal 4</span><h3>O cliente fala de IA, ou o concorrente aparece nela</h3><p class="ex">Ex.: “perguntei ao ChatGPT qual o melhor app de delivery e <b>só deu o concorrente</b>”.</p><p class="off">Oferecer <span class="prod p-geo">Geo</span></p><p class="ask">“Vamos ver juntos o que as IAs dizem da sua categoria?”</p></div>
+    </div>
+    <div class="notyet a" style="--d:1150;margin-top:18px"><h3>Ainda não ofereça se…</h3><ul><li>O cliente está insatisfeito</li><li>O resultado está abaixo do prometido</li><li>Mudou quem cuida do contrato no cliente</li><li>O pagamento está atrasado</li></ul></div>
+  </div>
+  <div class="bottom qa row a" style="--d:1350"><div class="q">Como esses sinais entram no dia a dia?</div><p>São hipóteses, testadas em um piloto de 60 dias com 15 clientes. <b>A rotina vem logo a seguir.</b></p></div>
+</section>
+
+<!-- V7 · 04 · A ROTINA DO PILOTO -->
+<section class="slide t-light" data-title="A rotina do piloto" data-chapter="Pedido 04 · Playbook">
+  <div class="grain"></div>
+  <header class="hd">
+    <p class="kick a f" style="--d:100">Pedido 04 · Playbook · como os sinais viram rotina</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Do sinal à oferta: <span class="hl">a rotina do piloto, semana a semana</span></span></span></h2>
+    <p class="lead a f" style="--d:450">Um piloto é um teste pequeno: 3 gerentes de contas, 15 clientes que só compram o App e 60 dias.</p>
+  </header>
+  <div class="body" style="top:345px;bottom:200px">
+    <div class="flow c4" style="height:285px">
+      <div class="fstep a" style="--d:550"><span class="d">Uma vez · no início</span><h3>1. Preparar</h3><p>Cada gerente escolhe 5 clientes. Juntos montamos o quadro: uma linha por cliente, uma coluna por sinal.</p><p class="pass">Quem: <b>eu e os 3 gerentes</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fstep a" style="--d:700"><span class="d">Toda segunda · 30 min</span><h3>2. Revisar</h3><p>O gerente passa pelos seus 5 clientes com o atendimento: algum sinal apareceu? O cliente está satisfeito?</p><p class="pass">Quem: <b>gerente e atendimento</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fstep a" style="--d:850"><span class="d">Em até 7 dias</span><h3>3. Conversar</h3><p>Com sinal e cliente satisfeito, o gerente marca a conversa: leva o dado do sinal e a pergunta de abertura.</p><p class="pass">Quem: <b>gerente de contas</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fstep hi a" style="--d:1000"><span class="d">Toda sexta · 15 min</span><h3>4. Registrar e ajustar</h3><p>Atualizamos o quadro e vemos o que funcionou. O sinal que não gera conversa sai da lista.</p><p class="pass">Quem: <b>eu e os 3 gerentes</b></p></div>
+    </div>
+    <div class="quadro">
+      <div class="a f" style="--d:1150">
+        <p class="sub" style="margin-top:0">O quadro do piloto · exemplo com 3 dos 15 clientes</p>
+        <table class="tbl">
+          <thead><tr><th>Cliente</th><th>Sinal da semana</th><th>Satisfeito?</th><th>Próximo passo</th><th>Situação</th></tr></thead>
+          <tbody>
+            <tr><td><b>App de delivery</b></td><td>1 · A página convence mais</td><td>Sim</td><td>Conversa na quinta</td><td><b>Proposta enviada</b></td></tr>
+            <tr><td><b>Banco digital</b></td><td>2 · Lançamento em 2 meses</td><td>Sim</td><td>Marcar conversa</td><td>Conversa marcada</td></tr>
+            <tr><td><b>Loja de roupas</b></td><td>Nenhum</td><td>Não</td><td>Resolver a queixa antes</td><td>Sem oferta agora</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card side a r" style="--d:1300"><h3>Sem ferramenta nova</h3><p>O quadro é uma planilha compartilhada, ou um campo no CRM que a empresa já usa.</p></div>
+    </div>
+  </div>
+  <div class="bottom qa row a" style="--d:1500"><div class="q">E depois dos 60 dias?</div><p>Com pelo menos <b>5 propostas e 2 vendas</b>, a rotina passa a valer para todos os clientes, com revisão mensal, e entra no treino.</p></div>
+</section>
+
+<!-- V7 · 05 · PAPÉIS -->
+<section class="slide t-light" data-title="Papel de cada área" data-chapter="Pedido 05 · Papéis">
+  <div class="grain"></div>
+  <header class="hd">
+    <p class="kick a f" style="--d:100">Pedido 05 · Papel de cada área</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Para nenhuma venda se perder, <span class="hl">cada área cuida de um trecho</span></span></span></h2>
+  </header>
+  <div class="body" style="top:270px;bottom:200px">
+    <div class="flow c4" style="height:330px">
+      <div class="fstep a" style="--d:450"><span class="d">Pré-vendas (SDR) · 9 + 4 novos</span><h3>Encontra o cliente</h3><p>Busca empresas com o perfil certo e qualifica com as duas primeiras perguntas do SPICED: situação e dor.</p><p class="pass">Passa adiante: <b>a oportunidade qualificada</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fstep a" style="--d:570"><span class="d">Vendedor (AE) · 5 + 3 novos</span><h3>Vende</h3><p>Recebe a oportunidade qualificada, aprofunda impacto, data crítica e decisão, e propõe a combinação de produtos.</p><p class="pass">Passa adiante: <b>o que foi vendido e por quê</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fstep a" style="--d:690"><span class="d">Atendimento (CS)</span><h3>Entrega o resultado</h3><p>Coloca o serviço para funcionar e mostra o resultado ao cliente.</p><p class="pass">Passa adiante: <b>os sinais que observou</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fstep hi a" style="--d:810"><span class="d">Gerente de contas (Key Account) · 3</span><h3>Faz o cliente crescer</h3><p>Revisa seus clientes, procura os sinais e faz a oferta em até 7 dias.</p><p class="pass">Meta: <b>vendas para clientes atuais</b></p></div>
+    </div>
+    <div class="handoff c3">
+      <div class="card side a" style="--d:950"><h3>Gestores · 2 pessoas</h3><p>Toda semana revisam uma reunião com cada vendedor e reforçam o SPICED. São eles que sustentam a mudança.</p></div>
+      <div class="card side a" style="--d:1050"><h3>Parcerias · 1 pessoa</h3><p>Leva a história do portfólio a agências e parceiros de mídia, que indicam clientes para Ads e Geo.</p></div>
+      <div class="card side a" style="--d:1150"><h3>Especialistas de produto</h3><p>Apoiam qualquer trecho, seguindo a regra de acionamento, e ajudam a treinar o time.</p></div>
+    </div>
+  </div>
+  <div class="bottom qa row a" style="--d:1250"><div class="q">O que impede a venda de se perder entre as áreas?</div><p>O que uma área descobre fica registrado no CRM. A próxima <b>não começa do zero</b>, e não há formulário extra para preencher.</p></div>
+</section>
+
+<!-- V7 · 06 · MÉTRICAS -->
+<section class="slide t-light" data-title="Métricas e metas para 6 meses" data-chapter="Pedido 06 · Métricas e plano">
+  <div class="grain"></div>
+  <header class="hd">
+    <p class="kick a f" style="--d:100">Pedido 06 · Indicadores e metas para 6 meses</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Três perguntas mostram <span class="hl">cedo</span> se está funcionando</span></span></h2>
+    <p class="lead a f" style="--d:450">A receita demora a mudar. Por isso olho primeiro o que muda antes dela. À esquerda o número de hoje, à direita a meta. <span class="tag prem"><i></i>Metas propostas</span><button type="button" class="mbtn" data-modal="premissas">Ver premissas</button></p>
+  </header>
+  <div class="body" style="top:370px;bottom:200px">
+    <div class="mt">
+      <div class="card bar a" style="--d:550"><span class="lv">Em semanas</span><h3>O time sabe?</h3><p class="why">Mostra se o treino funcionou.</p>
+        <div class="m"><span class="nm">Time atual com certificado</span><span class="go"><s>0%</s>100%</span></div>
+        <div class="m"><span class="nm">Novos com certificado até o dia 45</span><span class="go">100%</span></div>
+      </div>
+      <div class="card bar a" style="--d:700"><span class="lv">Em 1 a 2 meses</span><h3>O time faz?</h3><p class="why">Mostra se a prática mudou.</p>
+        <div class="m"><span class="nm">Vendas com as 5 perguntas respondidas</span><span class="go">80%</span></div>
+        <div class="m"><span class="nm">Reuniões de Ads e Geo sem o especialista</span><span class="go">50%</span></div>
+        <div class="m"><span class="nm">Ofertas feitas a clientes atuais</span><span class="go">25</span></div>
+        <div class="m"><span class="nm">Vendedores novos com oportunidade aberta até o dia 60</span><span class="go">100%</span></div>
+      </div>
+      <div class="card bar a" style="--d:850"><span class="lv">Em 6 meses</span><h3>O negócio muda?</h3><p class="why">Uma venda leva 95 dias: é o último a mudar.</p>
+        <div class="m"><span class="nm">Vendas com mais de 1 produto</span><span class="go"><s>10%</s>20%</span></div>
+        <div class="m"><span class="nm">Produtos por cliente</span><span class="go"><s>1,3</s>1,4</span></div>
+        <div class="m"><span class="nm">Vendas ganhas, de cada 100 disputadas</span><span class="go"><s>14</s>16</span></div>
+        <div class="m"><span class="nm">Tempo do novo até cumprir os marcos de entrada</span><span class="go"><s>3–5</s>3 meses</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom qa row a" style="--d:1050"><div class="q">E se o time souber e fizer, mas o negócio não mudar?</div><p>Então o problema está fora do treino, por exemplo na comissão ou na oferta, e eu levo isso à liderança com os dados.</p></div>
+</section>
+
+<!-- V7 · 06 · 30-60-90 -->
+<section class="slide" data-title="Plano 30-60-90" data-chapter="Pedido 06 · Métricas e plano">
+  <div class="glow g1"></div><div class="techgrid"></div><div class="grain"></div>
+  <header class="hd">
+    <p class="kick a f" style="--d:100">Pedido 06 · Plano 30-60-90</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">O que eu faço, entrego e quem envolvo <b>a cada 30 dias</b></span></span></h2>
+  </header>
+  <div class="body" style="top:260px;bottom:200px">
+    <div class="p369">
+      <div class="card ph a" style="--d:400;--pc:var(--blue)"><div class="hdp"><span class="dd">Dias 1 a 30</span><h3>Ouvir e confirmar</h3></div><div class="bd">
+        <div class="grp"><span class="k">Faço</span><p>Converso com o time, analiso os dados de vendas, acompanho reuniões e escrevo a 1ª versão da história.</p></div>
+        <div class="grp"><span class="k">Entrego</span><p><b>Diagnóstico confirmado</b>, o que é sucesso combinado com a liderança e o piloto com 15 clientes começando.</p></div>
+        <div class="grp"><span class="k">Envolvo</span><p>Lideranças, gerentes de contas e quem cuida dos dados de vendas.</p></div></div></div>
+      <div class="card ph a" style="--d:600;--pc:var(--blue-2)"><div class="hdp"><span class="dd">Dias 31 a 60</span><h3>Construir e testar</h3></div><div class="bd">
+        <div class="grp"><span class="k">Faço</span><p>Fecho a história, as 5 perguntas e o playbook. Monto o treino e certifico os 2 gestores primeiro.</p></div>
+        <div class="grp"><span class="k">Entrego</span><p><b>Playbook publicado</b>, o programa das pessoas novas pronto e as primeiras ofertas do piloto.</p></div>
+        <div class="grp"><span class="k">Envolvo</span><p>Especialistas de produto, marketing e os gestores do time.</p></div></div></div>
+      <div class="card ph a" style="--d:800;--pc:var(--cyan)"><div class="hdp"><span class="dd">Dias 61 a 90</span><h3>Levar para todos e medir</h3></div><div class="bd">
+        <div class="grp"><span class="k">Faço</span><p>Certifico o time e acompanho a 1ª turma de novos. Coloco o playbook dentro do CRM.</p></div>
+        <div class="grp"><span class="k">Entrego</span><p><b>Time certificado</b>, resultado do piloto, painel de métricas e uma <b>proposta de comissão</b> que favoreça vender mais de um produto.</p></div>
+        <div class="grp"><span class="k">Envolvo</span><p>Liderança e financeiro, para decidir os próximos passos.</p></div></div></div>
+    </div>
+  </div>
+  <div class="bottom qa row a" style="--d:1000"><div class="q">O que pode atrapalhar o plano?</div><p>O time não aderir. Por isso o gestor fica no centro: as notas das reuniões entram na conversa semanal dele com cada vendedor.</p></div>
+</section>
+
+<!-- V7 · ENCERRAMENTO -->
+<section class="slide t-blue" data-title="Em resumo" data-chapter="Encerramento">
+  <div class="grain"></div>
+  <svg class="bigR" viewBox="0 0 760 900" aria-hidden="true"><path pathLength="1" d="M75 900V75h420a150 150 0 0 1 0 300H260L700 830"/></svg>
+  <p class="z sec-k a f" style="--d:200;top:200px">Em resumo</p>
+  <h2 class="z end-t"><span class="mask"><span class="mi" style="--d:300">Obrigada.</span></span></h2>
+  <ol class="z end-l">
+    <li class="a" style="--d:700"><span>01</span><div>O time vende um produto porque <b>vende por produto</b>, e não porque os outros são piores.</div></li>
+    <li class="a" style="--d:900"><span>02</span><div>A resposta tem três frentes: <b>uma história única, um time que domina os 3 produtos e uma rotina para os clientes atuais</b>.</div></li>
+    <li class="a" style="--d:1100"><span>03</span><div>Em 90 dias: <b>diagnóstico confirmado, playbook publicado e time certificado</b>.</div></li>
+  </ol>
+</section>
+<!-- APÊNDICE · DIVISOR -->
+<section class="slide t-blue" data-title="Apêndice" data-chapter="Apêndice · para as perguntas">
+  <div class="grain"></div>
+  <p class="z sec-n a b" style="--d:150">+</p>
+  <p class="z sec-k a f" style="--d:400">Apêndice</p>
+  <h2 class="z sec-t"><span class="mask"><span class="mi" style="--d:500">Para as perguntas</span></span></h2>
+  <p class="z sec-d a f" style="--d:800">A conta por trás do diagnóstico, os riscos, as premissas e as referências de mercado.</p>
+</section>
+<!-- V6 · 100 CLIENTES -->
+<section class="slide" data-title="De cada 100 clientes, 82 só compram o App" data-chapter="Apêndice · para as perguntas" data-demo="dots">
+  <div class="glow g1"></div><div class="techgrid"></div><div class="grain"></div>
+  <header class="hd">
+    <p class="kick a f" style="--d:100">A conta por trás do diagnóstico</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">De cada 100 clientes, <b>82 só compram o App</b></span></span></h2>
+  </header>
+  <div class="body" style="top:270px;bottom:210px">
+    <div class="dots-wrap w100">
+      <div>
+        <div class="dots d100" data-total="100" data-multi="18" data-idx="2,7,15,19,24,33,38,41,47,56,58,64,71,75,83,86,92,97" aria-label="100 clientes: 82 só com RankMyApp e 18 com mais de um produto"></div>
+        <div class="dleg a f" style="--d:600"><span><i style="background:rgba(0,34,255,.35);border:2px solid var(--blue-2)"></i>Só RankMyApp</span><span><i style="background:conic-gradient(var(--blue) 0 33%,var(--cyan) 0 66%,#8b5cf6 0)"></i>Mais de um produto</span></div>
+      </div>
+      <div class="dots-steps">
+        <div class="dstep" data-ds="1"><h3>Cada círculo é um cliente</h3><p>Uma amostra de 100, com as proporções do case.</p></div>
+        <div class="dstep" data-ds="2"><h3>18 compram mais de um produto</h3><p>É o dado do case: 18% dos clientes.</p></div>
+        <div class="dstep" data-ds="3"><h3>E esses 18 compram quase os três</h3><p>O case diz que a média é de 1,3 produto por cliente. Para a conta fechar, esses 18 têm em média <b>2,7 produtos</b>.</p></div>
+        <div class="dstep" data-ds="4"><h3>Os outros 82 só compram o App</h3><p>Hipótese a confirmar nos primeiros 30 dias: boa parte nunca recebeu uma oferta organizada de Ads ou Geo.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom takeaway a" style="--d:900"><span class="tk">O que isso diz</span><span>Quem experimenta o portfólio <b>fica com quase tudo</b>. É um indício de que o problema está na venda, e não no produto.</span></div>
+</section>
+<!-- V6 · A CONTA DA META -->
+<section class="slide" data-title="De onde vem o crescimento" data-chapter="Apêndice · para as perguntas">
+  <div class="glow g1"></div><div class="techgrid"></div><div class="grain"></div>
+  <header class="hd">
+    <p class="kick a f" style="--d:100">Quanto isso vale · a conta da meta</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">De onde pode vir o crescimento, <b>em dois cenários</b></span></span></h2>
+    <p class="lead a f" style="--d:450">Cada barra mostra quanto a receita cresce em 1 ano e de onde vem cada parte.</p>
+  </header>
+  <div class="body" style="top:360px;bottom:210px">
+    <div class="meta2">
+      <div>
+        <div class="stk">
+          <div class="srow a w" style="--d:600"><span class="nm">Cenário moderado</span><div class="tr"><i class="c0" style="--v:10">10%</i><i class="c1" style="--v:5">5%</i><i class="c2" style="--v:6">6%</i><i class="c3" style="--v:13">13%</i><b class="tot">= 34%</b></div></div>
+          <div class="srow a w" style="--d:900"><span class="nm">Cenário otimista</span><div class="tr"><i class="c0" style="--v:12">12%</i><i class="c1" style="--v:5">5%</i><i class="c2" style="--v:9">9%</i><i class="c3" style="--v:27">27%</i><b class="tot">= 53%</b></div></div>
+          <div class="goal a f" style="--d:1200"><span>Meta: 60%</span></div>
+        </div>
+        <div class="lg a f" style="--d:1300">
+          <div class="c0"><i></i><span><b>Sem mudar nada</b><p>Clientes novos que o time já traz, menos os que cancelam.</p></span></div>
+          <div class="c1"><i></i><span><b>As 7 pessoas novas</b><p>Chegam aos poucos e ainda estão aprendendo.</p></span></div>
+          <div class="c2"><i></i><span><b>Vender melhor para clientes novos</b><p>Mais vendas fechadas, e mais vendas com 2 ou 3 produtos.</p></span></div>
+          <div class="c3"><i></i><span><b>Ads e Geo para quem já é cliente</b><p>A maior fatia nos dois cenários.</p></span></div>
+        </div>
+      </div>
+      <div class="side-col">
+        <span class="tag prem a f" style="--d:700"><i></i>Conta ilustrativa · premissas no apêndice</span>
+        <div class="qa a r" style="--d:1000"><div class="q">Por que as 7 pessoas novas somam só 5%?</div><p>Chegam em 3 turmas ao longo de 6 meses e levam meses para vender no ritmo dos demais. O ganho maior vem no 2º ano.</p></div>
+        <div class="qa a r" style="--d:1150"><div class="q">E os 60%?</div><p>Nem o cenário otimista chega lá só com o time vendendo melhor. O que falta depende de <b>comissão, parcerias e pacotes de oferta</b>, decisões da liderança.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom takeaway a" style="--d:1500"><span class="tk">Como ler</span><span>As fatias dependem de premissas minhas. Servem para comparar caminhos, <b>não como previsão</b>.</span></div>
+</section>
+<!-- V6 · PERGUNTAS -->
+<section class="slide t-light" data-title="Perguntas que vocês podem ter" data-chapter="Apêndice · para as perguntas">
+  <div class="grain"></div>
+  <header class="hd">
+    <p class="kick a f" style="--d:100">Plano realista · riscos e respostas</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">O que pode dar errado, <span class="hl">e o que eu faço</span></span></span></h2>
+  </header>
+  <div class="body" style="top:290px;bottom:96px">
+    <div class="faq">
+      <div class="qa a" style="--d:450"><div class="q">E se o time não aderir?</div><p>O gestor fica no centro: as notas das reuniões entram na conversa semanal dele com cada vendedor.</p></div>
+      <div class="qa a" style="--d:570"><div class="q">E se vender só o App continuar mais fácil para bater meta?</div><p>Levo à liderança uma <b>proposta de comissão</b> que favoreça vender mais de um produto, com os números do piloto.</p></div>
+      <div class="qa a" style="--d:690"><div class="q">E se o piloto não der certo?</div><p>Ele existe para isso. Em 60 dias e com 15 clientes, ajusto a história e os sinais antes de treinar todo o time.</p></div>
+      <div class="qa a" style="--d:810"><div class="q">E se os dados de vendas forem ruins?</div><p>Começo pela amostra: reuniões acompanhadas e conversas dão o ponto de partida.</p></div>
+      <div class="qa a" style="--d:930"><div class="q">Se Ads crescer, quem opera os anúncios aguenta?</div><p>Combino com essa equipe o volume esperado a cada trimestre.</p></div>
+      <div class="qa a" style="--d:1050"><div class="q">Os números são reais?</div><p>São os do case, que são ilustrativos. <b>O que eu assumi está marcado em amarelo</b> e listado no apêndice.</p></div>
+    </div>
+  </div>
+</section>
+<!-- 31 · APÊNDICE PREMISSAS -->
+<section class="slide t-light" data-title="Apêndice · premissas" data-chapter="Apêndice · para as perguntas">
+  <div class="grain"></div>
+  <header class="hd">
+    <p class="kick a f" style="--d:100">Apêndice</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Premissas usadas <span class="hl">nas contas</span></span></span></h2>
+    <p class="lead a f" style="--d:450">O case diz que os números são ilustrativos. Onde faltou dado, assumi o seguinte, e cada item pode ser ajustado com os dados reais.</p>
+  </header>
+  <div class="body" style="top:385px;bottom:96px">
+    <div class="prem">
+      <div class="card a" style="--d:550"><span class="tag prem"><i></i>Base e meta</span><ul class="blist">
+        <li>Amostra de <b>100 clientes</b>, com as proporções do case.</li>
+        <li>Sem mudanças, o time atual traria <b>+20%</b> em novos clientes no ano.</li>
+        <li>Churn de <b>8 a 10%</b> da receita no ano.</li>
+        <li>Expansão: cliente de App compra Ads ou Geo com ticket menor no 1º contrato (<b>R$ 100 a 180 mil</b>).</li></ul></div>
+      <div class="card a" style="--d:700"><span class="tag prem"><i></i>Time e operação</span><ul class="blist">
+        <li>Os 7 novos chegam em 3 turmas: <b>meses 2, 4 e 6</b>.</li>
+        <li><b>Ramp-up:</b> o case não define. Proponho medir o vendedor novo por marcos até o 3º mês.</li>
+        <li><b>CS existe</b>, fora das 20 pessoas do comercial.</li>
+        <li>O plano usa o <b>CRM atual</b>; nenhuma ferramenta nova nos 90 primeiros dias.</li><li>Piloto com <b>15 contas</b>; deu certo com 5 propostas e 2 vendas em 60 dias.</li><li>Vendedor novo <b>recebe oportunidades já qualificadas pelo pré-vendas</b> e é acompanhado por marcos até o 3º mês.</li></ul></div>
+    </div>
+  </div>
+</section>
+<!-- 32 · APÊNDICE REFERÊNCIAS -->
+<section class="slide t-light" data-title="Apêndice · referências de mercado" data-chapter="Apêndice · para as perguntas">
+  <div class="grain"></div>
+  <header class="hd">
+    <p class="kick a f" style="--d:100">Apêndice</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Referências <span class="hl">de mercado</span></span></span></h2>
+    <p class="lead a f" style="--d:450">Metodologias e cases usados como referência. Os números de cases vêm, em geral, de quem vende o serviço ou a ferramenta: servem para ilustrar, não como prova.</p>
+  </header>
+  <div class="body" style="top:385px;bottom:96px">
+    <div class="refs">
+      <div class="card ref a" style="--d:500"><h3>Winning by Design · Bowtie e SPICED</h3><p>Funil completo com o pós-venda e roteiro de descoberta por impacto.</p><a href="https://winningbydesign.com" target="_blank" rel="noopener">winningbydesign.com</a></div>
+      <div class="card ref a" style="--d:600"><h3>Modelo de Kirkpatrick</h3><p>4 níveis para avaliar treinamento: reação, aprendizado, comportamento e resultado.</p><a href="https://www.mindtickle.com/blog/kirkpatrick-model-measuring-impact-sales-training/" target="_blank" rel="noopener">mindtickle.com · Kirkpatrick em vendas</a></div>
+      <div class="card ref a" style="--d:700"><h3>Salesforce · venda de portfólio</h3><p>Em vários trimestres, a maioria dos 10 maiores negócios incluiu 6 ou mais produtos (resultados financeiros publicados).</p><a href="https://investor.salesforce.com/news/news-details/2025/Salesforce-Reports-Record-First-Quarter-Fiscal-2026-Results/default.aspx" target="_blank" rel="noopener">investor.salesforce.com</a></div>
+      <div class="card ref a" style="--d:800"><h3>Blue Ridge Partners · cross-sell</h3><p>Negócios com cross-sell de menos de 15% para 50% e ticket +25%, com treinamento e roteiros (dado da consultoria).</p><a href="https://www.blueridgepartners.com/insights/ai-has-changed-the-game-of-cross-selling/" target="_blank" rel="noopener">blueridgepartners.com</a></div>
+      <div class="card ref a" style="--d:900"><h3>MongoDB · onboarding 30-60-90</h3><p>Ramp-up 45% menor com um programa de 30-60-90 dias (dado da Mindtickle).</p><a href="https://www.mindtickle.com/blog/sales-onboarding-at-hyper-growth-companies-key-learnings-from-autodesk-google-linkedin-and-zenefits/" target="_blank" rel="noopener">mindtickle.com · onboarding</a></div>
+      <div class="card ref a" style="--d:1000"><h3>RD Station · receita na base</h3><p>Estratégia multiproduto e divisão de papéis entre CS e vendas no cross-sell.</p><a href="https://www.rdstation.com/blog/noticias/podcast-bastidores-do-resultado-receita-na-base-de-clientes" target="_blank" rel="noopener">rdstation.com · receita na base</a></div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="progress" id="progress"><i></i></div>
+<div id="ui" role="toolbar" aria-label="Navegação">
+  <button type="button" data-act="prev" title="Anterior (←)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <span class="cnt" id="cnt">01 / 01</span>
+  <button type="button" data-act="next" title="Próximo (→)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+  <span class="div"></span>
+  <button type="button" data-act="menu" title="Índice (M)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  <button type="button" data-act="full" title="Tela cheia (F)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+</div>
+<div id="index" aria-hidden="true"></div>
+<div id="blackout"></div>
+<div id="rot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M3 12a9 9 0 0 1 4-7.5M21 12a9 9 0 0 1-4 7.5"/></svg><p>Os slides são feitos para tela deitada.<br>Gire o celular ou abra a versão para celular.</p><a href="../">Abrir a página única</a><button type="button" onclick="document.body.classList.add('rot-ok')">Continuar assim mesmo</button></div>
+
+<script>
+(() => {
+  'use strict';
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const stage = $('#stage');
+  const slides = $$('.slide', stage);
+  const N = slides.length;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const pad = n => String(n).padStart(2, '0');
+
+  /* moldura igual à do material da Rank: régua, rótulos, marca e número da página */
+  slides.forEach((s, i) => {
+    const f = document.createElement('div');
+    f.className = 'frame';
+    f.innerHTML = `<div class="top grow" style="--d:0"></div><span class="lbl l">${s.dataset.chapter === 'Abertura' ? 'Processo seletivo' : s.dataset.chapter}</span><span class="lbl r">Case RankMyApp · 2026</span>` +
+      `<span class="mark">Gabriela Paolla Moraes Peixoto</span><span class="pg">${pad(i + 1)}</span>`;
+    s.appendChild(f);
+  });
+
+  /* contagem animada dos números */
+  function parseFmt(s) {
+    const m = s.match(/^([^0-9]*)([0-9][0-9.,]*)(.*)$/); if (!m) return null;
+    const num = m[2]; const dec = num.includes(',') ? ',' : null;
+    return { pre: m[1], suf: m[3], val: parseFloat(num.replace(/\./g, '').replace(',', '.')), decimals: dec ? num.length - num.indexOf(',') - 1 : 0, dec };
+  }
+  const fmt = (v, f) => { let s = v.toFixed(f.decimals); if (f.dec) s = s.replace('.', ','); return f.pre + s + f.suf; };
+  $$('[data-count]').forEach(el => { el.dataset.final = el.textContent.trim(); });
+  let runToken = 0;
+  function countUp(sl) {
+    const tok = ++runToken;
+    $$('[data-count]', sl).forEach(el => {
+      if (/→/.test(el.dataset.final) || reduce) return;
+      const f = parseFmt(el.dataset.final); if (!f) return;
+      el.firstChild.nodeValue = fmt(0, f);
+      const start = performance.now() + 500, dur = 1600;
+      const tick = now => {
+        if (tok !== runToken) { el.firstChild.nodeValue = el.dataset.final; return; }
+        const t = Math.min(1, Math.max(0, (now - start) / dur));
+        el.firstChild.nodeValue = t >= 1 ? el.dataset.final : fmt(f.val * (1 - Math.pow(2, -10 * t)), f);
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  }
+  $$('[data-count]').forEach(el => { if (el.firstChild && el.firstChild.nodeType !== 3) el.insertBefore(document.createTextNode(''), el.firstChild); });
+
+  /* ---------------- demo: 77 clientes ---------------- */
+  const Dots = (() => {
+    const box = $('.dots'); if (!box) return null;
+    const total = +box.dataset.total || 77, multi = +box.dataset.multi || 14; const els = [];
+    for (let i = 0; i < total; i++) { const d = document.createElement('i'); box.appendChild(d); els.push(d); }
+    const multiIdx = new Set(box.dataset.idx ? box.dataset.idx.split(',').map(Number) : [3, 9, 14, 20, 27, 31, 38, 44, 50, 55, 61, 66, 70, 75].slice(0, multi));
+    const steps = $$('.dstep'); let timers = [];
+    const set = n => steps.forEach(s => s.classList.toggle('on', +s.dataset.ds === n));
+    function reset() { timers.forEach(clearTimeout); timers = []; els.forEach(e => e.className = ''); set(0); }
+    function play() {
+      reset();
+      const at = (ms, fn) => timers.push(setTimeout(fn, reduce ? 0 : ms));
+      at(500, () => set(1));
+      els.forEach((e, i) => at(600 + i * 22, () => e.classList.add('on', 'app')));
+      at(2800, () => { set(2); els.forEach((e, i) => { if (multiIdx.has(i)) { e.classList.remove('app'); e.classList.add('multi'); } }); });
+      at(5600, () => set(3));
+      at(8200, () => { set(4); els.forEach((e, i) => { if (!multiIdx.has(i)) e.classList.add('hot'); }); });
+    }
+    function done() { reset(); els.forEach((e, i) => e.classList.add('on', multiIdx.has(i) ? 'multi' : 'app')); steps.forEach(s => s.classList.add('on')); }
+    return { play, reset, done };
+  })();
+
+  /* ---------------- demo: ponte da meta ---------------- */
+  const Bridge = (() => {
+    const svg = $('#bridge-svg'); if (!svg) return null;
+    const BASE = 12.69, GOAL = BASE * 1.6;
+    const SCN = {
+      c: [-1.27, 2.54, 0.51, 0.11, 0.23, 0.63],
+      b: [-1.27, 2.54, 0.63, 0.23, 0.49, 1.64],
+      a: [-1.02, 2.54, 0.63, 0.41, 0.77, 3.41],
+    };
+    const LBL = ['Churn', 'Novos clientes\n(time atual)', '3 AEs\nnovos', 'Mais negócios\nmultiproduto', 'Win rate\nmaior', 'Expansão\nda base'];
+    const W = 1180, H = 640, top = 40, bottom = 540, x0 = 20, cols = 8, gapX = W / cols, bw = 96;
+    const maxV = 21.5, minV = 10;
+    const y = v => bottom - (v - minV) / (maxV - minV) * (bottom - top);
+    const ns = 'http://www.w3.org/2000/svg';
+    const mk = (tag, attrs, parent = svg) => { const e = document.createElementNS(ns, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; };
+    const fmtv = v => (v > 0 ? '+' : '') + v.toFixed(1).replace('.', ',');
+    const colors = ['#ef4b4b', '#3d57ff', '#3d57ff', '#3d57ff', '#3d57ff', '#07b3d0'];
+    mk('line', { x1: 0, x2: W, y1: bottom, y2: bottom, stroke: 'rgba(255,255,255,.25)' });
+    const goal = mk('line', { class: 'goal', x1: 0, x2: W, y1: y(GOAL), y2: y(GOAL) });
+    mk('text', { class: 'goal-t', x: W - 4, y: y(GOAL) - 12, 'text-anchor': 'end' }).textContent = `Meta +60% · R$ ${GOAL.toFixed(1).replace('.', ',')} mi`;
+    const bars = [], vals = [], conns = [];
+    const cx = i => x0 + gapX * i + gapX / 2;
+    // barra inicial
+    const b0 = mk('rect', { class: 'bar', x: cx(0) - bw / 2, width: bw, y: y(BASE), height: bottom - y(BASE), rx: 8, fill: 'rgba(255,255,255,.28)' });
+    mk('text', { class: 'val', x: cx(0), y: y(BASE) - 14 }).textContent = 'R$ 12,7';
+    const lab = (i, t) => { const tx = mk('text', { class: 'lbl', x: cx(i), y: bottom + 34 }); t.split('\n').forEach((l, k) => { const sp = mk('tspan', { x: cx(i), dy: k ? 24 : 0 }, tx); sp.textContent = l; }); };
+    lab(0, 'Receita\nhoje');
+    for (let i = 0; i < 6; i++) {
+      conns.push(mk('line', { class: 'conn', x1: cx(i) + bw / 2, x2: cx(i + 1) - bw / 2, y1: 0, y2: 0 }));
+      bars.push(mk('rect', { class: 'bar', x: cx(i + 1) - bw / 2, width: bw, y: bottom, height: 0, rx: 8, fill: colors[i] }));
+      vals.push(mk('text', { class: 'val', x: cx(i + 1), y: bottom }));
+      lab(i + 1, LBL[i]);
+    }
+    conns.push(mk('line', { class: 'conn', x1: cx(6) + bw / 2, x2: cx(7) - bw / 2, y1: 0, y2: 0 }));
+    const fin = mk('rect', { class: 'bar', x: cx(7) - bw / 2, width: bw, y: bottom, height: 0, rx: 8, fill: 'url(#gfin)' });
+    const defs = mk('defs', {}); const lg = mk('linearGradient', { id: 'gfin', x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
+    mk('stop', { offset: '0', 'stop-color': '#07b3d0' }, lg); mk('stop', { offset: '1', 'stop-color': '#0022ff' }, lg);
+    const finV = mk('text', { class: 'val', x: cx(7), y: bottom });
+    const finP = mk('text', { class: 'val', x: cx(7), y: bottom, style: 'fill:#07b3d0;font-size:30px' });
+    lab(7, 'Receita\nem 1 ano');
+    let cur = 'b';
+    function draw(key, animate = true) {
+      cur = key; const d = SCN[key]; let acc = BASE;
+      $$('.scn button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.scn === key)));
+      d.forEach((v, i) => {
+        const a = acc, b = acc + v; const yt = y(Math.max(a, b)), yb = y(Math.min(a, b));
+        const r = bars[i];
+        r.style.transitionDelay = animate ? `${i * 120}ms` : '0ms';
+        r.style.y = yt + 'px'; r.style.height = Math.max(2, yb - yt) + 'px';
+        vals[i].setAttribute('y', yt - 14); vals[i].textContent = fmtv(v);
+        conns[i].setAttribute('y1', y(a)); conns[i].setAttribute('y2', y(a));
+        acc = b;
+      });
+      conns[6].setAttribute('y1', y(acc)); conns[6].setAttribute('y2', y(acc));
+      fin.style.transitionDelay = animate ? '760ms' : '0ms';
+      fin.style.y = y(acc) + 'px'; fin.style.height = (bottom - y(acc)) + 'px';
+      finV.setAttribute('y', y(acc) - 14); finV.textContent = 'R$ ' + acc.toFixed(1).replace('.', ',');
+      finP.setAttribute('y', y(acc) - 50); finP.textContent = '+' + Math.round((acc / BASE - 1) * 100) + '%';
+    }
+    function collapse() { bars.forEach(r => { r.style.transitionDelay = '0ms'; r.style.y = bottom + 'px'; r.style.height = '0px'; }); fin.style.y = bottom + 'px'; fin.style.height = '0px'; vals.forEach(v => v.textContent = ''); finV.textContent = ''; finP.textContent = ''; }
+    $$('.scn button').forEach(b => b.addEventListener('click', () => draw(b.dataset.scn)));
+    collapse();
+    return { play() { collapse(); setTimeout(() => draw(cur), reduce ? 0 : 700); }, reset: collapse, done() { draw(cur, false); } };
+  })();
+  const DEMOS = { dots: Dots, bridge: Bridge };
+
+  /* ---------------- modo página única ---------------- */
+  if (document.body.classList.contains('page')) {
+    document.documentElement.classList.add('page');
+    slides.forEach((s, i) => { s.id = 's' + (i + 1); });
+    const bar = document.createElement('header');
+    bar.id = 'pbar';
+    const chs = [];
+    slides.forEach((s, i) => { const n = s.dataset.chapter; if (n && !chs.find(c => c.n === n)) chs.push({ n, i }); });
+    bar.innerHTML = `<span class="brand">Gabriela Paolla Moraes Peixoto<span>Case de Sales Enablement · RankMyApp</span></span><nav>${chs.map(c => `<a href="#s${c.i + 1}" data-i="${c.i}">${c.n}</a>`).join('')}</nav><a class="alt" href="../2/">Ver em slides</a><i class="bar"></i>`;
+    document.body.prepend(bar);
+    function fitPage() {
+      const vw = document.documentElement.clientWidth;
+      const narrow = vw < 1000;
+      document.body.classList.toggle('narrow', narrow);
+      stage.style.setProperty('--z', vw / (narrow ? 760 : 1920));
+    }
+    window.addEventListener('resize', fitPage); fitPage();
+    const io = new IntersectionObserver(entries => entries.forEach(en => {
+      const s = en.target;
+      if (!en.isIntersecting || s.classList.contains('play')) return;
+      s.classList.add('is-active', 'play'); countUp(s);
+      const dm = DEMOS[s.dataset.demo]; if (dm) dm.play();
+    }), { threshold: 0, rootMargin: '0px 0px -12% 0px' });
+    slides.forEach(s => io.observe(s));
+    const links = $$('#pbar nav a');
+    let lastY = 0;
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const y = h.scrollTop;
+      if (y > lastY + 6 && y > 80) bar.classList.add('hide');
+      else if (y < lastY - 6 || y <= 80) bar.classList.remove('hide');
+      lastY = y;
+      bar.style.setProperty('--p', h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight));
+      const mid = window.innerHeight * .4; let cur = 0;
+      slides.forEach((s, i) => { if (s.getBoundingClientRect().top < mid) cur = i; });
+      const ch = slides[cur].dataset.chapter;
+      links.forEach(a => a.classList.toggle('cur', slides[+a.dataset.i].dataset.chapter === ch));
+    }, { passive: true });
+    $$('[data-next]').forEach(b => b.addEventListener('click', () => slides[1].scrollIntoView({ behavior: 'smooth' })));
+    window.addEventListener('beforeprint', () => { Object.values(DEMOS).forEach(d => d && d.done()); });
+    return;
+  }
+
+  /* ---------------- navegação ---------------- */
+  const progI = $('#progress i'), cntEl = $('#cnt');
+  let cur = -1;
+  function go(i, opts = {}) {
+    i = Math.max(0, Math.min(N - 1, i)); if (i === cur) return;
+    const prev = slides[cur], next = slides[i];
+    stage.classList.toggle('back', i < cur);
+    if (prev) {
+      prev.classList.remove('is-active', 'play'); prev.classList.add('is-leaving');
+      clearTimeout(prev._t); prev._t = setTimeout(() => prev.classList.remove('is-leaving'), 1000);
+      const dp = DEMOS[prev.dataset.demo]; if (dp) dp.reset();
+    }
+    clearTimeout(next._t); next.classList.remove('play', 'is-leaving'); void next.offsetWidth; next.classList.add('is-active'); cur = i;
+    setTimeout(() => {
+      if (cur !== i) return;
+      next.classList.add('play'); countUp(next);
+      const dm = DEMOS[next.dataset.demo]; if (dm) dm.play();
+    }, opts.instant ? 0 : 80);
+    const txt = pad(i + 1) + ' / ' + pad(N); cntEl.textContent = txt; progI.style.setProperty('--pr', (i + 1) / N);
+    try { history.replaceState(null, '', '#/' + (i + 1)); } catch (e) { /* file:// */ }
+    $$('#index a').forEach(a => a.classList.toggle('cur', +a.dataset.i === i));
+  }
+  const nextSlide = () => go(cur + 1), prevSlide = () => go(cur - 1);
+
+  const idx = $('#index');
+  (function buildIndex() {
+    const chs = [];
+    slides.forEach((s, i) => { const name = s.dataset.chapter || ''; let c = chs.find(x => x.name === name); if (!c) { c = { name, items: [] }; chs.push(c); } c.items.push({ i, t: s.dataset.title || '' }); });
+    const esc = t => t.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+    idx.innerHTML = `<h3>${esc(document.title)}</h3><p class="hint">Clique para navegar · ← → ou espaço · F tela cheia · M índice · B tela preta · Esc fecha · <a href="../" style="display:inline;margin:0;padding:0;color:#5fd3e6">ver como página única</a></p>` +
+      `<div class="chs">${chs.map(c => `<div class="ch"><h4>${esc(c.name)}</h4>${c.items.map(it => `<a href="#/${it.i + 1}" data-i="${it.i}"><span>${pad(it.i + 1)}</span>${esc(it.t)}</a>`).join('')}</div>`).join('')}</div>`;
+    idx.addEventListener('click', e => { const a = e.target.closest('a[data-i]'); if (a) { e.preventDefault(); toggleMenu(false); go(+a.dataset.i); } else if (e.target === idx) toggleMenu(false); });
+    const prog = $('#progress'); chs.forEach(c => { const b = document.createElement('b'); b.style.left = (c.items[0].i / N * 100) + '%'; prog.appendChild(b); });
+  })();
+  function toggleMenu(force) { const on = typeof force === 'boolean' ? force : !document.body.classList.contains('menu'); document.body.classList.toggle('menu', on); idx.setAttribute('aria-hidden', String(!on)); if (on) document.body.classList.remove('idle'); }
+  function toggleFull() { if (!document.fullscreenElement) (document.documentElement.requestFullscreen || function () {}).call(document.documentElement); else if (document.exitFullscreen) document.exitFullscreen(); }
+
+  function fit() { stage.style.setProperty('--s', Math.min(window.innerWidth / 1920, window.innerHeight / 1080)); }
+  window.addEventListener('resize', fit); fit();
+  document.addEventListener('keydown', e => {
+    if (e.altKey || e.ctrlKey || e.metaKey) return; const k = e.key;
+    if (document.body.classList.contains('menu')) { if (k === 'Escape' || k === 'm' || k === 'M') toggleMenu(false); return; }
+    if (document.body.classList.contains('black') && k !== 'b' && k !== 'B') { document.body.classList.remove('black'); return; }
+    switch (k) {
+      case 'ArrowRight': case 'PageDown': case ' ': case 'ArrowDown': e.preventDefault(); nextSlide(); break;
+      case 'ArrowLeft': case 'PageUp': case 'ArrowUp': case 'Backspace': e.preventDefault(); prevSlide(); break;
+      case 'Home': e.preventDefault(); go(0); break;
+      case 'End': e.preventDefault(); go(N - 1); break;
+      case 'f': case 'F': toggleFull(); break;
+      case 'm': case 'M': toggleMenu(); break;
+      case 'b': case 'B': document.body.classList.toggle('black'); break;
+      default: break;
+    }
+  });
+  $('#ui').addEventListener('click', e => { const b = e.target.closest('button[data-act]'); if (!b) return; ({ prev: prevSlide, next: nextSlide, menu: () => toggleMenu(), full: toggleFull })[b.dataset.act](); });
+  $$('[data-next]').forEach(b => b.addEventListener('click', nextSlide));
+  let tx0 = null, ty0 = null;
+  document.addEventListener('touchstart', e => { tx0 = e.touches[0].clientX; ty0 = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener('touchend', e => { if (tx0 === null) return; const dx = e.changedTouches[0].clientX - tx0, dy = e.changedTouches[0].clientY - ty0; if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) (dx < 0 ? nextSlide : prevSlide)(); tx0 = null; });
+  let idleT; const wake = () => { document.body.classList.remove('idle'); clearTimeout(idleT); idleT = setTimeout(() => { if (!document.body.classList.contains('menu')) document.body.classList.add('idle'); }, 2600); };
+  document.addEventListener('mousemove', wake); wake();
+  window.addEventListener('beforeprint', () => { runToken++; $$('[data-count]').forEach(el => { el.firstChild.nodeValue = el.dataset.final; }); Object.values(DEMOS).forEach(d => d && d.done()); });
+
+  const h = location.hash.match(/#\/(\d+)/); const start = h ? parseInt(h[1], 10) - 1 : 0;
+  go(start >= 0 && start < N ? start : 0, { instant: true });
+  window.addEventListener('hashchange', () => { const m = location.hash.match(/#\/(\d+)/); if (m) go(parseInt(m[1], 10) - 1); });
+})();
+</script>
+<!-- V7 · detalhes que abrem por cima do slide (botões com data-modal) -->
+<div id="modal" aria-hidden="true">
+  <div class="mpanel" role="dialog" aria-modal="true">
+    <button type="button" class="mclose" aria-label="Fechar">×</button>
+
+    <div class="mc" data-m="clientes">
+      <p class="mk">A conta por trás do diagnóstico · dados do case</p>
+      <h3>Quem compra mais de um produto fica com quase os três</h3>
+      <div class="m2">
+        <div><div class="mdots" aria-label="100 clientes: 18 com mais de um produto"></div><p class="mleg"><i class="one"></i>Só RankMyApp <i class="multi"></i>Mais de um produto</p></div>
+        <ol class="msteps">
+          <li><b>O case diz:</b> 18% dos clientes têm mais de um produto, e a média é de 1,3 produto por cliente.</li>
+          <li><b>Em 100 clientes,</b> isso dá 130 produtos contratados (100 × 1,3).</li>
+          <li><b>Os 82 clientes de um produto só</b> somam 82. Sobram 48 produtos para os outros 18.</li>
+          <li><b>48 ÷ 18 = 2,7 produtos</b> para cada cliente que compra mais de um.</li>
+        </ol>
+      </div>
+      <p class="mnote"><b>Como ler:</b> é um indício de que o problema está na venda, e não no produto. Confirmo com os dados reais nos primeiros 30 dias.</p>
+    </div>
+
+    <div class="mc" data-m="meta">
+      <p class="mk">A conta da meta · crescer 60% em 1 ano</p>
+      <h3>De onde pode vir o crescimento, em dois cenários</h3>
+      <div class="mbars">
+        <div class="mrow"><span>Cenário moderado</span><div class="mtr"><i class="c0" style="--v:10">10%</i><i class="c1" style="--v:5">5%</i><i class="c2" style="--v:6">6%</i><i class="c3" style="--v:13">13%</i></div><b>34%</b></div>
+        <div class="mrow"><span>Cenário otimista</span><div class="mtr"><i class="c0" style="--v:12">12%</i><i class="c1" style="--v:5">5%</i><i class="c2" style="--v:9">9%</i><i class="c3" style="--v:27">27%</i></div><b>53%</b></div>
+      </div>
+      <ul class="mlg">
+        <li class="c0"><i></i><span><b>Sem mudar nada:</b> clientes novos que o time já traz, menos os que cancelam.</span></li>
+        <li class="c1"><i></i><span><b>As 7 pessoas novas:</b> chegam aos poucos e ainda estão aprendendo.</span></li>
+        <li class="c2"><i></i><span><b>Vender melhor para clientes novos:</b> mais vendas fechadas e mais vendas com 2 ou 3 produtos.</span></li>
+        <li class="c3"><i></i><span><b>Ads e Geo para clientes atuais:</b> a rotina de expansão.</span></li>
+      </ul>
+      <p class="mnote"><b>Como ler:</b> as fatias dependem de premissas minhas e servem para comparar caminhos, não como previsão. Nos dois cenários, o que falta para os 60% depende de decisões da liderança, como comissão, parcerias e pacotes de oferta.</p>
+    </div>
+
+    <div class="mc" data-m="icp">
+      <p class="mk">Playbook · parte 02 · para quem vender</p>
+      <h3>O perfil de cliente ideal de cada produto</h3>
+      <table class="mtbl">
+        <thead><tr><th>Produto</th><th>Perfil provável</th><th>Quem decide a compra</th></tr></thead>
+        <tbody>
+          <tr><td><b>RankMyApp</b></td><td>Empresas em que o app é central para o negócio: varejo, bancos digitais, delivery, jogos</td><td>Produto ou marketing</td></tr>
+          <tr><td><b>RankMyAds</b></td><td>As mesmas, quando já investem em anúncios para ganhar usuários</td><td>Quem cuida da aquisição de usuários</td></tr>
+          <tr><td><b>RankMyGeo</b></td><td>Marcas de categorias muito pesquisadas, em que as IAs já recomendam concorrentes</td><td>Marca ou marketing</td></tr>
+        </tbody>
+      </table>
+      <p class="mnote"><b>São hipóteses.</b> Nos primeiros 30 dias, comparo com as vendas ganhas e perdidas e com o perfil dos clientes que já compram mais de um produto.</p>
+    </div>
+
+    <div class="mc" data-m="premissas">
+      <p class="mk">O que eu assumi · o case diz que os números são ilustrativos</p>
+      <h3>Premissas da proposta</h3>
+      <div class="m2">
+        <ul class="mlist">
+          <li><b>Metas de 6 meses:</b> propostas iniciais, a confirmar com os números de partida medidos nos primeiros 30 dias.</li>
+          <li><b>Piloto:</b> 15 clientes, 60 dias. Deu certo com 5 propostas e 2 vendas.</li>
+          <li><b>Regra do especialista:</b> os 4 critérios são um ponto de partida, a ajustar com os especialistas.</li>
+          <li><b>Pessoas novas:</b> chegam em 3 turmas, nos meses 2, 4 e 6. O vendedor novo recebe oportunidades já qualificadas pelo pré-vendas.</li>
+        </ul>
+        <ul class="mlist">
+          <li><b>Atendimento (CS):</b> existe, fora das 20 pessoas do time comercial.</li>
+          <li><b>Ferramentas:</b> o plano usa o CRM atual. Nada novo nos primeiros 90 dias.</li>
+          <li><b>Conta da meta:</b> sem mudanças, o time traria cerca de 20% em clientes novos e perderia de 8% a 10% em cancelamentos.</li>
+          <li><b>Expansão:</b> de 20% a 30% dos clientes de App comprariam Ads ou Geo, com contrato menor no início.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(() => {
+  'use strict';
+  const modal = document.getElementById('modal'); if (!modal) return;
+  const dots = modal.querySelector('.mdots');
+  const multi = new Set([2, 7, 15, 19, 24, 33, 38, 41, 47, 56, 58, 64, 71, 75, 83, 86, 92, 97]);
+  for (let i = 0; i < 100; i++) { const d = document.createElement('i'); if (multi.has(i)) d.className = 'multi'; dots.appendChild(d); }
+  let last = null;
+  const aberto = () => document.body.classList.contains('modal-on');
+  function abrir(nome, de) {
+    modal.querySelectorAll('.mc').forEach(c => c.classList.toggle('on', c.dataset.m === nome));
+    document.body.classList.add('modal-on'); modal.setAttribute('aria-hidden', 'false'); last = de;
+    modal.querySelector('.mpanel').scrollTop = 0; modal.querySelector('.mclose').focus();
+  }
+  function fechar() { document.body.classList.remove('modal-on'); modal.setAttribute('aria-hidden', 'true'); if (last) last.focus(); }
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-modal]');
+    if (b) { e.preventDefault(); abrir(b.dataset.modal, b); return; }
+    if (aberto() && (e.target === modal || e.target.closest('.mclose'))) fechar();
+  });
+  // com o detalhe aberto, as teclas e o deslize não trocam de slide
+  window.addEventListener('keydown', e => { if (!aberto()) return; e.stopImmediatePropagation(); if (e.key === 'Escape') { e.preventDefault(); fechar(); } else if (e.key !== 'Tab') e.preventDefault(); }, true);
+  ['touchstart', 'touchend'].forEach(t => window.addEventListener(t, e => { if (aberto()) e.stopPropagation(); }, true));
+})();
+</script>
+</body>
+</html>
