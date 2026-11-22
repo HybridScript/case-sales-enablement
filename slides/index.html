@@ -921,6 +921,13 @@ body.page.narrow .quem span { display: block; margin-bottom: 8px; }
 #pbar .brand { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 body.page.narrow #pbar { gap: 12px; padding: 0 16px; }
 body.page.narrow #pbar .brand { font-size: 14px; }
+
+#modal .mtbl tr.g td { background: var(--light); color: var(--dark-text); font-weight: 700; font-size: .8em; letter-spacing: .04em; text-transform: uppercase; padding: 7px 12px; }
+#modal .mc[data-m="onboarding"] .mtbl td { padding: 8px 12px; }
+#modal .mc[data-m="onboarding"] { font-size: .8em; }
+#modal .mc[data-m="onboarding"] h3 { margin-bottom: 10px; }
+#modal .mc[data-m="onboarding"] .mtbl td { padding: 5px 12px; }
+#modal .mc[data-m="onboarding"] .mnote { margin-top: 12px; padding: 10px 16px; }
 </style>
 </head>
 <body>
@@ -1083,7 +1090,7 @@ body.page.narrow #pbar .brand { font-size: 14px; }
   <header class="hd">
     <p class="kick a f" style="--d:100">Pedido 03 · Onboarding das 7 contratações em até 3 meses</p>
     <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">As 7 pessoas novas <span class="hl">prontas para vender em 3 meses</span></span></span></h2>
-    <p class="lead a f" style="--d:450">Elas chegam em 3 turmas ao longo de 6 meses. Por isso o programa é o mesmo para cada turma, e cada pessoa segue 3 fases.</p>
+    <p class="lead a f" style="--d:450">Elas chegam em 3 turmas ao longo de 6 meses. Por isso o programa é o mesmo para cada turma, e cada pessoa segue 3 fases. <button type="button" class="mbtn" data-modal="onboarding">O que medir e como</button></p>
   </header>
   <div class="body" style="top:370px;bottom:200px">
     <div class="tl a f" style="--d:550;height:270px">
@@ -1705,6 +1712,28 @@ body.page.narrow #pbar .brand { font-size: 14px; }
         </tbody>
       </table>
       <p class="mnote"><b>São hipóteses.</b> Nos primeiros 30 dias, comparo com as vendas ganhas e perdidas e com o perfil dos clientes que já compram mais de um produto.</p>
+    </div>
+
+    <div class="mc" data-m="onboarding">
+      <p class="mk">Pedido 03 · Onboarding · o que medir e como</p>
+      <h3>As métricas de entrada das pessoas novas</h3>
+      <table class="mtbl">
+        <thead><tr><th>Métrica</th><th>Meta proposta</th><th>Onde e como medir</th></tr></thead>
+        <tbody>
+          <tr class="g"><td colspan="3">Todas as pessoas novas</td></tr>
+          <tr><td><b>Certificado no prazo</b></td><td>100% até o dia 45</td><td>Planilha do programa: data da prova e da reunião real aprovada</td></tr>
+          <tr><td><b>Nota nas reuniões</b></td><td>Nota mínima no dia 45</td><td>Ficha de notas do SPICED: o gestor avalia uma reunião por semana</td></tr>
+          <tr class="g"><td colspan="3">Pré-vendas · a meta não depende do ciclo de venda</td></tr>
+          <tr><td><b>Primeira reunião marcada</b></td><td>Até o dia 30</td><td>CRM: data de entrada comparada à data da primeira reunião</td></tr>
+          <tr><td><b>Reuniões marcadas por mês</b></td><td>Meta cheia no 3º mês</td><td>CRM: contagem por pessoa, comparada à do time atual</td></tr>
+          <tr class="g"><td colspan="3">Vendedor · uma venda leva 95 dias, então a medida é por marcos</td></tr>
+          <tr><td><b>Primeira reunião conduzida sozinho</b></td><td>Até o dia 50</td><td>CRM e ficha de notas: reunião sem gestor nem especialista</td></tr>
+          <tr><td><b>Primeira oportunidade trabalhada</b></td><td>Até o dia 60</td><td>CRM: data em que assume a oportunidade qualificada pelo pré-vendas</td></tr>
+          <tr><td><b>Primeira proposta enviada</b></td><td>Até o dia 90</td><td>CRM: mudança de etapa da oportunidade</td></tr>
+          <tr><td><b>Primeira venda e meta cheia</b></td><td>Entre os meses 4 e 6</td><td>CRM: acompanho, sem cobrar no 3º mês</td></tr>
+        </tbody>
+      </table>
+      <p class="mnote"><b>Sem ferramenta nova:</b> tudo sai do CRM atual e de uma planilha. Comparo as turmas entre si: se a turma 2 cumpre os marcos antes da turma 1, o programa está melhorando.</p>
     </div>
 
     <div class="mc" data-m="premissas">
