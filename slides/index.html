@@ -928,13 +928,21 @@ body.page.narrow #pbar .brand { font-size: 14px; }
 #modal .mc[data-m="onboarding"] h3 { margin-bottom: 10px; }
 #modal .mc[data-m="onboarding"] .mtbl td { padding: 5px 12px; }
 #modal .mc[data-m="onboarding"] .mnote { margin-top: 12px; padding: 10px 16px; }
+
+/* ---------- V8 · textos curtos, para bater o olho e desenvolver a fala ---------- */
+.q4.c3 { grid-template-columns: repeat(3, 1fr); }
+.handoff.c4 { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.handoff.c4 .card h3 { font-size: 23px; }
+.quadro .card .blist { margin-top: 8px; }
+.quadro .card .blist li { font-size: 19px; }
+body.page.narrow .q4.c3, body.page.narrow .handoff.c4 { grid-template-columns: 1fr; }
 </style>
 </head>
 <body>
 <div id="stage">
 
 <!-- ===================================================================== -->
-<!-- V7 · CAPA -->
+<!-- V8 · CAPA -->
 <section class="slide" data-title="Capa" data-chapter="Abertura">
   <div class="glow g1"></div><div class="glow g2"></div><div class="techgrid"></div><div class="grain"></div>
   <svg class="bigR" viewBox="0 0 760 900" aria-hidden="true"><path pathLength="1" d="M75 900V75h420a150 150 0 0 1 0 300H260L700 830"/></svg>
@@ -945,29 +953,29 @@ body.page.narrow #pbar .brand { font-size: 14px; }
   <button class="cta a" style="--d:1400" data-next>Começar <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
 </section>
 
-<!-- V7 · A SITUAÇÃO E A RESPOSTA -->
-<section class="slide t-light" data-title="A situação e a resposta" data-chapter="Abertura">
+<!-- V8 · A SITUAÇÃO E A RESPOSTA -->
+<section class="slide t-light" data-title="Cenário e proposta" data-chapter="Abertura">
   <div class="grain"></div>
   <header class="hd">
-    <p class="kick a f" style="--d:100">A situação e a resposta, antes dos detalhes</p>
+    <p class="kick a f" style="--d:100">Cenário e proposta, antes dos detalhes</p>
     <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">O time vende por produto. <span class="hl">A proposta é vender o portfólio.</span></span></span></h2>
   </header>
   <div class="body" style="top:270px;bottom:190px">
     <div class="sit">
       <div class="card hoje a l" style="--d:400">
         <span class="k">Cenário atual · dados do case</span><h3 style="margin-top:8px;font-size:24px">De onde vem a receita hoje</h3>
-        <div class="hp"><div class="l1"><span class="prod p-app">RankMyApp</span><b>72%<small> da receita</small></b></div><p>Faz o app aparecer e convencer nas lojas · contrato médio de R$ 120 mil</p><div class="share"><i class="grow" style="--v:72;--pc:var(--blue);--d:700"></i></div></div>
-        <div class="hp"><div class="l1"><span class="prod p-ads">RankMyAds</span><b>22%<small> da receita</small></b></div><p>Anúncios para o app ganhar usuários · contrato médio de R$ 250 mil</p><div class="share"><i class="grow" style="--v:22;--pc:var(--cyan);--d:820"></i></div></div>
-        <div class="hp"><div class="l1"><span class="prod p-geo">RankMyGeo</span><b>6%<small> da receita</small></b></div><p>Faz a marca aparecer nas respostas das IAs · contrato médio de R$ 60 mil</p><div class="share"><i class="grow" style="--v:6;--pc:#8b5cf6;--d:940"></i></div></div>
-        <p class="fatos">São os números de hoje, não projeções. A meta é <b>crescer 60% em 1 ano</b>, com <b>7 pessoas novas</b> chegando ao time de 20.<br><button type="button" class="mbtn" data-modal="meta" style="margin:10px 0 0">De onde viria o crescimento</button></p>
+        <div class="hp"><div class="l1"><span class="prod p-app">RankMyApp</span><b>72%<small> da receita</small></b></div><p>Visibilidade e conversão nas lojas de apps · contrato médio de R$ 120 mil</p><div class="share"><i class="grow" style="--v:72;--pc:var(--blue);--d:700"></i></div></div>
+        <div class="hp"><div class="l1"><span class="prod p-ads">RankMyAds</span><b>22%<small> da receita</small></b></div><p>Anúncios para aquisição de usuários · contrato médio de R$ 250 mil</p><div class="share"><i class="grow" style="--v:22;--pc:var(--cyan);--d:820"></i></div></div>
+        <div class="hp"><div class="l1"><span class="prod p-geo">RankMyGeo</span><b>6%<small> da receita</small></b></div><p>Presença da marca nas respostas das IAs · contrato médio de R$ 60 mil</p><div class="share"><i class="grow" style="--v:6;--pc:#8b5cf6;--d:940"></i></div></div>
+        <p class="fatos"><b>Desafios principais:</b> alta concentração de receita em RankMyApp e baixa penetração de multiprodutos. Meta: <b>crescer 60% em 1 ano</b>, com <b>7 contratações</b>.<br><button type="button" class="mbtn" data-modal="meta" style="margin:10px 0 0">De onde viria o crescimento</button></p>
       </div>
       <div class="pyr">
-        <div class="top a" style="--d:600">Vender o portfólio no ciclo inteiro: na venda nova e nos clientes atuais.</div>
-        <p class="lk a f" style="--d:800">Para isso, três frentes</p>
+        <div class="top a" style="--d:600">Vender o portfólio no ciclo inteiro: na venda nova e na base de clientes.</div>
+        <p class="lk a f" style="--d:800">Três pilares de atuação</p>
         <div class="mid">
-          <div class="card a" style="--d:900"><span class="n">1</span><h3>Uma história única</h3><p>O vendedor começa pelo que o cliente precisa, e não pelo produto que conhece.</p></div>
-          <div class="card a" style="--d:1050"><span class="n">2</span><h3>Um time que domina os 3 produtos</h3><p>Treino e certificado para todos, incluindo quem está chegando.</p></div>
-          <div class="card a" style="--d:1200"><span class="n">3</span><h3>Uma rotina para os clientes atuais</h3><p>Alguém acompanha cada cliente e oferece o próximo produto na hora certa.</p></div>
+          <div class="card a" style="--d:900"><span class="n">1</span><h3>Narrativa de portfólio</h3><p>Começar pela necessidade do cliente, não pelo produto.</p></div>
+          <div class="card a" style="--d:1050"><span class="n">2</span><h3>Desenvolvimento da operação comercial</h3><p>Treinamento e certificação nos 3 produtos, incluindo as contratações.</p></div>
+          <div class="card a" style="--d:1200"><span class="n">3</span><h3>Expansão de carteira</h3><p>Rotina para oferecer o próximo produto à base de clientes.</p></div>
         </div>
         <div class="foot a f" style="--d:1350">Como: <b>começar pequeno, confirmar com dados e medir cedo.</b></div>
       </div>
@@ -976,78 +984,77 @@ body.page.narrow #pbar .brand { font-size: 14px; }
   <div class="bottom a" style="--d:1500">
     <div class="strip c6"><span class="k">O roteiro segue<br>os 6 pedidos do case</span>
       <div><b>01</b>Diagnóstico</div>
-      <div><b>02</b>Da dor à solução</div>
+      <div><b>02</b>Narrativa de portfólio</div>
       <div><b>03</b>Capacitação</div>
       <div><b>04</b>Playbook</div>
       <div><b>05</b>Papéis</div>
-      <div><b>06</b>Métricas e plano</div>
+      <div><b>06</b>Indicadores e plano</div>
     </div>
   </div>
 </section>
 
-<!-- V7 · 01 · OS 3 PROBLEMAS -->
-<section class="slide t-light" data-title="Os 3 problemas" data-chapter="Pedido 01 · Diagnóstico">
+<!-- V8 · 01 · OS 3 PROBLEMAS -->
+<section class="slide t-light" data-title="Principais problemas" data-chapter="Pedido 01 · Diagnóstico">
   <div class="grain"></div>
   <header class="hd">
     <p class="kick a f" style="--d:100">Pedido 01 · Diagnóstico · os 3 principais problemas</p>
-    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Três problemas impedem o time de <span class="hl">vender o portfólio</span></span></span></h2>
-    <p class="lead a f" style="--d:450">Em cada um: o que as lideranças relatam no case, o número que confirma e a frente que responde.</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Três desafios dificultam a evolução da <span class="hl">venda de portfólio</span></span></span></h2>
+    <p class="lead a f" style="--d:450">Em cada um: o relato das lideranças, o dado do case e o pilar que responde.</p>
   </header>
   <div class="body" style="top:360px;bottom:210px">
     <div class="probs v7">
-      <div class="card bar a" style="--d:550"><span class="big">1</span><h3>Cada produto é vendido sozinho</h3><p class="sint">O que as lideranças relatam</p><ul><li>“Materiais por produto, sem narrativa de portfólio”</li><li>“Descoberta rasa: o time apresenta o que conhece”</li></ul><p class="fact"><b>1 em cada 10</b>vendas inclui mais de um produto</p><p class="cause"><b>Resposta:</b> uma história única.</p></div>
-      <div class="card bar a" style="--d:700"><span class="big">2</span><h3>Só os especialistas sabem vender Ads e Geo</h3><p class="sint">O que as lideranças relatam</p><ul><li>“Pouca segurança com RankMyAds e RankMyGeo”</li><li>“Especialista de produto vira gargalo nas reuniões”</li></ul><p class="fact"><b>3 a 5 meses</b>é o tempo até uma pessoa nova bater a meta</p><p class="cause"><b>Resposta:</b> um time que domina os 3 produtos.</p></div>
-      <div class="card bar a" style="--d:850"><span class="big">3</span><h3>Falta uma rotina para oferecer mais a quem já é cliente</h3><p class="sint">O que as lideranças relatam</p><ul><li>“Key Accounts não identificam sinais de expansão”</li></ul><p class="fact"><b>18%</b>dos clientes têm mais de um produto</p><p class="cause"><b>Resposta:</b> uma rotina para os clientes atuais.</p></div>
+      <div class="card bar a" style="--d:550"><span class="big">1</span><h3>Venda de produtos individualizados</h3><p class="sint">O que as lideranças relatam</p><ul><li>“Materiais por produto, sem narrativa de portfólio”</li><li>“Descoberta rasa: o time apresenta o que conhece”</li></ul><p class="fact"><b>1 em cada 10</b>vendas inclui mais de um produto</p><p class="cause"><b>Pilar:</b> narrativa de portfólio.</p></div>
+      <div class="card bar a" style="--d:700"><span class="big">2</span><h3>Concentração de conhecimento nos especialistas</h3><p class="sint">O que as lideranças relatam</p><ul><li>“Pouca segurança com RankMyAds e RankMyGeo”</li><li>“Especialista de produto vira gargalo nas reuniões”</li></ul><p class="fact"><b>3 a 5 meses</b>é o ramp-up atual de uma contratação</p><p class="cause"><b>Pilar:</b> desenvolvimento da operação comercial.</p></div>
+      <div class="card bar a" style="--d:850"><span class="big">3</span><h3>Falta de uma rotina estruturada para trabalhar a base de clientes</h3><p class="sint">O que as lideranças relatam</p><ul><li>“Key Accounts não identificam sinais de expansão”</li></ul><p class="fact"><b>18%</b>dos clientes têm mais de um produto</p><p class="cause"><b>Pilar:</b> expansão de carteira.</p></div>
     </div>
   </div>
-  <div class="bottom qa row a" style="--d:1100"><div class="q">E se o problema for o produto, e não a venda?</div><p>Os números do case indicam que não: quem compra mais de um produto tem, em média, <b>quase os três</b>. <button type="button" class="mbtn" data-modal="clientes">Ver a conta</button></p></div>
+  <div class="bottom qa row a" style="--d:1100"><div class="q">E se o problema for o produto, e não a venda?</div><p>Os dados do case indicam que não: quem compra mais de um produto tem, em média, <b>quase os três</b>. <button type="button" class="mbtn" data-modal="clientes">Ver a conta</button></p></div>
 </section>
 
-<!-- V7 · 01 · INVESTIGAÇÃO E PRIORIDADE -->
-<section class="slide t-light" data-title="O que investigo e por onde começo" data-chapter="Pedido 01 · Diagnóstico">
+<!-- V8 · 01 · INVESTIGAÇÃO E PRIORIDADE -->
+<section class="slide t-light" data-title="Imersão e diagnóstico" data-chapter="Pedido 01 · Diagnóstico">
   <div class="grain"></div>
   <header class="hd">
     <p class="kick a f" style="--d:100">Pedido 01 · Diagnóstico · o que investigo nas primeiras semanas e como priorizo</p>
-    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Primeiro confirmo o diagnóstico. <span class="hl">Depois, o que destrava o resto.</span></span></span></h2>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Imersão e diagnóstico: <span class="hl">confirmar antes de construir</span></span></span></h2>
   </header>
   <div class="body" style="top:250px;bottom:240px">
-    <p class="sub a f" style="--d:350;margin-top:0">Nos primeiros 30 dias, quatro perguntas</p>
-    <div class="q4">
-      <div class="card a" style="--d:450"><h3>Onde as vendas de Ads e Geo emperram?</h3><p>Olho os dados no CRM, o sistema onde o time registra clientes e vendas.</p></div>
-      <div class="card a" style="--d:550"><h3>A conversa com o cliente é rasa mesmo?</h3><p>Acompanho reuniões e dou nota com uma ficha simples. Vira o ponto de partida.</p></div>
-      <div class="card a" style="--d:650"><h3>Quem compra mais de um produto?</h3><p>Setor, tamanho e quem decide. É o perfil a procurar.</p></div>
-      <div class="card a" style="--d:750"><h3>Onde o time trava, na visão dele?</h3><p>Converso com todas as áreas que falam com o cliente.</p></div>
+    <p class="sub a f" style="--d:350;margin-top:0">Como vamos investigar · primeiros 30 dias</p>
+    <div class="q4 c3">
+      <div class="card a" style="--d:450"><h3>Análise de dados do CRM</h3><p>Onde Ads e Geo emperram e qual o perfil de quem compra mais de um produto.</p></div>
+      <div class="card a" style="--d:550"><h3>Escuta de calls comerciais</h3><p>Nota com uma ficha simples. Vira o ponto de partida.</p></div>
+      <div class="card a" style="--d:650"><h3>Conversas com as lideranças</h3><p>E com as áreas que falam com o cliente: onde o time trava.</p></div>
     </div>
-    <p class="sub a f" style="--d:850">A ordem nos primeiros 90 dias</p>
+    <p class="sub a f" style="--d:850">Entregáveis esperados · a ordem nos 90 dias</p>
     <div class="gantt tight">
       <div class="gh a f" style="--d:900"><span></span><div class="ax"><span>Mês 1</span><span>Mês 2</span><span>Mês 3</span></div><span class="k">Por que nessa ordem</span></div>
-      <div class="gr a" style="--d:950"><div class="nm"><b>História única e playbook</b></div><div class="trk"><i class="grow" style="--l:0%;--w:50%;--d:1150">Semanas 1 a 6</i></div><p class="why"><b>Primeiro</b>, porque sem ela não há o que treinar nem o que oferecer.</p></div>
-      <div class="gr a" style="--d:1100"><div class="nm"><b>Rotina para clientes atuais</b><small>piloto com 15 clientes</small></div><div class="trk"><i class="grow" style="--l:16.6%;--w:66.6%;--pc:var(--cyan);--d:1300">60 dias, a partir da 3ª semana</i></div><p class="why"><b>Em paralelo</b>, porque é um teste pequeno e dá resultado em semanas.</p></div>
-      <div class="gr a" style="--d:1250"><div class="nm"><b>Treino e certificado</b><small>time atual e 1ª turma de novos</small></div><div class="trk"><i class="grow" style="--l:33.3%;--w:66.7%;--pc:var(--blue-2);--d:1450">Meses 2 e 3</i></div><p class="why"><b>Em seguida</b>, a tempo de receber a 1ª turma de pessoas novas.</p></div>
+      <div class="gr a" style="--d:950"><div class="nm"><b>Narrativa de portfólio e playbooks</b></div><div class="trk"><i class="grow" style="--l:0%;--w:50%;--d:1150">Semanas 1 a 6</i></div><p class="why"><b>Primeiro:</b> sem ela não há o que treinar nem o que oferecer.</p></div>
+      <div class="gr a" style="--d:1100"><div class="nm"><b>Rotina estruturada para a base de clientes</b><small>piloto com 15 clientes</small></div><div class="trk"><i class="grow" style="--l:16.6%;--w:66.6%;--pc:var(--cyan);--d:1300">60 dias, a partir da 3ª semana</i></div><p class="why"><b>Em paralelo:</b> teste pequeno, resultado em semanas.</p></div>
+      <div class="gr a" style="--d:1250"><div class="nm"><b>Plano de treinamentos e certificações</b><small>time atual e 1ª turma de contratações</small></div><div class="trk"><i class="grow" style="--l:33.3%;--w:66.7%;--pc:var(--blue-2);--d:1450">Meses 2 e 3</i></div><p class="why"><b>Em seguida:</b> a tempo de receber a 1ª turma.</p></div>
     </div>
   </div>
   <div class="bottom qa2 a" style="--d:1600">
-    <div class="qa"><div class="q">E se os dados do CRM estiverem incompletos?</div><p>Uso o que existe e completo com uma amostra: reviso as vendas dos últimos meses com cada gestor. O que falta passa a ser registrado daqui para a frente.</p></div>
-    <div class="qa"><div class="q">E se as reuniões não forem gravadas hoje?</div><p>Acompanho reuniões ao vivo, como ouvinte, com a mesma ficha de notas. Para gravar, basta a videochamada que o time já usa, com o aceite do cliente.</p></div>
+    <div class="qa"><div class="q">E se os dados do CRM estiverem incompletos?</div><p>Uso o que existe e completo com uma amostra, revisada com cada gestor. O que falta passa a ser registrado.</p></div>
+    <div class="qa"><div class="q">E se as calls não forem gravadas hoje?</div><p>Acompanho calls ao vivo, com a mesma ficha de notas. Para gravar, basta a videochamada atual, com o aceite do cliente.</p></div>
   </div>
 </section>
 
-<!-- V7 · 02 · DA DOR À SOLUÇÃO -->
-<section class="slide" data-title="Da dor à solução" data-chapter="Pedido 02 · Da dor à solução">
+<!-- V8 · 02 · DA DOR À SOLUÇÃO -->
+<section class="slide" data-title="Narrativa de portfólio" data-chapter="Pedido 02 · Da dor à solução">
   <div class="glow g1"></div><div class="techgrid"></div><div class="grain"></div>
   <header class="hd">
-    <p class="kick a f" style="--d:100">Pedido 02 · Da dor à solução certa</p>
-    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Primeiro entender o cliente, <b>depois mostrar o próximo passo</b></span></span></h2>
-    <p class="lead a f" style="--d:450">Todo cliente quer que o app cresça. Cada produto resolve uma etapa desse caminho, com uma dor e um momento típicos. Essa é a história única.</p>
+    <p class="kick a f" style="--d:100">Pedido 02 · Da dor à solução certa · narrativa de portfólio</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Entender a necessidade do cliente, <b>depois conectar as soluções</b></span></span></h2>
+    <p class="lead a f" style="--d:450">Diagnóstico consultivo: cada solução responde a uma necessidade e a um momento do cliente. Essa é a narrativa de portfólio.</p>
   </header>
   <div class="body" style="top:322px;bottom:200px">
     <div class="journey sm">
-      <div class="jstep a" style="--d:550;--pc:var(--blue)"><span class="st">Etapa 1</span><h3>Ser encontrado</h3><span class="prod p-app pr">RankMyApp</span><p>O app aparece nas buscas da loja e a página convence quem chega.</p><p class="mo"><b>Momento:</b> app novo ou reformulado.</p><p class="q">O cliente diz: “O app não aparece nas buscas”</p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="jstep a" style="--d:700;--pc:var(--cyan)"><span class="st">Etapa 2</span><h3>Ganhar usuários</h3><span class="prod p-ads pr">RankMyAds</span><p>Anúncios trazem usuários em volume, com o custo sob controle.</p><p class="mo"><b>Momento:</b> lançamento, data importante ou investimento recebido.</p><p class="q">O cliente diz: “Precisamos de mais usuários sem estourar o custo”</p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="jstep a" style="--d:850;--pc:#8b5cf6"><span class="st">Etapa 3</span><h3>Ser recomendado pelas IAs</h3><span class="prod p-geo pr">RankMyGeo</span><p>Quando alguém pede a uma IA a indicação de um app, a marca aparece.</p><p class="mo"><b>Momento:</b> a categoria passa a ser pesquisada nas IAs.</p><p class="q">O cliente diz: “As IAs só recomendam o nosso concorrente”</p></div>
+      <div class="jstep a" style="--d:550;--pc:var(--blue)"><span class="st">Etapa 1</span><h3>Ser encontrado</h3><span class="prod p-app pr">RankMyApp</span><p>Aparecer nas buscas da loja e converter na página.</p><p class="mo"><b>Momento:</b> app novo ou reformulado.</p><p class="q">O cliente diz: “O app não aparece nas buscas”</p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="jstep a" style="--d:700;--pc:var(--cyan)"><span class="st">Etapa 2</span><h3>Ganhar usuários</h3><span class="prod p-ads pr">RankMyAds</span><p>Usuários em volume, com o custo sob controle.</p><p class="mo"><b>Momento:</b> lançamento, data importante ou investimento recebido.</p><p class="q">O cliente diz: “Precisamos de mais usuários sem estourar o custo”</p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="jstep a" style="--d:850;--pc:#8b5cf6"><span class="st">Etapa 3</span><h3>Ser recomendado pelas IAs</h3><span class="prod p-geo pr">RankMyGeo</span><p>A marca aparece quando alguém pede uma indicação a uma IA.</p><p class="mo"><b>Momento:</b> a categoria passa a ser pesquisada nas IAs.</p><p class="q">O cliente diz: “As IAs só recomendam o nosso concorrente”</p></div>
     </div>
-    <p class="sub a f" style="--d:1000">Para descobrir a etapa, as 5 perguntas do método SPICED, feitas antes de falar de produto</p>
-    <div class="quem a f" style="--d:1020"><span class="a2">Pré-vendas começa e qualifica</span><span class="a3">O vendedor aprofunda e monta com o cliente o caminho até a data crítica</span></div>
+    <p class="sub a f" style="--d:1000">Diagnóstico consultivo com a metodologia SPICED: 5 perguntas antes de falar de produto</p>
+    <div class="quem a f" style="--d:1020"><span class="a2">Pré-vendas inicia e qualifica</span><span class="a3">Vendas aprofunda e constrói com o cliente o caminho até a data crítica</span></div>
     <div class="sp5">
       <div class="card a" style="--d:1050"><span class="L">S</span><div><h3>Situação</h3><p>“Qual o papel do app no faturamento?”</p></div></div>
       <div class="card a" style="--d:1120"><span class="L">P</span><div><h3>Dor</h3><p>“O que mais atrapalha o app de crescer?”</p></div></div>
@@ -1056,41 +1063,42 @@ body.page.narrow #pbar .brand { font-size: 14px; }
       <div class="card a" style="--d:1330"><span class="L">D</span><div><h3>Decisão</h3><p>“Quem mais participa dessa decisão?”</p></div></div>
     </div>
   </div>
-  <div class="bottom qa row a" style="--d:1500"><div class="q">Por que o SPICED?</div><p>Porque começa pela dor do cliente e por quanto ela custa, e a dor do case é o time abrir pelo produto. São só 5 letras, valem para a venda nova e para o cliente atual, e não exigem ferramenta.</p></div>
+  <div class="bottom qa row a" style="--d:1500"><div class="q">Por que o SPICED?</div><p>Começa pela dor do cliente e pelo impacto. Vale para a venda nova e para a base de clientes, e não exige ferramenta.</p></div>
 </section>
 
-<!-- V7 · 03 · CAPACITAÇÃO -->
-<section class="slide" data-title="Capacitação e certificação em portfólio" data-chapter="Pedido 03 · Capacitação">
+<!-- V8 · 03 · CAPACITAÇÃO -->
+<section class="slide" data-title="Desenvolvimento da operação comercial" data-chapter="Pedido 03 · Capacitação">
   <div class="glow g1"></div><div class="techgrid"></div><div class="grain"></div>
   <header class="hd">
     <p class="kick a f" style="--d:100">Pedido 03 · Capacitação em portfólio e certificação</p>
-    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Treino em 3 passos e <b>uma regra para chamar o especialista</b></span></span></h2>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Desenvolvimento da <b>operação comercial</b></span></span></h2>
+    <p class="lead a f" style="--d:450">Treinamento em 3 etapas, para desenvolver autonomia comercial e reduzir a dependência dos especialistas.</p>
   </header>
-  <div class="body" style="top:260px;bottom:200px">
-    <div class="flow c3" style="height:315px">
-      <div class="fstep a" style="--d:450"><span class="n">1</span><h3>Aprender · todos</h3><p>A história, os 3 produtos e as 5 perguntas do SPICED. Trilha curta, com prova. <b>Os 2 gestores fazem primeiro</b>, para depois acompanhar o time.</p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="fstep a" style="--d:600"><span class="n">2</span><h3>Praticar · roleplay por cargo</h3><p>Reuniões simuladas com a situação de cada cargo: pré-vendas treina a primeira conversa, o vendedor a oferta, o gerente de contas a expansão.</p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="fstep hi a" style="--d:750"><span class="n">3</span><h3>Provar · o certificado</h3><p>Conduzir uma reunião real de Ads ou Geo com nota mínima. <b>Todo o time até o fim do 3º mês.</b> Depois, reforço quinzenal de 30 min com roleplay.</p></div>
+  <div class="body" style="top:300px;bottom:200px">
+    <div class="flow c3" style="height:272px">
+      <div class="fstep a" style="--d:450"><span class="n">1</span><h3>Conhecimento dos 3 produtos</h3><p>Narrativa, portfólio e SPICED. Trilha curta, com prova. <b>Os 2 gestores primeiro.</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fstep a" style="--d:600"><span class="n">2</span><h3>Prática com roleplays por função</h3><p>Pré-vendas: primeira conversa. Vendas: oferta. Key Accounts: expansão.</p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fstep hi a" style="--d:750"><span class="n">3</span><h3>Certificação e validação</h3><p>Call real de Ads ou Geo, com nota mínima. <b>Todo o time até o fim do 3º mês.</b> Reforço quinzenal de 30 min.</p></div>
     </div>
     <div class="rule">
-      <div class="card side a" style="--d:900"><span class="tag prem"><i></i>Premissa</span><h3>O especialista entra quando…</h3><ul class="blist cols">
-        <li>O vendedor <b>ainda não tem o certificado</b></li>
-        <li>A venda chega à <b>proposta</b> e precisa de desenho técnico, como um plano de anúncios</li>
-        <li>A dúvida do cliente <b>não está no playbook</b></li>
-        <li>O contrato é <b>maior que o valor médio</b> do produto, ou inclui os 3 produtos</li></ul></div>
-      <div class="card a r" style="--d:1050"><h3>Não entra</h3><p>Na primeira reunião, nas 5 perguntas e na apresentação padrão.</p><h3>Como pedir</h3><p>Pelo CRM, com as 5 perguntas respondidas. Para dúvidas do dia a dia, um horário fixo por semana.</p></div>
+      <div class="card side a" style="--d:900"><span class="tag prem"><i></i>Premissa</span><h3>Especialista: acionamento em cenários de maior complexidade</h3><ul class="blist cols">
+        <li>Vendedor <b>ainda sem certificação</b></li>
+        <li><b>Proposta</b> com desenho técnico, como um plano de anúncios</li>
+        <li>Dúvida do cliente <b>fora do playbook</b></li>
+        <li>Contrato <b>acima do valor médio</b>, ou com os 3 produtos</li></ul></div>
+      <div class="card a r" style="--d:1050"><h3>Não entra</h3><p>Primeira call, perguntas do SPICED e apresentação padrão.</p><h3>Como acionar</h3><p>Pelo CRM, com o SPICED preenchido. Dúvidas do dia a dia: horário fixo semanal.</p></div>
     </div>
   </div>
-  <div class="bottom qa row a" style="--d:1250"><div class="q">Precisa contratar alguma ferramenta?</div><p><b>Não nos primeiros 90 dias.</b> O plano usa o CRM atual, a videochamada que o time já tem e uma planilha de notas. Ferramenta nova só se o resultado justificar.</p></div>
+  <div class="bottom qa row a" style="--d:1250"><div class="q">Precisa contratar alguma ferramenta?</div><p><b>Não nos primeiros 90 dias.</b> CRM atual, a videochamada que o time já tem e uma planilha de notas.</p></div>
 </section>
 
-<!-- V7 · 03 · ONBOARDING -->
-<section class="slide t-light" data-title="Onboarding das 7 contratações" data-chapter="Pedido 03 · Capacitação">
+<!-- V8 · 03 · ONBOARDING -->
+<section class="slide t-light" data-title="Onboarding e ramp-up das 7 contratações" data-chapter="Pedido 03 · Capacitação">
   <div class="grain"></div>
   <header class="hd">
-    <p class="kick a f" style="--d:100">Pedido 03 · Onboarding das 7 contratações em até 3 meses</p>
-    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">As 7 pessoas novas <span class="hl">prontas para vender em 3 meses</span></span></span></h2>
-    <p class="lead a f" style="--d:450">Elas chegam em 3 turmas ao longo de 6 meses. Por isso o programa é o mesmo para cada turma, e cada pessoa segue 3 fases. <button type="button" class="mbtn" data-modal="onboarding">O que medir e como</button></p>
+    <p class="kick a f" style="--d:100">Pedido 03 · Onboarding e ramp-up das 7 contratações em até 3 meses</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Onboarding e ramp-up em 90 dias, <span class="hl">com critérios claros</span></span></span></h2>
+    <p class="lead a f" style="--d:450">7 contratações em 3 turmas, ao longo de 6 meses. O mesmo programa para cada turma, em 3 fases com critérios de evolução. <button type="button" class="mbtn" data-modal="onboarding">O que medir e como</button></p>
   </header>
   <div class="body" style="top:370px;bottom:200px">
     <div class="tl a f" style="--d:550;height:270px">
@@ -1102,76 +1110,76 @@ body.page.narrow #pbar .brand { font-size: 14px; }
       <div class="lane l3 grow" style="left:85.71%;width:14.29%;top:196px;--d:1300">Turma 3</div>
     </div>
     <div class="track">
-      <div class="card a" style="--d:1300"><span class="d">Dias 1 a 15</span><h3>Entender o mercado</h3><p>O mundo dos apps, a história dos 3 produtos e o cliente ideal. <b class="marco">Marco: acompanhou reuniões de colegas.</b></p></div>
-      <div class="card a" style="--d:1420"><span class="d">Dias 16 a 45</span><h3>Os 3 passos do treino</h3><p>Aprender os produtos e o SPICED, praticar com roleplay e provar em uma reunião real. <b class="marco">Marco: certificado no dia 45.</b></p></div>
-      <div class="card a" style="--d:1540"><span class="d">Dias 46 a 90</span><h3>Vender com apoio</h3><p>Reuniões reais, com acompanhamento semanal do gestor. <b class="marco">Marcos: 1ª oportunidade aberta e 1ª proposta enviada.</b></p></div>
+      <div class="card a" style="--d:1300"><span class="d">Até o dia 15</span><h3>Mercado, produtos e processos</h3><p>Conhecimento de mercado, do portfólio e do processo comercial. <b class="marco">Marco: acompanhou calls de colegas.</b></p></div>
+      <div class="card a" style="--d:1420"><span class="d">Até o dia 45</span><h3>As 3 etapas do treinamento</h3><p>Conhecimento, prática e certificação: validação das competências. <b class="marco">Marco: certificação no dia 45.</b></p></div>
+      <div class="card a" style="--d:1540"><span class="d">Até o dia 90</span><h3>Autonomia progressiva</h3><p>Conduz o processo comercial, com acompanhamento semanal do gestor. <b class="marco">Marcos: 1ª oportunidade aberta e 1ª proposta enviada.</b></p></div>
     </div>
   </div>
-  <div class="bottom qa row a" style="--d:1700"><div class="q">Como bater meta em 3 meses, se uma venda leva 95 dias?</div><p><b>Em receita, dificilmente.</b> Por isso, até o 3º mês a meta do vendedor novo é por marcos: certificado, 1ª oportunidade e 1ª proposta. Ele já recebe oportunidades qualificadas pelo pré-vendas. <span class="tag prem"><i></i>Premissa</span></p></div>
+  <div class="bottom qa row a" style="--d:1700"><div class="q">Como bater meta em 3 meses, se uma venda leva 95 dias?</div><p><b>Em receita, dificilmente.</b> Até o 3º mês, a meta do vendedor novo é por marcos: certificação, 1ª oportunidade e 1ª proposta. Ele recebe oportunidades já qualificadas pelo pré-vendas. <span class="tag prem"><i></i>Premissa</span></p></div>
 </section>
 
-<!-- V7 · 04 · PLAYBOOK -->
-<section class="slide t-light" data-title="Estrutura do playbook de portfólio" data-chapter="Pedido 04 · Playbook">
+<!-- V8 · 04 · PLAYBOOK -->
+<section class="slide t-light" data-title="Playbooks comerciais" data-chapter="Pedido 04 · Playbook">
   <div class="grain"></div>
   <header class="hd">
     <p class="kick a f" style="--d:100">Pedido 04 · Playbook de oferta · a estrutura</p>
-    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">O playbook: <span class="hl">um guia só</span> para vender os 3 produtos</span></span></h2>
-    <p class="lead a f" style="--d:450">Playbook é o guia de vendas do time. Hoje existe um material por produto. A proposta é um só, com 9 partes, na ordem da venda.</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Playbooks para <span class="hl">padronizar a execução comercial</span></span></span></h2>
+    <p class="lead a f" style="--d:450">Hoje existe um material por produto. A proposta: playbooks por atuação, com uma estrutura comum de 9 partes, na ordem da venda.</p>
   </header>
   <div class="body" style="top:370px;bottom:220px">
     <div class="pb">
-      <div class="card a" style="--d:500"><span class="nn">01</span><div><h3>A história</h3><p>O caminho para o app crescer, em 3 etapas.</p><span class="badge">Já vimos</span></div></div>
-      <div class="card a" style="--d:570"><span class="nn">02</span><div><h3>Para quem vender</h3><p>O perfil de cliente ideal de cada produto e quem decide a compra.</p><button type="button" class="mbtn" data-modal="icp">Ver o perfil</button></div></div>
-      <div class="card a" style="--d:640"><span class="nn">03</span><div><h3>As 5 perguntas do SPICED</h3><p>E as respostas que apontam cada produto.</p><span class="badge">Já vimos</span></div></div>
+      <div class="card a" style="--d:500"><span class="nn">01</span><div><h3>Narrativa de portfólio</h3><p>O caminho de crescimento do app, em 3 etapas.</p><span class="badge">Já vimos</span></div></div>
+      <div class="card a" style="--d:570"><span class="nn">02</span><div><h3>Para quem vender</h3><p>Perfil de cliente ideal de cada produto e quem decide a compra.</p><button type="button" class="mbtn" data-modal="icp">Ver o perfil</button></div></div>
+      <div class="card a" style="--d:640"><span class="nn">03</span><div><h3>Diagnóstico com SPICED</h3><p>As 5 perguntas e as respostas que apontam cada solução.</p><span class="badge">Já vimos</span></div></div>
       <div class="card a" style="--d:710"><span class="nn">04</span><div><h3>Combinações de oferta</h3><p>App + Ads, App + Geo, os três juntos, e Geo como porta de entrada.</p></div></div>
-      <div class="card focus a" style="--d:780"><span class="nn">05</span><div><h3>Sinais de expansão</h3><p>Quando oferecer o próximo produto a quem já é cliente.</p><span class="badge">Detalhado a seguir</span></div></div>
+      <div class="card focus a" style="--d:780"><span class="nn">05</span><div><h3>Sinais de expansão</h3><p>Quando oferecer o próximo produto à base de clientes.</p><span class="badge">Detalhado a seguir</span></div></div>
       <div class="card a" style="--d:850"><span class="nn">06</span><div><h3>Objeções e respostas</h3><p>“Já temos agência de anúncios”, “IA ainda é cedo para nós”.</p></div></div>
       <div class="card a" style="--d:920"><span class="nn">07</span><div><h3>Provas</h3><p>Casos e números de clientes que já compram os três.</p></div></div>
-      <div class="card a" style="--d:990"><span class="nn">08</span><div><h3>Quem faz o quê</h3><p>O papel de cada área e a regra do especialista.</p><span class="badge">Pedido 05</span></div></div>
+      <div class="card a" style="--d:990"><span class="nn">08</span><div><h3>Papéis e responsabilidades</h3><p>O papel de cada área e a regra do especialista.</p><span class="badge">Pedido 05</span></div></div>
       <div class="card a" style="--d:1060"><span class="nn">09</span><div><h3>Materiais</h3><p>Apresentação do portfólio, calculadora de resultado e e-mails modelo.</p></div></div>
     </div>
   </div>
-  <div class="bottom qa row a" style="--d:1250"><div class="q">Por que um guia só, e não um por produto?</div><p>Porque o cliente não compra um produto, compra o crescimento do app. Um guia só faz a venda começar pelo cliente.</p></div>
+  <div class="bottom qa row a" style="--d:1250"><div class="q">Para que servem os playbooks?</div><p>Padronizar as abordagens, conectar as necessidades dos clientes às soluções, orientar cada etapa da venda e <b>apoiar a autonomia da operação</b>.</p></div>
 </section>
 
-<!-- V7 · 04 · SINAIS DE EXPANSÃO -->
+<!-- V8 · 04 · SINAIS DE EXPANSÃO -->
 <section class="slide" data-title="Sinais de expansão" data-chapter="Pedido 04 · Playbook">
   <div class="glow g1"></div><div class="techgrid"></div><div class="grain"></div>
   <header class="hd">
     <p class="kick a f" style="--d:100">Pedido 04 · Playbook · seção detalhada</p>
-    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Sinais de expansão: <b>a hora de oferecer o próximo produto</b></span></span></h2>
-    <p class="lead a f" style="--d:450">Expansão é vender mais um produto a quem já é cliente. Um sinal é algo que acontece no cliente e mostra que ele está pronto.</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Sinais de expansão: <b>quando oferecer o próximo produto?</b></span></span></h2>
+    <p class="lead a f" style="--d:450">Identificar o momento adequado para oferecer novas soluções aos clientes da base.</p>
   </header>
   <div class="body" style="top:345px;bottom:200px">
     <div class="sig">
-      <div class="card a" style="--d:550"><span class="sn">Sinal 1</span><h3>A página do app passou a convencer mais</h3><p class="ex">Ex.: de cada 100 pessoas que veem a página, <b>32 instalam</b>. Antes eram 25.</p><p class="off">Oferecer <span class="prod p-ads">Ads</span></p><p class="ask">“Agora que a página convence mais, quanto renderia anunciar?”</p></div>
+      <div class="card a" style="--d:550"><span class="sn">Sinal 1</span><h3>A página do app passou a converter mais</h3><p class="ex">Ex.: de cada 100 pessoas que veem a página, <b>32 instalam</b>. Antes eram 25.</p><p class="off">Oferecer <span class="prod p-ads">Ads</span></p><p class="ask">“Agora que a página converte mais, quanto renderia anunciar?”</p></div>
       <div class="card a" style="--d:680"><span class="sn">Sinal 2</span><h3>Uma data importante está chegando</h3><p class="ex">Ex.: <b>lançamento</b> de uma versão nova, <b>Black Friday</b>, entrada em outro país.</p><p class="off">Oferecer <span class="prod p-ads">Ads</span></p><p class="ask">“Qual a meta de instalações para o lançamento?”</p></div>
-      <div class="card a" style="--d:810"><span class="sn">Sinal 3</span><h3>Entrou dinheiro ou gente nova no marketing</h3><p class="ex">Ex.: o cliente <b>recebeu investimento</b> ou contratou alguém para cuidar de anúncios.</p><p class="off">Oferecer <span class="prod p-ads">Ads</span></p><p class="ask">“Quem vai cuidar dos anúncios a partir de agora?”</p></div>
+      <div class="card a" style="--d:810"><span class="sn">Sinal 3</span><h3>Novo investimento ou nova equipe no marketing</h3><p class="ex">Ex.: o cliente <b>recebeu investimento</b> ou contratou alguém para cuidar de anúncios.</p><p class="off">Oferecer <span class="prod p-ads">Ads</span></p><p class="ask">“Quem vai cuidar dos anúncios a partir de agora?”</p></div>
       <div class="card a" style="--d:940"><span class="sn">Sinal 4</span><h3>O cliente fala de IA, ou o concorrente aparece nela</h3><p class="ex">Ex.: “perguntei ao ChatGPT qual o melhor app de delivery e <b>só deu o concorrente</b>”.</p><p class="off">Oferecer <span class="prod p-geo">Geo</span></p><p class="ask">“Vamos ver juntos o que as IAs dizem da sua categoria?”</p></div>
     </div>
     <div class="notyet a" style="--d:1150;margin-top:18px"><h3>Ainda não ofereça se…</h3><ul><li>O cliente está insatisfeito</li><li>O resultado está abaixo do prometido</li><li>Mudou quem cuida do contrato no cliente</li><li>O pagamento está atrasado</li></ul></div>
   </div>
-  <div class="bottom qa row a" style="--d:1350"><div class="q">Como esses sinais entram no dia a dia?</div><p>São hipóteses, testadas em um piloto de 60 dias com 15 clientes. <b>A rotina vem logo a seguir.</b></p></div>
+  <div class="bottom qa row a" style="--d:1350"><div class="q">Como esses sinais entram na rotina?</div><p>Eles orientam a seleção dos clientes para o <b>piloto com Key Accounts</b>, a seguir. São hipóteses, validadas em 60 dias.</p></div>
 </section>
 
-<!-- V7 · 04 · A ROTINA DO PILOTO -->
-<section class="slide t-light" data-title="A rotina do piloto" data-chapter="Pedido 04 · Playbook">
+<!-- V8 · 04 · A ROTINA DO PILOTO -->
+<section class="slide t-light" data-title="Piloto de expansão" data-chapter="Pedido 04 · Playbook">
   <div class="grain"></div>
   <header class="hd">
-    <p class="kick a f" style="--d:100">Pedido 04 · Playbook · como os sinais viram rotina</p>
-    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Do sinal à oferta: <span class="hl">a rotina do piloto, semana a semana</span></span></span></h2>
-    <p class="lead a f" style="--d:450">Um piloto é um teste pequeno: 3 gerentes de contas, 15 clientes que só compram o App e 60 dias.</p>
+    <p class="kick a f" style="--d:100">Pedido 04 · Playbook · piloto com Key Accounts</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Piloto de expansão: <span class="hl">testar, aprender e escalar</span></span></span></h2>
+    <p class="lead a f" style="--d:450"><b>3</b> Key Accounts · <b>15</b> clientes da base · <b>5</b> clientes por gerente · <b>60 dias</b> de acompanhamento</p>
   </header>
-  <div class="body" style="top:345px;bottom:200px">
-    <div class="flow c4" style="height:285px">
-      <div class="fstep a" style="--d:550"><span class="d">Uma vez · no início</span><h3>1. Preparar</h3><p>Cada gerente escolhe 5 clientes. Juntos montamos o quadro: uma linha por cliente, uma coluna por sinal.</p><p class="pass">Quem: <b>eu e os 3 gerentes</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="fstep a" style="--d:700"><span class="d">Toda segunda · 30 min</span><h3>2. Revisar</h3><p>O gerente passa pelos seus 5 clientes com o atendimento: algum sinal apareceu? O cliente está satisfeito?</p><p class="pass">Quem: <b>gerente e atendimento</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="fstep a" style="--d:850"><span class="d">Em até 7 dias</span><h3>3. Conversar</h3><p>Com sinal e cliente satisfeito, o gerente marca a conversa: leva o dado do sinal e a pergunta de abertura.</p><p class="pass">Quem: <b>gerente de contas</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="fstep hi a" style="--d:1000"><span class="d">Toda sexta · 15 min</span><h3>4. Registrar e ajustar</h3><p>Atualizamos o quadro e vemos o que funcionou. O sinal que não gera conversa sai da lista.</p><p class="pass">Quem: <b>eu e os 3 gerentes</b></p></div>
+  <div class="body" style="top:318px;bottom:200px">
+    <div class="flow c4" style="height:260px">
+      <div class="fstep a" style="--d:550"><span class="d">Uma vez · no início</span><h3>1. Preparar</h3><p>5 clientes por gerente, só com App. Quadro: uma linha por cliente, uma coluna por sinal.</p><p class="pass">Quem: <b>eu e os 3 Key Accounts</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fstep a" style="--d:700"><span class="d">Toda segunda · 30 min</span><h3>2. Revisar</h3><p>Apareceu algum sinal? O cliente está satisfeito?</p><p class="pass">Quem: <b>Key Account e Customer Success</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fstep a" style="--d:850"><span class="d">Em até 7 dias</span><h3>3. Abordar</h3><p>Com sinal e cliente satisfeito: conversa marcada, com o dado do sinal e a pergunta de abertura.</p><p class="pass">Quem: <b>Key Account</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fstep hi a" style="--d:1000"><span class="d">Toda sexta · 15 min</span><h3>4. Registrar e ajustar</h3><p>Quadro atualizado. O sinal que não gera conversa sai da lista.</p><p class="pass">Quem: <b>eu e os 3 Key Accounts</b></p></div>
     </div>
     <div class="quadro">
       <div class="a f" style="--d:1150">
-        <p class="sub" style="margin-top:0">O quadro do piloto · exemplo com 3 dos 15 clientes</p>
+        <p class="sub" style="margin-top:0">O quadro do piloto · planilha compartilhada, sem ferramenta nova · 3 dos 15 clientes</p>
         <table class="tbl">
           <thead><tr><th>Cliente</th><th>Sinal da semana</th><th>Satisfeito?</th><th>Próximo passo</th><th>Situação</th></tr></thead>
           <tbody>
@@ -1181,102 +1189,103 @@ body.page.narrow #pbar .brand { font-size: 14px; }
           </tbody>
         </table>
       </div>
-      <div class="card side a r" style="--d:1300"><h3>Sem ferramenta nova</h3><p>O quadro é uma planilha compartilhada, ou um campo no CRM que a empresa já usa.</p></div>
+      <div class="card side a r" style="--d:1300"><h3>O que acompanhar</h3><ul class="blist"><li>Abordagens realizadas</li><li>Oportunidades identificadas</li><li>Propostas e conversões</li><li>Aprendizados e ajustes</li></ul></div>
     </div>
   </div>
-  <div class="bottom qa row a" style="--d:1500"><div class="q">E depois dos 60 dias?</div><p>Com pelo menos <b>5 propostas e 2 vendas</b>, a rotina passa a valer para todos os clientes, com revisão mensal, e entra no treino.</p></div>
+  <div class="bottom qa row a" style="--d:1500"><div class="q">E depois dos 60 dias?</div><p>Validar em pequena escala antes de expandir: com pelo menos <b>5 propostas e 2 vendas</b>, a rotina passa a valer para toda a carteira.</p></div>
 </section>
 
-<!-- V7 · 05 · PAPÉIS -->
-<section class="slide t-light" data-title="Papel de cada área" data-chapter="Pedido 05 · Papéis">
+<!-- V8 · 05 · PAPÉIS -->
+<section class="slide t-light" data-title="Papéis e responsabilidades" data-chapter="Pedido 05 · Papéis">
   <div class="grain"></div>
   <header class="hd">
-    <p class="kick a f" style="--d:100">Pedido 05 · Papel de cada área</p>
-    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Para nenhuma venda se perder, <span class="hl">cada área cuida de um trecho</span></span></span></h2>
+    <p class="kick a f" style="--d:100">Pedido 05 · Papéis e responsabilidades</p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Para nenhuma venda se perder: <span class="hl">o papel de cada área</span></span></span></h2>
   </header>
   <div class="body" style="top:270px;bottom:200px">
     <div class="flow c4" style="height:330px">
-      <div class="fstep a" style="--d:450"><span class="d">Pré-vendas (SDR) · 9 + 4 novos</span><h3>Encontra o cliente</h3><p>Busca empresas com o perfil certo e qualifica com as duas primeiras perguntas do SPICED: situação e dor.</p><p class="pass">Passa adiante: <b>a oportunidade qualificada</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="fstep a" style="--d:570"><span class="d">Vendedor (AE) · 5 + 3 novos</span><h3>Vende</h3><p>Recebe a oportunidade qualificada, aprofunda impacto, data crítica e decisão, e propõe a combinação de produtos.</p><p class="pass">Passa adiante: <b>o que foi vendido e por quê</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="fstep a" style="--d:690"><span class="d">Atendimento (CS)</span><h3>Entrega o resultado</h3><p>Coloca o serviço para funcionar e mostra o resultado ao cliente.</p><p class="pass">Passa adiante: <b>os sinais que observou</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="fstep hi a" style="--d:810"><span class="d">Gerente de contas (Key Account) · 3</span><h3>Faz o cliente crescer</h3><p>Revisa seus clientes, procura os sinais e faz a oferta em até 7 dias.</p><p class="pass">Meta: <b>vendas para clientes atuais</b></p></div>
+      <div class="fstep a" style="--d:450"><span class="d">Pré-vendas (SDR) · 9 + 4 novos</span><h3>Qualifica</h3><p>Busca empresas com o perfil certo e qualifica com situação e dor, do SPICED.</p><p class="pass">Passa adiante: <b>a oportunidade qualificada</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fstep a" style="--d:570"><span class="d">Vendas (AE) · 5 + 3 novos</span><h3>Conduz a negociação</h3><p>Aprofunda impacto, data crítica e decisão. Propõe a combinação de produtos.</p><p class="pass">Passa adiante: <b>o que foi vendido e por quê</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fstep a" style="--d:690"><span class="d">Customer Success (CS)</span><h3>Entrega resultado</h3><p>Implanta, mostra o resultado e identifica oportunidades na base.</p><p class="pass">Passa adiante: <b>os sinais que observou</b></p><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fstep hi a" style="--d:810"><span class="d">Key Accounts · 3</span><h3>Desenvolve e expande a carteira</h3><p>Revisa a carteira, busca os sinais e faz a oferta em até 7 dias.</p><p class="pass">Meta: <b>vendas para a base de clientes</b></p></div>
     </div>
-    <div class="handoff c3">
-      <div class="card side a" style="--d:950"><h3>Gestores · 2 pessoas</h3><p>Toda semana revisam uma reunião com cada vendedor e reforçam o SPICED. São eles que sustentam a mudança.</p></div>
-      <div class="card side a" style="--d:1050"><h3>Parcerias · 1 pessoa</h3><p>Leva a história do portfólio a agências e parceiros de mídia, que indicam clientes para Ads e Geo.</p></div>
-      <div class="card side a" style="--d:1150"><h3>Especialistas de produto</h3><p>Apoiam qualquer trecho, seguindo a regra de acionamento, e ajudam a treinar o time.</p></div>
+    <div class="handoff c3 c4">
+      <div class="card side a" style="--d:900"><h3>Enablement</h3><p>Conecta as áreas por meio de processos, capacitação e indicadores.</p></div>
+      <div class="card side a" style="--d:950"><h3>Gestores · 2</h3><p>Revisam uma call por semana com cada vendedor. Sustentam a mudança.</p></div>
+      <div class="card side a" style="--d:1050"><h3>Parcerias · 1</h3><p>Leva a narrativa de portfólio a agências e parceiros de mídia.</p></div>
+      <div class="card side a" style="--d:1150"><h3>Especialistas de produto</h3><p>Apoiam nos cenários de maior complexidade e ajudam a treinar o time.</p></div>
     </div>
   </div>
-  <div class="bottom qa row a" style="--d:1250"><div class="q">O que impede a venda de se perder entre as áreas?</div><p>O que uma área descobre fica registrado no CRM. A próxima <b>não começa do zero</b>, e não há formulário extra para preencher.</p></div>
+  <div class="bottom qa row a" style="--d:1250"><div class="q">O que garante a execução integrada?</div><p>Responsabilidades claras e registro no CRM: a próxima área <b>não começa do zero</b>, sem formulário extra.</p></div>
 </section>
 
-<!-- V7 · 06 · MÉTRICAS -->
-<section class="slide t-light" data-title="Métricas e metas para 6 meses" data-chapter="Pedido 06 · Métricas e plano">
+<!-- V8 · 06 · MÉTRICAS -->
+<section class="slide t-light" data-title="Indicadores e metas para 6 meses" data-chapter="Pedido 06 · Indicadores e plano">
   <div class="grain"></div>
   <header class="hd">
     <p class="kick a f" style="--d:100">Pedido 06 · Indicadores e metas para 6 meses</p>
-    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Três perguntas mostram <span class="hl">cedo</span> se está funcionando</span></span></h2>
-    <p class="lead a f" style="--d:450">A receita demora a mudar. Por isso olho primeiro o que muda antes dela. À esquerda o número de hoje, à direita a meta. <span class="tag prem"><i></i>Metas propostas</span><button type="button" class="mbtn" data-modal="premissas">Ver premissas</button></p>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Três perguntas para <span class="hl">medir o sucesso</span></span></span></h2>
+    <p class="lead a f" style="--d:450">Conectar conhecimento, comportamento e resultado comercial. À esquerda o número atual, à direita a meta: são metas propostas, não resultados alcançados. <span class="tag prem"><i></i>Metas propostas</span><button type="button" class="mbtn" data-modal="premissas">Ver premissas</button></p>
   </header>
   <div class="body" style="top:370px;bottom:200px">
     <div class="mt">
-      <div class="card bar a" style="--d:550"><span class="lv">Em semanas</span><h3>O time sabe?</h3><p class="why">Mostra se o treino funcionou.</p>
-        <div class="m"><span class="nm">Time atual com certificado</span><span class="go"><s>0%</s>100%</span></div>
-        <div class="m"><span class="nm">Novos com certificado até o dia 45</span><span class="go">100%</span></div>
+      <div class="card bar a" style="--d:550"><span class="lv">Em semanas</span><h3>O time sabe?</h3><p class="why">Certificação e domínio do portfólio.</p>
+        <div class="m"><span class="nm">Time atual certificado</span><span class="go"><s>0%</s>100%</span></div>
+        <div class="m"><span class="nm">Contratações certificadas até o dia 45</span><span class="go">100%</span></div>
       </div>
-      <div class="card bar a" style="--d:700"><span class="lv">Em 1 a 2 meses</span><h3>O time faz?</h3><p class="why">Mostra se a prática mudou.</p>
-        <div class="m"><span class="nm">Vendas com as 5 perguntas respondidas</span><span class="go">80%</span></div>
-        <div class="m"><span class="nm">Reuniões de Ads e Geo sem o especialista</span><span class="go">50%</span></div>
-        <div class="m"><span class="nm">Ofertas feitas a clientes atuais</span><span class="go">25</span></div>
+      <div class="card bar a" style="--d:700"><span class="lv">Em 1 a 2 meses</span><h3>O time faz?</h3><p class="why">Aplicação do SPICED e qualidade das conversas comerciais.</p>
+        <div class="m"><span class="nm">Vendas com o SPICED preenchido</span><span class="go">80%</span></div>
+        <div class="m"><span class="nm">Calls de Ads e Geo sem o especialista</span><span class="go">50%</span></div>
+        <div class="m"><span class="nm">Ofertas feitas à base de clientes</span><span class="go">25</span></div>
         <div class="m"><span class="nm">Vendedores novos com oportunidade aberta até o dia 60</span><span class="go">100%</span></div>
       </div>
-      <div class="card bar a" style="--d:850"><span class="lv">Em 6 meses</span><h3>O negócio muda?</h3><p class="why">Uma venda leva 95 dias: é o último a mudar.</p>
-        <div class="m"><span class="nm">Vendas com mais de 1 produto</span><span class="go"><s>10%</s>20%</span></div>
+      <div class="card bar a" style="--d:850"><span class="lv">Em 6 meses · ciclo de venda de 95 dias</span><h3>O negócio muda?</h3><p class="why">Conversão, penetração de multiprodutos e expansão na carteira.</p>
+        <div class="m"><span class="nm">Vendas multiprodutos</span><span class="go"><s>10%</s>20%</span></div>
         <div class="m"><span class="nm">Produtos por cliente</span><span class="go"><s>1,3</s>1,4</span></div>
-        <div class="m"><span class="nm">Vendas ganhas, de cada 100 disputadas</span><span class="go"><s>14</s>16</span></div>
-        <div class="m"><span class="nm">Tempo do novo até cumprir os marcos de entrada</span><span class="go"><s>3–5</s>3 meses</span></div>
+        <div class="m"><span class="nm">Taxa de conversão</span><span class="go"><s>14%</s>16%</span></div>
+        <div class="m"><span class="nm">Ramp-up: tempo até cumprir os marcos</span><span class="go"><s>3–5</s>3 meses</span></div>
       </div>
     </div>
   </div>
-  <div class="bottom qa row a" style="--d:1050"><div class="q">E se o time souber e fizer, mas o negócio não mudar?</div><p>Então o problema está fora do treino, por exemplo na comissão ou na oferta, e eu levo isso à liderança com os dados.</p></div>
+  <div class="bottom qa row a" style="--d:1050"><div class="q">E se o time souber e fizer, mas o negócio não mudar?</div><p>Então o problema está fora do treinamento, por exemplo na comissão ou na oferta, e eu levo isso à liderança com os dados.</p></div>
 </section>
 
-<!-- V7 · 06 · 30-60-90 -->
-<section class="slide" data-title="Plano 30-60-90" data-chapter="Pedido 06 · Métricas e plano">
+<!-- V8 · 06 · 30-60-90 -->
+<section class="slide" data-title="Plano 30-60-90" data-chapter="Pedido 06 · Indicadores e plano">
   <div class="glow g1"></div><div class="techgrid"></div><div class="grain"></div>
   <header class="hd">
     <p class="kick a f" style="--d:100">Pedido 06 · Plano 30-60-90</p>
-    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">O que eu faço, entrego e quem envolvo <b>a cada 30 dias</b></span></span></h2>
+    <h2 class="ttl"><span class="mask"><span class="mi" style="--d:180">Plano 30-60-90: <b>estratégia, execução e resultados</b></span></span></h2>
   </header>
   <div class="body" style="top:260px;bottom:200px">
     <div class="p369">
-      <div class="card ph a" style="--d:400;--pc:var(--blue)"><div class="hdp"><span class="dd">Dias 1 a 30</span><h3>Ouvir e confirmar</h3></div><div class="bd">
-        <div class="grp"><span class="k">Faço</span><p>Converso com o time, analiso os dados de vendas, acompanho reuniões e escrevo a 1ª versão da história.</p></div>
-        <div class="grp"><span class="k">Entrego</span><p><b>Diagnóstico confirmado</b>, o que é sucesso combinado com a liderança e o piloto com 15 clientes começando.</p></div>
-        <div class="grp"><span class="k">Envolvo</span><p>Lideranças, gerentes de contas e quem cuida dos dados de vendas.</p></div></div></div>
-      <div class="card ph a" style="--d:600;--pc:var(--blue-2)"><div class="hdp"><span class="dd">Dias 31 a 60</span><h3>Construir e testar</h3></div><div class="bd">
-        <div class="grp"><span class="k">Faço</span><p>Fecho a história, as 5 perguntas e o playbook. Monto o treino e certifico os 2 gestores primeiro.</p></div>
-        <div class="grp"><span class="k">Entrego</span><p><b>Playbook publicado</b>, o programa das pessoas novas pronto e as primeiras ofertas do piloto.</p></div>
-        <div class="grp"><span class="k">Envolvo</span><p>Especialistas de produto, marketing e os gestores do time.</p></div></div></div>
-      <div class="card ph a" style="--d:800;--pc:var(--cyan)"><div class="hdp"><span class="dd">Dias 61 a 90</span><h3>Levar para todos e medir</h3></div><div class="bd">
-        <div class="grp"><span class="k">Faço</span><p>Certifico o time e acompanho a 1ª turma de novos. Coloco o playbook dentro do CRM.</p></div>
-        <div class="grp"><span class="k">Entrego</span><p><b>Time certificado</b>, resultado do piloto, painel de métricas e uma <b>proposta de comissão</b> que favoreça vender mais de um produto.</p></div>
+      <div class="card ph a" style="--d:400;--pc:var(--blue)"><div class="hdp"><span class="dd">30 dias</span><h3>Diagnóstico</h3></div><div class="bd">
+        <div class="grp"><span class="k">Faço</span><p>Imersão na operação: dados do CRM, escuta de calls e conversas. Identificação de gaps.</p></div>
+        <div class="grp"><span class="k">Entrego</span><p><b>Diagnóstico confirmado</b>, critérios de sucesso alinhados com as lideranças e piloto iniciado.</p></div>
+        <div class="grp"><span class="k">Envolvo</span><p>Lideranças, Key Accounts e quem cuida dos dados de vendas.</p></div></div></div>
+      <div class="card ph a" style="--d:600;--pc:var(--blue-2)"><div class="hdp"><span class="dd">60 dias</span><h3>Construção e testes</h3></div><div class="bd">
+        <div class="grp"><span class="k">Faço</span><p>Desenvolvimento das iniciativas: narrativa, playbooks e treinamentos. Gestores certificados primeiro.</p></div>
+        <div class="grp"><span class="k">Entrego</span><p><b>Playbooks publicados</b>, onboarding pronto e validações iniciais do piloto.</p></div>
+        <div class="grp"><span class="k">Envolvo</span><p>Especialistas de produto, marketing e gestores.</p></div></div></div>
+      <div class="card ph a" style="--d:800;--pc:var(--cyan)"><div class="hdp"><span class="dd">90 dias</span><h3>Validação e expansão com ajustes</h3></div><div class="bd">
+        <div class="grp"><span class="k">Faço</span><p>Certificação do time, 1ª turma de contratações e acompanhamento dos indicadores. Ajustes pelos resultados.</p></div>
+        <div class="grp"><span class="k">Entrego</span><p><b>Time certificado</b>, resultado do piloto, painel de indicadores e <b>proposta de comissão</b> para multiprodutos. Expansão gradual do que foi validado.</p></div>
         <div class="grp"><span class="k">Envolvo</span><p>Liderança e financeiro, para decidir os próximos passos.</p></div></div></div>
     </div>
   </div>
-  <div class="bottom qa row a" style="--d:1000"><div class="q">O que pode atrapalhar o plano?</div><p>O time não aderir. Por isso o gestor fica no centro: as notas das reuniões entram na conversa semanal dele com cada vendedor.</p></div>
+  <div class="bottom qa row a" style="--d:1000"><div class="q">O que pode atrapalhar o plano?</div><p>A adesão do time. Por isso o gestor fica no centro: as notas das calls entram na conversa semanal com cada vendedor.</p></div>
 </section>
 
-<!-- V7 · ENCERRAMENTO -->
+<!-- V8 · ENCERRAMENTO -->
 <section class="slide t-blue" data-title="Em resumo" data-chapter="Encerramento">
   <div class="grain"></div>
   <svg class="bigR" viewBox="0 0 760 900" aria-hidden="true"><path pathLength="1" d="M75 900V75h420a150 150 0 0 1 0 300H260L700 830"/></svg>
   <p class="z sec-k a f" style="--d:200;top:200px">Em resumo</p>
   <h2 class="z end-t"><span class="mask"><span class="mi" style="--d:300">Obrigada.</span></span></h2>
   <ol class="z end-l">
-    <li class="a" style="--d:700"><span>01</span><div>O time vende um produto porque <b>vende por produto</b>, e não porque os outros são piores.</div></li>
-    <li class="a" style="--d:900"><span>02</span><div>A resposta tem três frentes: <b>uma história única, um time que domina os 3 produtos e uma rotina para os clientes atuais</b>.</div></li>
-    <li class="a" style="--d:1100"><span>03</span><div>Em 90 dias: <b>diagnóstico confirmado, playbook publicado e time certificado</b>.</div></li>
+    <li class="a" style="--d:700"><span>01</span><div><b>Transformar conhecimento em capacidade comercial</b>, conectando pessoas, processos e estratégia para sustentar o crescimento da Rank.</div></li>
+    <li class="a" style="--d:900"><span>02</span><div>Três pilares: <b>narrativa de portfólio, desenvolvimento da operação comercial e expansão de carteira</b>.</div></li>
+    <li class="a" style="--d:1100"><span>03</span><div>Em 90 dias: <b>diagnóstico confirmado, playbooks publicados e time certificado</b>.</div></li>
   </ol>
 </section>
 <!-- APÊNDICE · DIVISOR -->
@@ -1664,7 +1673,7 @@ body.page.narrow #pbar .brand { font-size: 14px; }
   window.addEventListener('hashchange', () => { const m = location.hash.match(/#\/(\d+)/); if (m) go(parseInt(m[1], 10) - 1); });
 })();
 </script>
-<!-- V7 · detalhes que abrem por cima do slide (botões com data-modal) -->
+<!-- V8 · detalhes que abrem por cima do slide (botões com data-modal) -->
 <div id="modal" aria-hidden="true">
   <div class="mpanel" role="dialog" aria-modal="true">
     <button type="button" class="mclose" aria-label="Fechar">×</button>
@@ -1693,9 +1702,9 @@ body.page.narrow #pbar .brand { font-size: 14px; }
       </div>
       <ul class="mlg">
         <li class="c0"><i></i><span><b>Sem mudar nada:</b> clientes novos que o time já traz, menos os que cancelam.</span></li>
-        <li class="c1"><i></i><span><b>As 7 pessoas novas:</b> chegam aos poucos e ainda estão aprendendo.</span></li>
+        <li class="c1"><i></i><span><b>As 7 contratações:</b> chegam aos poucos e ainda estão aprendendo.</span></li>
         <li class="c2"><i></i><span><b>Vender melhor para clientes novos:</b> mais vendas fechadas e mais vendas com 2 ou 3 produtos.</span></li>
-        <li class="c3"><i></i><span><b>Ads e Geo para clientes atuais:</b> a rotina de expansão.</span></li>
+        <li class="c3"><i></i><span><b>Ads e Geo para a base de clientes:</b> a expansão de carteira.</span></li>
       </ul>
       <p class="mnote"><b>Como ler:</b> as fatias dependem de premissas minhas e servem para comparar caminhos, não como previsão. Nos dois cenários, o que falta para os 60% depende de decisões da liderança, como comissão, parcerias e pacotes de oferta.</p>
     </div>
@@ -1716,18 +1725,18 @@ body.page.narrow #pbar .brand { font-size: 14px; }
 
     <div class="mc" data-m="onboarding">
       <p class="mk">Pedido 03 · Onboarding · o que medir e como</p>
-      <h3>As métricas de entrada das pessoas novas</h3>
+      <h3>Os indicadores de onboarding e ramp-up das contratações</h3>
       <table class="mtbl">
-        <thead><tr><th>Métrica</th><th>Meta proposta</th><th>Onde e como medir</th></tr></thead>
+        <thead><tr><th>Indicador</th><th>Meta proposta</th><th>Onde e como medir</th></tr></thead>
         <tbody>
-          <tr class="g"><td colspan="3">Todas as pessoas novas</td></tr>
-          <tr><td><b>Certificado no prazo</b></td><td>100% até o dia 45</td><td>Planilha do programa: data da prova e da reunião real aprovada</td></tr>
-          <tr><td><b>Nota nas reuniões</b></td><td>Nota mínima no dia 45</td><td>Ficha de notas do SPICED: o gestor avalia uma reunião por semana</td></tr>
+          <tr class="g"><td colspan="3">Todas as contratações</td></tr>
+          <tr><td><b>Certificação no prazo</b></td><td>100% até o dia 45</td><td>Planilha do programa: data da prova e da call real aprovada</td></tr>
+          <tr><td><b>Nota nas calls</b></td><td>Nota mínima no dia 45</td><td>Ficha de notas do SPICED: o gestor avalia uma call por semana</td></tr>
           <tr class="g"><td colspan="3">Pré-vendas · a meta não depende do ciclo de venda</td></tr>
           <tr><td><b>Primeira reunião marcada</b></td><td>Até o dia 30</td><td>CRM: data de entrada comparada à data da primeira reunião</td></tr>
           <tr><td><b>Reuniões marcadas por mês</b></td><td>Meta cheia no 3º mês</td><td>CRM: contagem por pessoa, comparada à do time atual</td></tr>
-          <tr class="g"><td colspan="3">Vendedor · uma venda leva 95 dias, então a medida é por marcos</td></tr>
-          <tr><td><b>Primeira reunião conduzida sozinho</b></td><td>Até o dia 50</td><td>CRM e ficha de notas: reunião sem gestor nem especialista</td></tr>
+          <tr class="g"><td colspan="3">Vendas · uma venda leva 95 dias, então a medida é por marcos</td></tr>
+          <tr><td><b>Primeira call conduzida sozinho</b></td><td>Até o dia 50</td><td>CRM e ficha de notas: call sem gestor nem especialista</td></tr>
           <tr><td><b>Primeira oportunidade trabalhada</b></td><td>Até o dia 60</td><td>CRM: data em que assume a oportunidade qualificada pelo pré-vendas</td></tr>
           <tr><td><b>Primeira proposta enviada</b></td><td>Até o dia 90</td><td>CRM: mudança de etapa da oportunidade</td></tr>
           <tr><td><b>Primeira venda e meta cheia</b></td><td>Entre os meses 4 e 6</td><td>CRM: acompanho, sem cobrar no 3º mês</td></tr>
@@ -1744,10 +1753,10 @@ body.page.narrow #pbar .brand { font-size: 14px; }
           <li><b>Metas de 6 meses:</b> propostas iniciais, a confirmar com os números de partida medidos nos primeiros 30 dias.</li>
           <li><b>Piloto:</b> 15 clientes, 60 dias. Deu certo com 5 propostas e 2 vendas.</li>
           <li><b>Regra do especialista:</b> os 4 critérios são um ponto de partida, a ajustar com os especialistas.</li>
-          <li><b>Pessoas novas:</b> chegam em 3 turmas, nos meses 2, 4 e 6. O vendedor novo recebe oportunidades já qualificadas pelo pré-vendas.</li>
+          <li><b>Contratações:</b> chegam em 3 turmas, nos meses 2, 4 e 6. O vendedor novo recebe oportunidades já qualificadas pelo pré-vendas.</li>
         </ul>
         <ul class="mlist">
-          <li><b>Atendimento (CS):</b> existe, fora das 20 pessoas do time comercial.</li>
+          <li><b>Customer Success (CS):</b> existe, fora das 20 pessoas do time comercial.</li>
           <li><b>Ferramentas:</b> o plano usa o CRM atual. Nada novo nos primeiros 90 dias.</li>
           <li><b>Conta da meta:</b> sem mudanças, o time traria cerca de 20% em clientes novos e perderia de 8% a 10% em cancelamentos.</li>
           <li><b>Expansão:</b> de 20% a 30% dos clientes de App comprariam Ads ou Geo, com contrato menor no início.</li>
